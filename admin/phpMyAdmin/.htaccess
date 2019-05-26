@@ -1,0 +1,7 @@
+AuthUserFile /home/mgo/.passwd
+AuthGroupFile /dev/null
+AuthName "Music Goes On - Admin - phpMyAdmin"
+AuthType Basic
+<Limit GET POST>
+require user mgo
+</Limit>

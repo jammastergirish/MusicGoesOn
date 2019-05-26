@@ -1,0 +1,8 @@
+AuthUserFile /home/mgo/.htpasswd
+AuthGroupFile /dev/null
+AuthName "MusicGoesOn.com - Mail"
+AuthType Basic
+
+<limit GET POST>
+require user webmaster
+</limit>

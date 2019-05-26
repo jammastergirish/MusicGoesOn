@@ -1,0 +1,10 @@
+Installing PHPMailApp
+
+1. Ungzip and untar PHPMailApp.
+	$ tar -xzvf PHPMailApp-x.xx.tar.gz
+	where x.xx is the version number of PHPMailApp that you downloaded.
+2. Edit login.php.  The cookies that are set need to reflect the settings of the site you are using to host PHPMailApp.  The first 6 lines of that file you need to change overdoseinc.sourceforge.net to the url of the site you are using to host PHPMailApp and the /PHPMailApp/ path needs to be changed to the path PHPMailApp will be located on your site.  Note.. The path needs to be the path relative to how a browser acceses the site, not the actual path on that machine that PHPMailApp is located.  ie. if you extracted PHPMailApp to /www/htdocs/PHPMailApp then the path you put in login.php would be simply /PHPMailApp/ not /www/htdocs/PHPMailApp/.
+3. Type the url www.yoursite.com/PHPMailApp into your browser and give it a test run.
+4. Report any bugs found to me (transistor@users.sourceforge.net)
+5. Enjoy.
+

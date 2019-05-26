@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+
+<?
+
+mysql_connect("localhost", "mgo", "h47fh20e");
+mysql_select_db(musicgoeson_com);
+
+include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/functions.inc");
+
+$result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%News%' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 0,20");
+while ($data = mysql_fetch_array($result))
+{
+ echo "<LI><A HREF=\"http://www.musicgoeson.com/article.php/$data[id]/\">$data[headline]</A>\n";
+}
+
+?>
+
+</body>
+</html>

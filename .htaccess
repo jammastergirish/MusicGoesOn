@@ -1,0 +1,19 @@
+DirectoryIndex index.php index.html index.htm index.mgo /error403.php
+
+ErrorDocument 401 /error401.php 	# Authorization Required #
+ErrorDocument 403 /error403.php 	# Forbidden		 #
+ErrorDocument 404 /error404.php 	# File Not Found	 #
+ErrorDocument 500 /error500.php 	# Internal Server Error	 #
+
+Redirect /cgi-bin http://www.musicgoeson.com
+Redirect /inc http://www.musicgoeson.com
+Redirect /session_data http://www.musicgoeosn.com
+Redirect /adcp http://www.musicgoeosn.com
+
+AddType application/x-httpd-php .mgo
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php .php4
+AddType application/x-httpd-php .php3
+AddType application/x-httpd-php .inc
+AddType application/x-httpd-php .html
+AddType application/x-httpd-php .htm

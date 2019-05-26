@@ -1,0 +1,1 @@
+<? print "?userID=$userID&SID=$SID"; ?>

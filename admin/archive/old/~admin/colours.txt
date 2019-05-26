@@ -1,0 +1,23 @@
+#CC3300
+*******
+Hue 10
+Sat 240
+Lum 96
+
+Red 204
+Green 51
+Blue 0
+
+$000033CC
+
+#006699
+*******
+Hue 133
+Sat 240
+Lum 72
+
+Red 0
+Green 102
+Blue 153
+
+$00996600

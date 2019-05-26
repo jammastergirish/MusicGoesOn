@@ -1,0 +1,1613 @@
+----------------------
+phpMyAdmin - Changelog
+----------------------
+
+$Id: ChangeLog,v 1.370 2001/08/30 22:39:31 swix Exp $
+$Source: /cvsroot/phpmyadmin/phpMyAdmin/ChangeLog,v $
+
+2001-08-31  Olivier Müller  <om@omnis.ch>
+	* releasing phpMyAdmin 2.2.0-final
+
+2001-08-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen.
+
+2001-08-30  Olivier Müller  <om@omnis.ch>
+	* lib.inc.php3: now calls show_table_navigation() even if $SelectNumRows
+	  is = 1.
+	* lang/*: added $strFullStrings and $strCuttedStrings.
+	* renamed to $strFullText and $strPartialText.
+
+2001-08-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: fits to coding standards.
+	* lang/norwegian.inc.php3: fixed some typos and re-sorted a bit.
+	* ldi_table.php3: removed some unnecessary lines of code.
+	* sql.php3, lines 51-66: fixed bug #456254 - Crash select on a table.
+	* tbl_replace.php3: removed the $is_encoded variable that is unnecessary
+	  and which use caused some bugs.
+
+2001-08-29  Olivier Müller  <om@omnis.ch>
+	* left.php3: on login with std_auth, only the databases on which
+	  the user has rights will be shown (tested with @mysql_select_db($dbname)).
+	* lib.inc.php3: added a toggle to display the whole text fields on browse
+	  table, or just the $cfgLimitChars first chars (default).
+
+2001-08-29  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/romanian.inc.php3 updates, thanks to Valics Lehel
+	* Documentation.html, added a FAQ about "too many fields"
+
+2001-08-29  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, line 558: an urlencode call was missing.
+	* db_details.php3; db_stats.php3; index.php3; left.php3; lib.inc.php3;
+	  main.php3; sql.php3; tbl_properties.php3; tbl_select.php3;
+	  tbl_replace.php3: the $server variable do not need to be urlencoded (it's
+	  an integer).
+	* user_details.php3: optimized the 'check_rights()' function.
+	* sql.php3; tbl_replace.php3: fix an error about whether to display table
+	  name or not at the top of the page.
+	* tbl_replace.php3: improved messages displayed as results of queries.
+	* tbl_select.php3:
+	  - the script to returns to was hard coded, now it's the one that calls
+	    tbl_select.php3;
+	  - ensure the "null"/"not null" strings can be used in the "value" box.
+	* tbl_copy.php3; tbl_properties.php3: re-enabled the ability to copy a
+	  table to another database (bug #456434). Need to be tested with
+	  MySQL < 3.23 releases.
+	* lang/english.inc.php3: re-sorted and fixed some typos.
+	* left.php3: fixed a js error with NS.
+	* lib.inc.php3; tbl_properties.php3; tbl.dump.php3: added the "escaped by"
+	  option for exporting CSV files so default values for importing/exporting
+	  dumps are the same.
+	* tbl_properties.inc.php3: reduced a bit the size of the generated xhtml
+	  page in case of table creation or adding fields to a table.
+	* tbl_addfield.php3; tbl_create.php3: fixed a bug with null set as default.
+	* lang/*: removed ":" at the end of $strCopyTable.
+
+2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
+	  Xose Calvo <xosecalvo@terra.es>.
+	* select_lang.inc.php3: added the possible use of a cookie to retain the
+	  language choosen by the user.
+	* main.php3:
+	  - lines 425-426: form is submitted with post method;
+	  - lines 431-447: languages are sorted by their true names.
+	* tbl_dump.php3, lines 101-123: improved mime types and http headers used
+	  when exporting dumps to files thanks to Dan Allen &
+	  Ignacio Vazquez-Abrams.
+	* tbl_printview.php3, lines 92-98 & 106: completed the fix for the "NULL"
+	  value problem.
+	* header.inc.php3; sql.php3; db_readdump.php3: fix some errors about
+	  whether to display table name or not at the top of the page.
+	* tbl_copy.php3, line 86: returns to tbl_properties.php3 rather than
+	  db_details.php3.
+	* lib.inc.php3: fixed a bug when browsing a table with values equal to 0.
+	* tbl_change.php3; tbl_replace.php3: fixed bugs in function field name with
+	  special characters and no-parameter functions.
+	* config.inc.php3: added the "UNIX_TIMESTAMP" function.
+	* sql.php3; main.php3; db_readdump.php3; db_details.php3: optimized the
+	  test for super user privileges.
+
+2001-08-28  Olivier Müller  <om@omnis.ch>
+	* db_stats.php3: fixed the sql query so that the script won't die, even if
+	  the result of one query (for example on invalid db name) fails.
+
+2001-08-27  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* lib.inc.php3, db_readdump.php3:
+	  - removed expand_sql_query() as no longer needed.
+
+2001-08-27  Olivier Müller  <om@omnis.ch>
+	* tbl_replace.php3: fixed the fact that the function were ignored if the
+	  data remained unchanged.
+
+2001-08-27  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: fixed some coding style inconcistencies.
+	* lib.inc.php3, lines -; config.inc.php3, lines 106-110;
+	  Documentation.html, lines 475-482: merged patch #455484 ("Smart" order)
+	  thanks to Jakub Wilk.
+	* lang/swedish.inc.php3 & spanish.inc.php3: updated thanks to
+	  Patrik Grip-Jansson <kap42 at users.sourceforge.net> &
+	  Martin Marconcini <megadeth at millic.com.ar>.
+	* lang/romanian.inc.php3: put all the string to translate at the end and
+	  added a missing one.
+	* lang/dutch.inc.php3: sorted the strings.
+	* tbl_addfield.php3, lines 32-41; tbl_alter.php3, lines 48-54;
+	  tbl_properties.php3, lines 222-228; tbl_properties.inc.php3,
+	  lines 152-158: tried to fix the "NULL" value problem.
+
+2001-08-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar.
+	* tbl_copy.php3, eregi_replace instead of ereg_replace because
+	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
+	  Jan Paul Schmidt.
+	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang thanks to
+	  Valics Lehel (lvalics@users.sourceforge.net).
+
+2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3, bug 455088, avoid to reveal username/password from config
+	  file when they are wrong or MySQL server does not answer.
+	* Documentation.html, FAQ about how to send bug reports.
+
+2001-08-23  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3, bug 454477, added LIMIT 1 to delete only one instance when
+	  records are the same.
+
+2001-08-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, display_table(): displays a space character if a field is
+	  empty to ensure the cell format is used with NS.
+
+2001-08-23  Olivier Müller  <om@omnis.ch>
+	* lib.inc.php3: don't add a "/" to $cfgPmaAbsoluteUri if it's empty!
+
+2001-08-22  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* config.inc.php3: $cfgServers[1]['connect_type'] preferred connection type
+	* lib.inc.php3 - line 285: $cfgServer['connect_type'] implemented
+	* Documentation.html
+	  - documented $cfgServers[n]['connect_type']
+	  - two minor fixes for typo's that i noticed
+
+2001-08-22  Olivier Müller  <om@omnis.ch>
+	* main.php3: relooked the start page with the help of Loïc.
+	* main.php3: allow everybody to look at the server vars and status
+	  (removed check about 'References_priv').
+	* lang/*: added $strServerChoice and $strPmaDocumentation.
+	* images/item.gif: used on main.php3.
+	* main.php3: language selection now via a pulldown menu.
+
+2001-08-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: added a FAQ about index creation.
+
+2001-08-22  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, line 983; lang/*: added $strDropTable.
+	* lib.inc.php3:
+	  - lines 1674-1680: enclose all fields in cvs generated files if this
+	    option has been checked.
+	  - split_sql_file(): fix a bug when a backquoted table/field name ends
+	    with a backslash.
+	  - lines 96-100: added a magic feature to append a slash at the end of
+	    $cfgPmaAbsoluteUri if required.
+	  - defines $server_port & $server_socket only once.
+	* main.php3: XHTML1.0 fixes.
+	* footer.inc.php3, lines 9-10; lib.inc.php3, line 162: the "</body>" html
+	  tag was lacking.
+	* db_stats.php3, lines 14-12: optimized a bit.
+	* main.php3, lines 298-299; Documentation.html, lines 694-705: added a FAQ
+	  entry about the logout bug.
+	* left.php3: optimized the way tables list is build.
+	* lang/polish.inc.php3: updated thanks to Piotr Roszatycki.
+	* db_create.php3; db_stat.php3; lib.inc.php3; left.php3; main.php3;
+	  tbl_alter.php3; tbl_change.php3; tbl_copy.php3; tbl_printview.php3;
+	  tbl_properties.php3; tbl_rename.php3; tbl_select.php3: improved the error
+	  handling system (it will be easier to debug the script since all the
+	  queries will be displayed in case of errors).
+	* main.php3: fixed an xhtml1.0 error and removed the js "onchange" handler.
+
+2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3: fixed a syntax error (is_defined is not a function).
+	* lib.inc.php3: beautify a but the design of the table in browse mode.
+	* lang/english.inc.inc.php3: fixed a typo.
+	* tbl_dump.php3; lib.inc.php3: if a field value contains the
+	  "end of record" sequence, enclosed it.
+
+2001-08-21  Olivier Müller  <om@omnis.ch>
+	* db_stats.php3: added list of 20 biggest db's.
+	* lib.inc.php3: fixed the socket patch, should work now.
+	* lib.inc.php3: re-fixed :)
+	* config.inc.php3, config.php3, Docs, sql.php3: added configuration
+	  variable $cfgAllowUserDropDatabase (set by default to FALSE), which will
+	  display or not the link "Drop database" and reject the command if the
+	  user is not allowed to run it (requested by <lance@uklinux.net>). 
+
+2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_stats.php3: ensured the script is XHTML1.0 compliant and fits the
+	  coding standards.
+	* sql.php3; lang/*: improved the way the mysql_affected_rows is used and
+	  optimized a bit the script.
+	* lib.inc.php3:
+	  - fixed again the socket patch, should work now.
+	  - modified the way defines.inc.php3 is loaded.
+	  - while browsing a table, ensure <cr> and <lf> in text/blob fields are
+	    displayed (remplaced by the <br /> tag).
+	  - beautified the page generated by the mysql_die function.
+	* defines.lib.php3; db_details; tbl_properties.php3: ensures each constant
+	  isn't already defined before to define it and renamed PMA_INT_VERSION to
+	  PHP_INT_VERSION.
+	* lib.inc.php3; db_readdump.php3, line 82: restored the use of the
+	  remove_remarks function that is required (else sql dump files starting
+	  with comments won't be successfully splitted into single queries).
+	* defines.inc.php3; db_details.php3; ldi_check.php3; lib.inc.php3;
+	  tbl_copy.php3; tbl_create.php3; tbl_dump.php3; tbl_printview.php3;
+	  tbl_properties.inc.php3; tbl_properties.php3; user_details.php3:
+	  replaced MYSQL_MAJOR_VERSION and MYSQL_MINOR_VERSION constants by
+	  MYSQL_INT_VERSION.
+	* db_details.php3; sql.php3; db_readdump.php3; lang/*: improved a bit
+	  Olivier's patch about the "Drop database" restrictions.
+
+2001-08-20  Olivier Müller  <om@omnis.ch>
+	* db_stats.php3: new file and feature (sorry :) : simply display an
+	  overview of all databases with their respective size + server total.
+	* lang/*: new string $strDatabasesStats.
+
+2001-08-20  Marc Delisle  <lem9@users.sourceforge.net>
+	* config.inc.php3: $cfgProtectBlob is now TRUE by default, to help against
+	  the blob data corruption of some browsers.
+
+2001-08-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3; tbl_properties.php3; tbl_dump.php3; lib.inc.php3;
+	  lang/*:
+	  - fixed some bugs with CSV exportations and added a Ms Excel CSV specific
+	    choice (because we know Excel does not support <cr> in data). Thanks to
+	    François <outils@altern.org>.
+	  - added an extended inserts option for dumps of data.
+	* lib.inc.php3; sql.php3: optimized a bit and started to work on feature
+	  #444767 (Other cases for display=simple).
+	* user_details.php3: fixed some javascript bugs.
+	* tbl_change.php3, lines 26 & 31: added some mysql_die() calls.
+	* lib.inc.php3, lines 135 & 147: in case of error in a query, go back to the
+	  previous calling script that is not a confirmation form.
+	  Fixed also a js bug line 147.
+	* config.inc.php3, lines 27-33; Documentation.html, lines 238-246;
+	  db_details.php3, line 37; sql.php3, lines 20, 53 & 184;
+	  tbl_properties.php3, lines 45 & 51; tbl_replace, line 143 & 252;
+	  tbl_select.php3, line 181: according to rfc 2816, the location http
+	  header requires an absolute URI.
+	* lib.inc.php3, lines 266-277; config.lib.php3, lines 43, 57 & 70;
+	  Documentation.html, lines 273-278 & 655-658: merged the socket patch from
+	  Dan Allen <bigredlinux@yahoo.com>.
+	* sql.php3: improved the way the mysql_affected_rows is used.
+
+2001-08-19  Olivier Müller  <om@omnis.ch>
+	* db_readdump.php3: if file contains mutiple queries, only show this line:
+	  "Your SQL-query has been executed successfully: The content of your file
+	  has been inserted. (131 Instructions)" instead of showing twice (result +
+	  textarea) the whole file, which could be problematic with large dumps.
+	* db_details: removed $sql_query_cpy stuff (was used by db_readdump.php3).
+	* lang/*: $strInstructions (used in db_readdump.php3).
+	* Documentation.html, CREDITS: various updates, removed CREDITS contents
+
+2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true,
+	  merged a little optimization (lines 69-71) and do not display functions
+	  with enum or set fields types.
+	* main.php3; db_details.php3; tbl_properties.php3; db_readdump.php3;
+	  lib.inc.php3: once a query has been executed phpMyAdmin now moves back
+	  to the calling script (rather than db_details.php3 everytime) as soon as
+      the current database/table exists, else it moves  back to a "parent"
+	  script (the welcome page/'db_details.php3' if the current
+	  database/table has has been dropped.
+	* header.inc.php3, lines 63-64; sql.php3; db_details.php3;
+	  tbl_properties.php3: choosing not to execute a drop statement leads now
+	  to the calling script (and not the target one used only if this statement
+	  is executed).
+	* db_readdump.php3: improved Olivier's improvement for mutiple queries (see
+      before).
+	* lib.inc.php3, line 524: beautify a bit the way the query is displayed.
+	* lang/english.inc.php3; lang/french.inc.php3: put $strInstructions at its
+	  right place.
+	* lib.inc.php3, lines 196-200; config.inc.php3, line 40;
+	  Documentation.html, lines 352-357: merged patch #452877
+	  ($cfgServer['only_db'] - array) from Jakub Wilk.
+	* functions.js; left.js : fixed bug #450255 (new javascript error with
+	  netscape3) and an other one with netscape 3 thanks to
+	  François <outils@altern.org>.
+	* left.php3; lang/*: checks if databases from $cfgServers[1]['only_db']
+	  exists before displaying them at the left frame and take into account
+	  the case where there is no usable databases.
+	* Documentation.html: various updates.
+
+2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
+	* above change undone.
+	* fixed up some spacing in the code for neatness.
+	* lib.inc.php3 (694) : preg_replace changed to eregi_replace as per support
+	  #447076.
+
+2001-08-18  Olivier Müller  <om@omnis.ch>
+	* db_details.php3: added a few <b>.
+	* left.php3: one more space between table name and num_dbs.
+	* tbl_properties.php3: activate select/browser/empty links only if there is
+	  at least one row in the table (other way would be to remove the
+	  inactivated links).
+
+2001-08-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3; lang/*: modified the way the tables' number is
+	  displayed.
+	* user_details.php3: merged temporary javascript fixes.
+	* lib.inc.php3: fixed a bug with a global variable line 1135, ensures the
+	  number of rows is displayed with select statements submitted from the
+	  query box (lines 883-885) and fixed some coding inconcistencies.
+	* tbl_replace.php3, line 98: fixed a coding bug.
+	* tbl_properties.inc.php3, lines 306-314; lang/*: added some words about
+	  enums and set fields.
+
+2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net> 
+	* config.inc.php3 
+	  - Added comments about what many of the configuration variables do
+	  - Replaced multiple spaces with tabs for alignment
+
+2001-08-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/polish.inc.php3: updated thanks to
+	  Jakub Wilk <ubanus@users.sourceforge.net>.
+	* tbl_addfield.php3: removed an unecessary stripslashes call (line 68) and
+	  replaced some remaining tabs characters.
+	* tbl_alter.php3; tbl_addfield.php3; tbl_change.php3; tbl_replace.php3;
+	  tbl_properties.php3; tbl_properties.inc.php3; tbl_printview.php3: fixed
+	  some encoding/decoding bugs.
+	* left.php3; left.js: added a style for the number of tables per database.
+	* db_readdump.php3, lines 97-99: added a fix to enforce reloading of the
+	  left frame if a database/table has been created/deleted.
+
+2001-08-16  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 451085 Can't assign NULL value to char(1).
+
+2001-08-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3; tbl_replace.php3: fixed some of the bugs I've introduced
+	  with my last patches.
+
+2001-08-15  Olivier Müller  <om@omnis.ch>
+	* db_details.php3: feature request #451138: display # of tables, added
+	  $strTables variable to all lang files.
+	* left.php3: added display of # of tables, for a better overview.
+	* config.php3, lib.inc.php3, docs: feature request #451137: limiting size
+	  of data printed in browse view (new cfg: $cfgLimitChars).
+	* tbl_properties.php3: added select/insert/empty to the top of the page.
+
+2001-08-15  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Bug #450374 - (RC4) + becomes space - patched in tbl_replace.php3
+
+2001-08-15  Steve Alberty  <alberty@neptunlabs.de> 
+	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5).
+
+2001-08-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 70-71: Fixed a slashes bug if the query is displayed on
+	  screen to be confirmed.
+	* ldi_check.php3, lines 34-44: Fixed a slashes bug thanks to
+	  Dan Allen <bigredlinux@yahoo.com>.
+	* grab_globals.inc.php3, lines 14 & 18: Use the 'extract()' function if
+	  possible.
+	* tbl_change.php3; tbl_replace.php3; lang/*: Fixed bugs #444354 (Various
+	  backslash problems), #450906 (Disappearing + in data | 2.2.0rc4), #450374
+	  (RC4: + becomes space) and the one with binary data reported by Steve in
+	  the mailing-list.
+	* lib.inc.php3; left.php3; db_details.php3; config.inc.php3: Fixed some
+	  coding style inconcistencies.
+
+2001-08-14  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed some coding style
+	  inconcistencies and make the patch from Robin PHP3 compatible.
+	* tbl_alter.php3, lines 30-42: Make the patch from Robin PHP3 compatible
+	  and fixed some spaces bug in the generated query.
+	* tbl_addfield.php3, lines 22: Applied patch for the bug #449858 to this
+	  script.
+	* db_details.php3, lines 182: Fixed first part of bug #449817.
+
+2001-08-14  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* tbl_alter.php3: Patch for bug #449858 from Ignacio Vazquez-Abrams. First
+	  patch used, not second one.
+
+2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed bug #448206 (support
+	  of table aliases) - added expand_sql_query in lib.inc.php3 and a loop in
+	  db_readdump.php3 to apply it.
+
+2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* phpinfo.php3, lang/*: fixed some coding style inconcistencies.
+	* tbl_change.php3, line 2: fixed $id issue.
+	* define.php3: optimized a bit the MySQL version query.
+
+2001-08-10  Marc Delisle  <lem9@users.sourceforge.net> 
+	* russian updates (2 files) thanks to Max Zhivluck.
+	* slovak updates thanks to Lubos Klokner.
+	* defines.inc.php3, bug 449800, missing @.
+
+2001-08-10  Steve Alberty  <alberty@neptunlabs.de>
+	* defines.inc.php3: improve mysql version query, thanks to Dan Allen.
+	* tbl_properties.php3: remove bug with no default server.
+
+2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Feature 445699, New link "Show PHP information" - Added on main.php3.
+
+2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_replace.php3, lines 76, 78, 86, 88, 137, 139, 147, 149: fixed some
+	  others slashes bugs.
+	* defines.inc.php3, lines 41 & 43: merged patch #449548 (fix for mysql
+	  error on no default server) thanks to
+	  Kendrick Vargas <drama@users.sourceforge.net>.
+
+2001-08-09  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc4
+
+2001-08-09  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Update Documentation.html (bookmark and stduser priv).
+
+2001-08-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3:
+        - removed lines 10-13: Marc fix generates bugs
+        - lines 220-228: added a js test to ensure bookmark label is not empty.
+	* tbl_select.php3, lines 144-164: fixed bug #449430 (Quote/Select bug on
+	  2.2.0rc4) and optimized a bit this part of the script.
+	* lib.inc.php3, line 908: beautify the generated html code.
+	* db_readdump.php3; db_details.php3: fixed an other slashes bug.
+	* lang/polish.inc.php3, documentation.html, credits: updated translation
+	  thanks to Jakub Wilk <ubanus@users.sourceforge.net>.
+
+2001-08-08  Marc Delisle  <lem9@users.sourceforge.net> 
+	* tbl_change.php3, enum values were not displayed 
+	* sql.php3, bug of strange display after a Select 
+
+2001-08-08  Olivier Müller  <om@omnis.ch> 
+	* new script create-release.sh
+	* moved scripts to a new subdirectory "scripts/"
+	* main.php3: fix: display link to user_details.php3 also 
+	  in non adv_auth mode
+
+2001-08-08  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_replace.php3: fixed some coding style inconcistencies and optimized a
+	  bit both the '$set$' switch cases.
+	* ldi_check.php3: fixed bug #448522 (Insert Data Error on Win32-Server).
+	* tbl_change.php3, lines 165 & 287: removed erroneous <lf>.
+	* lib.inc.php3:
+        - line 947: fix a bug when primary key values contain slashes.
+        - merged patch #443393.
+	* tbl_select.php3, lang/*: applied patch #443230 (Display order in
+	  tbl_select.php3).
+	* db_readdump.php3, lines 51-53: try a fix for bug #446982 (Dump files
+	  ignored with Windows server).
+
+2001-08-08  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_replace.php3: remove warning in a new row if a 'set' field is not
+	  selected.
+
+2001-08-07  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* user_details.php3, line 664: fixed '<?echo' to '<?php echo' for XML
+	  compatiblity.
+
+2001-08-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3 & sql.php3: fix for the order bugs (need to be tested).
+	* tbl_change.php3, line 244-246: fixed a possible warning.
+	* db_details.php3, db_readdump.php3: fixed a slashes bug.
+	* db_details.php3, tbl_properties.php3, lang/*: improved js validation
+	  tests (and reduced server charge).
+
+2001-08-07  Marc Delisle  <lem9@users.sourceforge.net> 
+	* bug 448737 user_details.php typos 
+
+2001-08-06  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3, new code from Loic to avoid showing BLOB when displaying
+	  a TEXT field
+	* sql.php3, bug 448226 (Missing MySQL messages), correction from Loic.
+	* tbl_change.php3, bug 442778, Edit record with two similar SET fields 
+	* tbl_replace.php3, could not save a row with a set which has no value
+  	  selected
+	* sql.php3, bug 444749 SQL DATE & TIME FUNCTION ERROR 
+
+2001-08-06  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, line 250: fixed a bug with set fields.
+
+2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
+	* index.php3: remove warning under Apache 2.0.23-dev
+
+2001-08-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: create the variable $is_show_processlist so the same
+	  regular expression dont have to be tested three times.
+	* ob_lib.inc.php3, lines 34-42: 'get_cfg_var' is only a second best
+	  solution (it won't yake into account httpd.conf directives when php is
+	  loaded as an apache module, for example).
+
+2001-08-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* ob_lib.inc.php3, oops: must be PHP3 compatible.
+	* sql.php3: bug 447771 bad counting of entries, patch developed from an
+	  from an idea of Ignacio Vazquez-Abrams (ivazquezabrams).
+	* tbl_properties.php3: check if new variables $cfgGZipDump and
+	  $cfgBZipDump are set (else PHP3 complains).
+	* db_details.php3: was not using those 2 new variables.
+
+2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: fixed #444017 (thanks anonymous).
+	* db_details.php3, tbl_replace.php3, sql.php3, user_details.php3
+	  fixed #444542 - replace preg_xxx with ereg (thanks Marc).
+
+2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3, db_details.php3, Documentation.html,
+	  tbl_properties.php3: added two directives to disable the use of
+	  compression for dump files.
+	* Documentation.html: fixed some typos thanks to Larry Meaney.
+	* lang/chinese_big5.inc.php3: updated thanks to
+	  Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>.
+	* db_details.php3, lines 292-296: queries retained and displayed into the
+	  textearea when stripslashed one time more than required.
+	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...) and
+	  added a link to empty the current table.
+	* ob_lib.inc.php3, line 34: ini_get is a php4 only function and may be
+	  disabled -> put an @ before it is called to avoid errors. 
+
+2001-08-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/*: updated so they are xhtml1.0 valid and fits PEAR codding
+	  standards.
+	* todo; functions.js; license; left.js: executed remove_control_m.sh.
+	* config.inc.php3: removed the error_reporting statement (usefull for
+	  debugging but not so nice for a release) and fixed some coding
+	  inconcistencies.
+	* credits: Benjamin Gandon is an official developper now.
+	* db_details.php3; header.inc.php3, lines 11-12; index.php3, line 36;
+	  main.php3; ob_lib.inc.php3; tbl_change.php3; tbl_properties.php3;
+	  tbl_qbe.php3, tbl_select.php3: fixed some coding inconcistencies.
+	* Documentation.html: reordered so it fits the configuration file order.
+	* footer.inc.php3, lines 15-16: added tests to ensure $cfgOBGzip and
+	  $ob_mode not only exists but are also true.
+	* db_readdump.php3; lib.inc.php3 & sql.php3: fixed some bugs with the
+	  bookmark feature and some coding inconcistencies.
+	* tbl_copy.php3, line 57: fixed a possible mysql error.
+	* tbl_create.php3: simplified the code.
+	* tbl_replace.php3: fixed a typo.
+
+2001-08-03  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3: current value of enums was lost.
+	* bug 445348, if ob_gzhandler already set in php.ini, patch by
+	  Garth Gillespie, modified by me 
+
+2001-08-03  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3, db_details.php3: fixed problem with table size
+	  display and Non-ISAM tables.
+	* tbl_qbe.php3: remove some warnings in higher errorlevel
+
+2001-08-03  Olivier Müller  <om@omnis.ch> 
+	* Generated Documentation.txt based on Documentation.html (not everybody is
+	  having a webbrowser on their servers... :)
+	  But please do continue to work *ONLY* on Documentation.html. And then
+	  just run a "lynx Documentation.html --dump > Documentation.txt" to update
+	  the .txt file.
+	  If you don't have lynx, don't worry, I'll update this file myself anyway
+	  on every release.
+	* removed contents of INSTALL (now points to the Documentation) and updated
+	  README.
+
+2001-08-02  Marc Delisle  <lem9@users.sourceforge.net> 
+	* tbl_qbe.php3: workaround a PHP3 problem.
+	* tbl_change.php3: bug 446830 (enums), adapted patch from
+	  Ignacio Vazquez-Abrams (ivazquezabrams).
+	* tbl_change.php3: bug 445722 when one of the enums is a datatype 
+	  enum('text','audio','image','video','data','application','other').
+	* removed DEVELOPERS (merged in Documentation.html).
+
+2001-08-02  Benjamin Gandon <gandon@isia.cma.fr> 
+	* Documentation.html: added a FAQ entry about the buggy php package still
+	  available for RedHat 7.0 update.
+	* lib.inc.php3: corrected the original bug of split_sql() (present much
+	  before 2.1.0). Removed the quick hack to handle queries containing
+	  "('\\')". The alorithm is ok now.
+
+2001-08-02  Steve Alberty  <alberty@neptunlabs.de> 
+	* sql.php3: fix confirm bug with the new backquotes.
+	* db_readdump.php3: mysql_die2 to mysql_die.
+
+2001-08-01  Marc Delisle  <lem9@users.sourceforge.net> 
+	* executed remove_control_m.sh on *.php3 
+
+2001-08-01  Armel Fauveau <armel.fauveau@globalis-ms.com> 
+	* extchg.sh : \r\n to \n and patch request #444789 
+
+2001-07-31  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* bookmark support now advanced auth
+
+2001-07-31  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3: extra characters were being inserted into blobs
+	* db_details.php3: bad link, thanks Steve!
+	* lang/*: missing strAffectedRows, thanks to Steve
+
+2001-07-31  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_create.php3: add warning if table name empty
+
+2001-07-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* merge Loic's version to cvs
+	* spanish.inc.php3 updates, thanks to
+	  Gabriel Ginard <gginard@navegalia.com>
+	* tbl_change.php3: bug 443760: binary attribute does not mean that the
+	  contents is binary, so they should be editable 
+	* new $cfgProtectBlob, protecting editing of blobs is optional
+
+2001-07-28  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3: establish constraints for the code, to get PHP3
+	  compatibility
+	* tbl_qbe.php3: add checks for unset variables
+    
+2001-07-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_select.php3 and dynamic field size
+
+2001-07-25  Marc Delisle  <lem9@users.sourceforge.net>
+	* Backport fixes from cvs made after the fork, to Loïc's version
+
+2001-07-24  Marc Delisle  <lem9@users.sourceforge.net>
+	* updates to french
+	* select_lang.inc.php3, lang/: new slovak translation thanks to 
+	  Lubos Klokner <erkac@vault-tec.sk>
+	* main.php3: bug 443710 Create New Database option: was working only if
+	  stduser has Global privileges on all databases.
+	* footer.inc.php3: if new $cfgOBGzip is not defined
+
+2001-07-24  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_copy.php3: fix parameter count, thanks Marc
+	* Documentation.html: order $cfg sequence and add description of
+      of $cfgSkipLockedTables and $cfgLeftWidth
+
+2001-07-24  Geert Lund  <glund@silversoft.dk>
+	* danish language file code cleanup (only changed order of strings)
+	* added $strQBEDel and $strQBEIns strings to all language files
+	* tbl_qbe.php3: added language support (stripped all static text) (Feat.
+	  req.: #443959)
+	* updated slovak-iso.inc.php3 to include english strings to be translated
+	  for the tbl_qbe.php3
+
+2001-07-23  Marc Delisle  <lem9@users.sourceforge.net>
+	* updates to italian thanks to Alessandro Astarita <aleast@libero.it>
+	* updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
+	* updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
+	* updates to czech-iso and czech-win1250,thanks to Michal Cihar (nijel)
+	* config.inc.php3, Documentation.html, footer.inc.php3, header.inc.php3:
+	  bug 443318 Undefined variable: ob_mode. Fixed thanks to
+	  Jeremy Brand <jeremy@nirvani.net>
+
+2001-07-23  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: correct small display bugs
+	* sql.php3: complement list of 'show' options to suppress 'insert new row'
+
+2001-07-22  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc3
+
+2001-07-21  Steve Alberty  <alberty@neptunlabs.de>
+	* config.inc.php3,index.php3: add $cfgLeftWidth to configure individual
+	  left frame width
+	* db_details.php3,tbl_properties.php3: fix incorrect size calculation with
+	  merge tables BUG: #442948
+
+2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
+    Started a new dev. version (or the next RC?):
+	* added the ability to use special characters in databases, tables and
+	  fields' names	with the help of backquotes.
+	* added a checkbox to let the user choose whether he wants backotes or
+	  not in the dumps he requires.
+	* navigation bar only shows what can be done.
+	* fixed bug #439565 (Bug with &amp;amp;# characters type), at least I
+      hope so.
+	* except 'users_details.php3' I've got to work on, all the scripts
+	  validates CSS2 now and, as far as possible, XHTML1.0.
+	  They have been rewriiten according to the PEAR standards.
+
+2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* ob.lib.inc.php3, lines 50-54 & 73-76: fixed a bug with php3.
+
+2001-07-20  Marc Delisle  <lem9@users.sourceforge.net>
+	* HTTP compression patch thanks to Jeremy Brand <jeremy@nirvani.net> 
+	header.inc.php3, footer.inc.php3, ob_lib.inc.php3
+
+2001-07-20  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_replace.php3: remove warnings if you update 'set' and nothing
+	  is selected
+
+2001-07-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lib.inc.php3 & sql.php3: fixed some bugs with the patch
+	  from Laurent Haas merged the day before.
+
+2001-07-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3 & lib.inc.php3: patch from Laurent Haas <mci@free.fr>
+      that allows to remember and modify a sql query submitted.
+      Fixed some bugs with this feature latter in the morning
+
+2001-07-19  Marc Delisle  <lem9@users.sourceforge.net>
+	* config.inc.php3, tbl_change.php3, db_details.php3, lib.inc.php3,
+	  tbl_properties.php3, tbl_properties_inc.php3, tbl_select.php3,
+	  Documentation.html:
+	  Feature #429771: dynamic lenght for input fields, and new config
+	  for textareas
+
+2001-07-18  Steve Alberty  <alberty@neptunlabs.de>
+	* left.php3: add 'or mysql_die()' for mysql_list_dbs to suppress
+	  'unable to save result' warnings
+	* defines.inc.php3: fix bug #442493 and add second version
+	  identification. if fails mysql_major_version=3.21
+
+2001-07-18  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 442337: a bad line split was adding a blank
+	  in front of the $sql_query, so a check for ^SELECT would not work
+	  and LIMIT was not added to the query
+
+2001-07-18  Olivier Müller  <om@omnis.ch>
+	* set current version number to 2.2.0rc3 (which should become 2.2.0-final)
+	* tbl_change.php3: feature #442402: while editing a record, the function
+	  of the first timestamp field will be set by default to "NOW()" :
+	  same behaviour as the command line mysql client. 
+
+2001-07-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* added credits for Benjamin Gandon <gandon@isia.cma.fr> in this file,
+	  credits and documentation.
+
+2001-07-17  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, bugs 441987, 441990:
+	  corrections thanks to vinay and girish @sanisoft.com
+	* tbl_properties.php3, new link to drop table, thanks to 
+	  Stuart Logan <logan69@users.sourceforge.net> for the idea 
+
+2001-07-17  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_addfield.php3: add trouble detection if insert field failed
+	* tbl_rename.php3,tbl_copy.php3: block table rename if newname empty
+	
+2001-07-16  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 441689, "Insert as new row" was not copying blobs.
+
+2001-07-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_dump.php3, line 26: fixed bug #441571 (Gzipped dumps have wrong
+	  extension).
+	* Updated polish translation thanks to Piotr Roszatycki.
+
+2001-07-16  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_changes.php3: make it possible to edit empty binary fields
+	* tbl_properties.php3: disable nowrap on enum and set <td>'s
+	* lib.inc.php3: print '0' instead of '' if result count < SelectNumRows
+
+2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* small patch from vinay and girish @sanisoft.com:
+	  db_details.php3: new checkbox for optional re-display of query
+	  (lang/*.php3)
+  
+2001-07-15  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc2
+
+2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* new script remove_control_m.sh 
+	* all php3 files which had control M
+
+2001-07-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, tbl_properties.php3, functions.js, tbl_dump.php3,
+	  documentation.html, translations: added bzip support for dump files.
+	* ldi_check.php3, lines 64-66: $sql_query wasn't defined if
+	  'magic_quotes_gpc' was off.
+
+2001-07-14  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* Added a warning concerning bookmark feature and advanced auth
+
+2001-07-14  Marc Delisle  <lem9@users.sourceforge.net>
+            Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: added a requirement section, rewritten the entry
+	  about the use of advanced authentification.
+
+2001-07-14  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, tbl_dump.php3: limitation feature for data dumps wasn't
+	  working with CSV exports.
+
+2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, tbl_dump.php3, tbl_properties.php3, translations: added a
+	  limitation feature for data dumps thanks to
+      Girish Nair <girish@sanisoft.com> and Vinay <vinay@sanisoft.com>.
+	* lib.inc.php3, lines 785-847: rewritten the 'show_message' function in
+	  order it generates a valid xhtml1.0 code and the programatically added
+	  'LIMIT' clause is displayed only if it has been trully used.
+	* tbl_properties.php3: cosmetic changes (added some more 'nowrap').
+	* sql.php3:
+	  - lines 40-43: fixed a bug with '<', '>' and '"' characters and put a new
+	    fix for bug #439565;
+	  - line 73: $reload value must be a string (not a boolean);
+	  - lines 83-89: fixed a bug if the sql query contains a 'limit' clause
+	    typed by the user.
+	* db_readdump.php3.php3, line 64: removed a faulty fix for bug #439565.
+	* left.php3: no DHTML if there is only one table to display
+	  (feature #440420)
+
+2001-07-12  Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: added a FAQ entry about upload errors
+
+2001-07-12  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_dump.php3, lines 64-93; lib.inc.php3, lines 722-774;
+	  tbl_properties.php3, line 612: fixed some inconsistencies in the
+	  csv export feature.
+	* tbl_properties.php3: fixed an IE5.0 display bug and an other one with
+	  Mozilla, also some cometic changes (added some 'nowrap').
+	* db_details.php3: cometic changes (added some 'nowrap').
+	* lib.inc.php3, line 969: fixed a wrong comparaison.
+	* left.js, line 182: fixed bug #440609 (Javascript error on left frame
+	  (IE4.0)).
+	* left.php3, line 63: fixed a bug in the css.
+	* Documentation.html: fixed a typo ("developpers" with two "p").
+	* french.inc.php3: updated translation.
+
+2001-07-12  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: remove display "Avg_row_length" if zero
+
+2001-07-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, db_details.php3: fixed some bugs with php3
+	  (0 != empty).
+	* lib.inc.php3, lines 14-15: fixed bug #440430 with php3.
+	* grab_globals.inc.php3, tbl_printview.php3: removed the '^M' at the end of
+	  some lines.
+	* select_lang.php3: function_exists() is available since php 3.0.7 only.
+	* Documentation.html: rewritten to validates xhtml1.0 & css2, added some
+	  words about a common socket error, removed link to deepthought.texsci.edu
+	  (no long exists) and updated credits.
+	* install.txt, lines 46-47: removed link to deepthought.texsci.edu (no long
+	  exists).
+	* french translation updated thanks to Laurent Haas.
+
+2001-07-11  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: fix division by zero error
+	* tbl_change.php3: enlarge binary protection to (var)char binary
+	  types
+	* db_details.php3: fix disfigurement if table size 0 Bytes
+
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3: cosmetic changes.
+	* tbl_properties.php3, db_details.php3, functions.js: export the js work
+	  from the formers to the later.
+	* tbl_properties.php3, line 657, 662 & 673: fixed invalid colspan values.
+	* db_details.php3, line 210: count_records already displays the number of
+	  records in the valid format. Fixed thanks to Laurent HAAS <mci@free.fr>.
+	* Updated the Spanish translation thanks to
+	  Martin Marconcini <megadeth@millic.com.ar>.
+
+2001-07-10  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: add avg row size
+
+2001-07-10  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_properties.php3, feature 439394 (browse link at top of page)
+
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 865-867; main.php3, line 78; left.php3, line 55;
+	  left.js, line 116: fixed some bugs (including #439553) when
+	  $cfgServerDefault is set to 0 in the config file.
+	* db_details.php3, tbl_properties.php3: fixed display problems with NS4+
+	  (including bug #439962).
+	* db_details.php3, line 185: fixed a bug if there is no indexes.
+
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lines 273-275: vertically center bookmarks options.
+	* tbl_properties.php3: rewritten the script so it fits XHTML1.0 and PEAR
+	  standards, limit the number of "options" displayed if the is no table
+	  in the db and beautity a bit the display.
+    * languages files: replaced 'Gzip' by '"gzipped"'.
+	* Updated both the Czech translation thanks to
+      Michal Cihar <cihar@email.cz>.
+
+2001-07-09  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 439572, left.php3: added a @ before mysql_list_tables,
+	  to try to get rid of a warning (cause: too many tables?)
+	* bug 439709, tbl_properties.php3: show table maintenance options
+	  based on table type
+	* bug 439565, lib.inc.php3, db_readdump.php3, could not do:
+	  DELETE FROM inscrit WHERE pseudo='test&#039;ap'; 
+
+2001-07-08  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, line 742: Documentation is now loaded in its own window.
+	* db_details.php3: rewritten the script so it fits XHTML1.0 and PEAR
+	  standards, limit the number of "options" displayed if the is no table
+	  in the db and beautity a bit the display.
+
+2001-07-07  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* add gzip dump feature (Feature #420812)
+
+2001-07-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 439340: do not backquote in grant/revoke, will have to find
+	  the proper way to protect special db names
+	* bug 439313 extchg.sh not recursive
+
+2001-07-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3: improved the css.
+	* left.js: try to "fix" the Opera and Konqueror bug (bad DOM implemenation
+	  -> list is no long expandable/collapsible with this browsers).
+	* sql.php3, lines 85-93: fix suggested by
+	  Michael Tacelosky <tac@smokescreen.org> into the phpwizard forum.
+	* functions.js, lines 21 & 29; lib.inc.php3, lines 76-84; language files:
+	  outsourced error messages.
+	* left.js, left.php3, header.php3, language files: the font family is now
+	  language dependant.
+	* tbl_properties.inc.php3: removed an unnecessary php closing tag and
+	  commited some cosmetic changes.
+	* lib.inc.php3, lines 706 & 946-950; db_details.php3, lines 96 & 118;
+	  language files: thousands and decimal separators are now language
+	  dependant, size units also.
+	* tbl_dump.php3, lines 78: Added a '#' before 'No tables found' so the
+	  generated dump file may be imported later even if there is no table.
+	* tbl_dump.php3, lines 9-11: Fixed a bug if an user requires a gziped dump
+	  but forget to check the transmit checkbox.
+	* db_printview.php3, line 29: Cosmetic change in column case name.
+
+2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
+	* users_details.php3: fixed many little scripting bugs.
+	* function.js: rewritten to fit javascript standards (eval function was
+      deprecated a long time ago).
+	* sql.php3, lines 39-41: fixed bug #438895 (No mixed " and ' possible).
+	* tbl_properties.php3, line 233: removed an unnecessary ';'!
+	* left.php3: fixed bug #438987 (Blank lines with IE5+)
+	* ldi_table.php3, line 56: fixed an invalid anchor in the documentation
+	  link (tahnks to Laurent Haas).
+
+2001-07-06  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug #438749 Database lockout: main.php3, we now show "Create
+	  database" if user has Create priv on an inexistant db
+
+2001-07-06  Olivier Müller  <om@omnis.ch>   [uid23515]
+	* releasing 2.2.0rc1 and cleaned up old cvs tree
+
+2001-07-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: Patch #438708 (Changes to display_table) thanks to
+	  Thomas Kläger.
+	* header.inc.php3, line 53: fixed bug #438743 (Odd behaviour after drop
+	  database).
+
+2001-07-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug #438319 (IE 5.5 and "Add a new user"): user_details.php3, 
+	  thanks to Loïc Chapeaux  <lolo@phpheaven.net>
+
+2001-07-04  Olivier Müller  <om@omnis.ch>   [uid23515]
+	* set version to 2.2.0rc1
+	* removed anything about "unofficial" from the pages
+	* updated links, and labels in all lang files
+	* General cleanups and updates in the docs and README files
+	* Started Documentation.html redesign
+
+2001-07-03  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3: patch from Chee Wai for illegal index
+	* lang/brazilian_portuguese.inc.php3 update from 
+	  Flavio Borges Botelho <nuncanada@ig.com.br>
+
+2001-07-03  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: fix minor bug under PHP3 with space usage display
+
+2001-07-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js & left.php3: font face now depends on charset (temporary fix).
+
+2001-07-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 436108, quotes into manual requests: db_readdump.php3
+
+2001-07-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, lang/*: privileges in MySQL-speak
+	* new script lang/remove_message.sh
+
+2001-07-01  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3: rewritten so it becomes as far as possible xhtml1.0 compliant.
+	* header.php3: rewritten styles so the font face is valid with non-latin1
+	  charsets.
+	* spacer.gif was broken (strange display with NS).
+
+2001-06-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from 
+	  Bernard M. Piller <bernard@bmpsystems.com>
+
+2001-06-30  Olivier Müller  <om@omnis.ch>
+	IMPORTANT : FROM NOW, PLEASE COMMIT YOUR CHANGES IN THE PHPMYADMIN-DEVEL BRANCH!
+	THE PHPMYADMIN-DEVEL BRANCH (where you are now) WILL BECOME THE MAIN BRANCH
+	AS SOON AS THE SF STAFF MAKE THE CHANGE
+
+2001-06-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, line 27: fixed a bug with PHP3 thanks to
+	  Laurent Haas <mci@free.fr>.
+	* tbl_printview.php3, line 20: moved mysql_select_db else the script can't
+	  run with a mysql version < 3.23, thanks to Laurent Haas <mci@free.fr>.
+	* tbl_select.php3, lines 86, 96, 103-109: applied patch #437514 (Bug +
+	  Improvement in tbl_select) suggested by Laurent Haas and fixed some
+	  double quotes bugs.
+	* lib.inc.php3, lines 364-372: applied patch #437127 (Toggle Column Sorting
+	  ASC/DESC) suggested by Thomas Michael Winningham.
+	* lib.inc.php3, lines 341-343, 385-387: applied patch #437129 (Table Edit
+	  Inheritence) suggested by Thomas Michael Winningham.
+	* header.inc.php3: added headers to vaoid the use of cached files (required
+	  for Opera)
+  
+2001-06-29  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, js code to protect db and table names
+
+2001-06-28  Steve Alberty  <alberty@neptunlabs.de>
+	* fixed bug with dl and PHP 3
+
+2001-06-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* add function tbl_name() to protect table names like 00001_Files
+	* bug 434608: support db names with special characters (MySQL >= 3.23.6)
+	(lib.inc.php3, db_create.php3, db_details.php3, tbl_addfield.php3,
+	 tbl_alter.php3, user_details.php3 (incomplete))
+
+2001-06-27  Steve Alberty  <alberty@neptunlabs.de>
+	* add support for ALTER TABLE ORDER BY
+	* lib.inc.php3: speedup get_table_content for tbl_dump (PHP >= 4.0.5)
+	* tbl_dump: fixed a big bug
+	* db_readdump: fixed warning and a double include
+	* add defines.inc.php3
+
+2001-06-26  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: add 3 new Constants:
+	  PHPMYADMIN_VERSION, PHP_WINDOWS, PHP_INT_VERSION
+	* add support for dynamic mysql extension
+
+2001-06-23  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_dump.php3: merge with db_dump.php3, db_dump is now obsolete
+	* db_details.php3: change from db_dump.php3 to tbl_dump.php3
+
+2001-06-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3: Rewrote this script so it fits PEAR codding standards and
+	  produces an xhtml compliant output. 
+	* main.php3, user_details.php3, db_details.php3, tbl_properties.inc.php3:
+	  fixed bad anchors case in links to the documentation thanks to
+	  Laurent HAAS <mci@free.fr>.
+
+2001-06-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* sql.php3: bug 434405: percent bug in delete queries
+
+2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_dump.php3: add timecode,mysql version in dump header,
+	  add linefeed at end of file and change
+	  phpMyAdmin URI to sourceforge
+	* Speed up table copy; use insert select instead of get_table_content
+	* tbl_copy.php3: fixes serious problem with copy table and new
+	  structure definition
+
+2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 67-68: The left frame is now reloaded when a table is
+      created.
+	* lib.inc.php3, line 668: When the left frame is reloaded after a create or
+	  a delete statement, the current database is 'opened'
+
+2001-06-20  Alain Brissaud  <alain@brissaud.com>
+	* sql.php3, lines 98-107: Fixed a warning when a table is dropped
+	 (bug #434416).
+
+2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* The 'bkg.gif' was somewhat corrupted (it caused some annoying problems
+	  with NS4+). Fixed thanks to Laurent Hass.
+	* Added Japanese and Korean translation from Sakamoto <info@boreal-net.com>
+	* index.php3, line 3: get the vars sent to this script whatever is the
+	  status of the register globals directive.
+	* index.php3, left.php3 & left.js: a perticular database could be displayed
+	  as the first page, instead of the main.php3 thanks to Kristof Hamann
+	  (feature #432402).
+
+2001-06-17  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Fixed the '<?' tags in user_details.php3 to proper '<?php' to work on a
+	  wider set of systems.
+
+2001-06-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* From Michal Cihar <cihar at email.cz>:
+      - header.inc.php3, left.php3, all translations: added sending of charset
+	    in header
+      - updated czech translation
+	  - added czech translation in iso-8859-2 and then modified
+	    select_lang.inc.php3
+	* main.php3: put the localization links at the top of the page
+	* left.js: optimized again the code for NS4+
+
+2001-06-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 433388, patch from Alain Brissaud (hal0802)
+	* feature 429767, ignore empty fields on table create (tbl_create.php3)
+
+2001-06-14  Steve Alberty  <alberty@neptunlabs.de>
+	* add support for locked tables (default=off)
+	* add summary on db_details.php3
+
+2001-06-12  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 432091: missing column in show processes
+	* add $strKill
+
+2001-06-11  Marc Delisle  <lem9@users.sourceforge.net>
+	* italian translation update by Alessandro Astarita
+	* german translation update by Kristof Hamann (korelstar)
+	* user_details.php3: missing $strPrivileges
+
+2001-06-11  Steve Alberty   <alberty@neptunlabs.de>
+	* tbl_properties.php3: suppress Table Maintenance, Comment and Type
+	  for MySQL Version < 3.23
+	* tbl_properties.inc.php3,tbl_properties.php3:
+	  regards capability of mysql installation to view different table
+	  types
+
+2001-06-10  Steve Alberty   <alberty@neptunlabs.de>
+	* tbl_select.php3,tbl_change.php3,lib.inc.php3: fixed warnings
+	* db_details.php3: add output of table size
+	* left.php3, left.js: shows minus instead of plus in empty databases
+	* tbl_properties.inc.php3: change 'default' table type to localized
+	  string
+	* tbl_properties.php3: insert spaceusage & row statistics, small
+	  fixes in output
+
+2001-06-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* index.php3: ensure the server hostname is find whatever is the php
+	  configuration
+
+2001-06-09  Armel Fauveau   <armel.fauveau@globalis-ms.com>
+	* add multiple dump feature (Feature #424176)
+
+2001-06-08  Marc Delisle  <lem9@users.sourceforge.net>
+	* add hostname in title bar
+
+2001-06-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* modify/implement Steve Alberty's patch for complete table dump
+	* implement Alessandro Astarita's patch for data only dump
+
+2001-06-06  Armel Fauveau   <armel.fauveau@globalis-ms.com>
+	* patch bookmark section in sql.php3 (bug #430628)
+
+2001-06-05  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_properties, tbl_printview: quote Comment field
+	* bug 430288: bad parsing of from | FROM
+	* tbl_properties.php3 reorganization
+	* bug when the RunQuery box is empty, fix from Sakamoto
+
+2001-06-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change, tbl_replace: SaveAsNewRow
+
+2001-06-03  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3 select_db commented out
+
+2001-06-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* users_details.lib.php3: fixed some typos, warnings and little bugs
+	* lib.inc.php3, lines 144 & 147: wrong var names
+	* main.php3, line 135: replaced a 'mysql_db_query'
+
+2001-06-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* merge User administration module thanks to Daniel Villanueva (dvilla)
+	* small modifications to this module
+	* new add_message_file.sh
+
+2001-05-31  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_replace.php3, tbl_change.php3: bug 424771
+
+2001-05-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js, left.php3 : beautify the way database list is displayed with NS4
+
+2001-05-30  Pete Kelly  <webmaster@trafficg.com>
+	* db_readdump.php3, line 57: fixed the bug #427796
+
+2001-05-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, line 5: fixed a warning
+	* lib.inc.php3, main.php3, sql.php3, tbl_properties: options displayed with
+	  the results of a query depends now on its type (bug #425888)
+
+2001-05-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug #426357: mysql_db_query deprecated
+
+2001-05-24  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, line 131+: fixed the authentification failure with advanced
+	  mode and 'register_globals' disabled (bug #425369)
+
+2001-05-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* Bug #424237: cannot set an enum field to Null
+
+2001-05-21  Marc Delisle  <lem9@users.sourceforge.net>
+	* add a message $strTextAreaLength to tell users when a textarea
+	  contents is too large to be editable ( > 32K)
+
+2001-05-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* replaced all require("somefile.php3") and include("somefile.php3")
+	  instructions by require("./somefile.php3") and include("./somefile.php3")
+	  to avoid conflicts with the 'include_path' directive.
+	  Also ensured that require and include are conveniently used (no require
+	  inside conditionnal structure...)
+	* db_readdump.php3, line 45+: optimized the work here
+	* lib.inc.php3, line 452-454: fixed a warning
+
+2001-05-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js, lines 241-242: fixed the scrollbar bug with NS4
+
+2001-05-18  Pete Kelly  <webmaster@trafficg.com>
+	* db_readdump.php3 & lib.inc.php3: finally fixed all the special characters
+	  problems (Bug #421889)
+
+2001-05-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 65: fixed a warning
+	* tbl_select.php3: fixed a bug if number of registrations to display is not
+	  specified (bug #424278 and patch from Alain Brissaud)
+	* updated the documentation files for the "unofficial" phpMyAdmin homepage
+
+2001-05-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* support key length in table copy/dump
+	* doc. changes for Loïc
+
+2001-05-15  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Added "Bookmarked SQL-query" combo box when you click on a table (Feature #423065)
+
+2001-05-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 76, 81 and 612: fixed a bug if a field contains html
+	  tags (suggested by Olivier Bussier at the phpMyAdmin official forum:
+	  http://www.phpwizard.net/phorum/read.php?f=1&i=3349&t=3349)
+	  set_time_limit() function (Feature #423374)
+	* lib.inc.php3, lines 496 & 563: put an "@" in front of the calls to the
+	  set_time_limit() function (Feature #423374)
+	* main.php3: add some empty lines to beautify the start screen and a test that
+	  allow to display language selection only if language is not forced in the
+	  configuration file
+
+2001-05-11  Marc Delisle  <lem9@users.sourceforge.net>
+	* support FULLTEXT in table copy or dump
+
+2001-05-11  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Added a "delete" option in the phpMyBookmark patch (Olivier Mueller)
+	* Added a "execute" option in the phpMyBookmark patch
+
+2001-05-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_readdump.php3: fixed all the special characters problems (Bug #421889)
+	  and improve the trick to enforce reloading of the left frame if a table
+	  has to be created
+	* sql.php3, line 65: a warning message was sometimes displayed because the
+	  '$sql_order' variable was not set
+
+2001-05-10  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Added a "view only" option in the phpMyBookmark patch (Feature #422425)
+
+2001-05-09  Marc Delisle  <lem9@users.sourceforge.net>
+	* new messages in /lang
+	* browse table bug (#421879)
+
+2001-05-08  Korakot Chaovavanich  <korakot@iname.com>
+	* In edit page, replace dropdown with radio if short enough
+
+2001-05-08  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_readdump.php3, line 14 and sql.php3, line 112: two warnings were
+	  displayed with the phpMyBookmark patch if the error reporting level
+	  is set to E_ALL
+	* import the "Insert new row to edit page" feature put by Korakot in
+	  the stable CVS tree
+	* lib.inc.php3, line 590: strip slash the message to be displayed
+
+2001-05-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* In csv data, can add a character at end-of-line
+	* Added a shell script that adds a message to all message files
+
+2001-05-07  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Added the phpMyBookmark patch
+
+2001-05-05  Robin Johnson  <robbat2@users.sourceforge.net>
+	* Some functions discussed on patch #419826 added.
+	* Table Maintence Features added in tbl_properties.php3
+	* Fixed create table "default" bug.
+	* Language tags for Table Types & Table Maintance
+	* Trailing slash on help path bug
+
+2001-05-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* grab_globals.inc.php3 handles now the $HTTP_POST_FILES array
+	* db_readdump.php3, line 24: added a trick to enforce reloading of the left
+	  frame if a table has to be created (not tested enough to be add to the
+	  stable version yet)
+
+2001-05-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* outsource some strings in main.php3
+	* kill the bug in main.php3 about Create privilege
+
+2001-05-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* build a js library that contains all the functions used to collapse/expand
+	  databases list stuff and improve them
+	* add the brazilian portuguese translation and update the
+	  'select_lang.inc.php3' script to take the former into account
+	* reply to some questions at the official phpMyAdmin forum, suggesting the
+	  users to grab the current pre-release version from SouceForge.
+
+2001-05-03  Olivier Müller  <om@omnis.ch>
+	* started devel-branch : "phpMyAdmin-devel". To be used for experimental 
+	  stuff and new features.
+
+2001-05-02  Robin Johnson  <robbat2@users.sourceforge.net>
+	* additional constant MYSQL_MINOR_VERSION in 'lib.inc.php3'
+	  contains all of version string after the '3.23.' part.
+	* Table type on create table in 'tbl_create.php3'
+	* Alter table type on 'tbl_properties.php3'
+	* Ability to add comments even if no comment is there
+
+2001-05-01  Loïc Chapeaux  <lolo@phpheaven.net>
+	* improve a bit the language detection: rewrote the 'select_lang.lib.php3'
+	  script and changed line 162-166 in 'main.php3'
+	* sql.php3, line 69: now using split() instead of split() (the former is
+	  not implemented in PHP3 (SF bugfix)
+
+2001-04-29  Olivier Müller  <om@omnis.ch>
+	* added lang file for Thai. Thanks to Korakot Chaovavanich (korakot)
+	* tbl_select.php3, line 19: replaced GET by POST (SF bugfix)
+	* tbl_properties.php3: added textfield for mysql input (patch from korakot)	
+	* tbl_properties.php3: <? -> <?php (patch from robbat2)
+	* added lang file for Swedish. Tack till David Nordenberg.
+	* Norwegian lang file update by Sven-Erik Andersen.
+
+2001-04-28  Olivier Müller  <om@omnis.ch>
+	* applied security patch from 
+ 	  http://www.securereality.com.au/patches/phpMyAdmin-SecureReality.diff
+	  (thx to Geert Lund for the info)
+	* now using explode() instead of split_string() in tbl_change.php3
+	  (was broken: is split_string really working correctely? please check!
+	   split_string is now still used in db_readdump)
+	* released 2.2.0pre2
+
+2001-04-07  Olivier Müller  <om@omnis.ch>
+
+	* docs and code cleanup
+	* announced the http://phpmyadmin.sourceforge.net link
+	  on the phpmyadmin forum.
+
+2001-04-01  Olivier Müller  <om@omnis.ch>
+
+	* moved the language files to lang/
+	* now using standard ChangeLog file format
+
+2001-03-31  Olivier Müller  <om@omnis.ch>
+
+	* upgraded version to 2.2.0pre1
+	* released pre version on sourceforge
+	* synchronized latest phpmyadmin official cvs with the user-contributed
+	  patches: multiple language support, bugfixes, etc.
+
+
+ v 2.1.0.2 - 26-mar-2001 + Removed necessity of register_globals and added the
+                           "grab_globals.inc.php3" library to this end
+                           Now, phpMyAdmin detects what to do according to 
+                           the configuration you chosed!
+                         + Bugfix: a warning may be displayed because a string
+                           was appent to an unset variable in 'tbl_copy.php3'
+                         + Bugfix: a warning may be displayed because some
+                           unset arrays were counted in 'tbl_addfield.php3'
+                         + Bugfix: slashes were added to requests if
+                           'magic_quotes_gpc' is 'on' in 'db_readdump.php3'!
+                         + Bugfix: the usual #-bug
+                         + Bugfix: on Windows-System the 0x1a-char makes
+                           problems (ctrl-z) when piped to mysql. It has to be
+                           changed to '\Z'.
+                         + Bugfix: on Windows-System the path is not build
+                           correct in ldi_check.php
+                         + The dump-output was not easily editable when
+                           containing '\n' or '\t'-characters (e.g. in binary
+                           fields or blobs)
+
+ v 2.1.0.1 - 28-aug-2000 - Merge with the version from
+                           Benjamin Gandon <gandon@isia.cma.fr>
+                         + Added French translation strings in french.inc.php3
+                         + Bugfix: split_string() in lib.inc.php3
+                         + Bugfix: split_sql() in db_readdump.php3
+                         + Removed necessity of magic_quotes_gpc
+                           Now, phpMyAdmin detects what to do according to 
+                           the configuration you chosed!
+                         + clicking on a database name in left frame
+                           don't unexpand it anymore. You have to click oh the
+                           minus image to hide the tables
+                         + Fixed accents problem with german strings
+                         + Fixed matching database name problem in uva fix
+                           in lib.inc.php3
+                         + Added the possibility to display Change and Modify
+                           buttons on the left or on the right of rows (or both)
+                         + Some corrections in spanish.inc.php3 and some other
+                           languages files.
+                         + Bugfix: mesage display after reading a dump or 
+                           executing a single query
+
+ v 2.1.x - 03/02/2001  + Added dynamic multiple language support, with
+                         browser default language detection [om]
+
+ v 2.1.0 - 08/06/2000  + Bugfix: Query By Example now works with high error-
+                         reporting levels.
+                       + Bugfix: 'End' on the navigation bar in Browse and
+                         Select mode now functions correctly.
+                       + Added random access option to the  navigation bar
+                         in table Select and Browse mode
+                       + Added form for changing the number of rows displayed
+                         per page.
+                       + Bugfix: Reading SQL dumps had magic quotes problems.
+                       + Added support for wildcards in MySQL user
+                         authentication system.
+                       + Added support to edit/delete rows in table without
+                         primary key.
+                       + Added support for mysqldump-like Complete Inserts
+                         (ie. optionally adding the field list to the dumps).
+                       + Changed the table browsing mode to display Prev/Next
+                         links also on top of the rows.
+                       + Added authentication on a per-table basis.
+                       + Added print views for tables and databases.
+                       + Added link to browse table from left frame (copied
+                         from phpPgAdmin).
+                       + Security: Fixed possible security issue with reading
+                         SQL dumps.
+                       + Fixed some more PHP 4.0 issues (warnings, problems
+                         with 0/empty().
+ v 2.0.5 - 12/05/1999  + Added output to show how many rows were affected
+                         by a custom query.
+                       + Bugfix: executing a custom sql query prevented the
+                         edit feature from working correctly.
+                       + Bugfix: Sending CSV Dumps didn't work because of a
+                         typo.
+                       + Bugfix: if the field length was empty, it was set
+                         to the field's type.
+                       + Added the possibility to upload SQL dumps with
+                         File Upload.
+ v 2.0.4 - 10/10/1999  + Some more PHP 4.0 fixes.
+                       + Bugfix: Reading SQL dumps choked on embedded semi-
+                         colons - fixed.
+                       + Bugfix: Dure to regex problems, PHP 3.0.12 crashed in
+                         some instances when adding tables - fixed.
+                       + Added option to use verbose hostnames.
+                       + Bugfix: ENUM/SET had problems with embedded special
+                         characters - fixed.
+                       + New language file: Portuguese
+ v 2.0.3 - 08/15/1999  + Bugfix: Changing a row after a  "Select" didn't work.
+                       + Added proper support for MySQL authentication. With
+                         $adv_auth, only those dbs are displayed that the user
+                         has actually the permissions to view [sponsored by
+                         NetCologne].
+                       + Bugfix: Sometimes the wrong frameset was displayed.
+                       + Bugfix: Moved mysql_die() to top of lib.inc.php3 to avoid
+                         "undefined function" errors.
+                       + Bugfix: Killed some more warnings for those paranoids
+                         who have error_reporting to a high value.
+                       + Added support for MySQL 3.23's table comments.
+                       + Bugfix: Ordering is now disallowed with MySQL-Status
+                         operations.
+                       + Added some more documentation links.
+                       + Changes the way the reload of MySQL is done - use
+                         FLUSH PRIVILEGES instead of mysqladmin reload.
+ v 2.0.2 - 07/02/1999  + Added support for the BINARY attribute.
+                       + Bugfix: In languages other than English, the
+                         warning before dangerous actions didn't work.
+                       + Added proper support for ENUM/SET.
+                       + Changed the table browse mode to use LIMIT.
+                       + Bugfix: ReadDump choked on nestd single quotes,
+                         even if escaped properly.
+ v 2.0.1 - 05/24/1999  + Re-Enabled the "browse"-link on db_properties.php3.
+                       + Added a way to add more than one new fields a time.
+                       + Changed some details to be compatible with webservers
+                         other than Apache (tested with Roxen).
+                       + Added support for creation of a multi-column primary
+                         key on an existing table.
+ v 2.0.0 - 04/11/1999  + Improved navigation, layout changes.
+                       + Added the possiblity to log out with $adv_auth.
+                       + Added the possibility to view MySQL's processes.
+                       + Added an option to output SQL-queries generated by
+                         phpMyAdmin.
+                       + Enhanced the shell script to change file-extensions to
+                         allow any arbitrary extension. It's now called extchg.sh.
+                       + Changed SET/ENUM types to appear in a drop-down menu.
+                       + Bugfix: Attributes weren't used when creating a table
+                         or adding a field.
+                       + Bugfix: Field names with high-ASCII-characters weren't
+                         handled properly.
+                       + Bugfix: LOAD DATA INFILE didn't allow a tab as field-
+                         separator.
+ v 1.4.2 - 02/28/1999  + Renamed config.inc.php3 variables to begin with 'cfg'.
+                       + Support for multiple MySQL servers added.
+                       + Added EscapeShellCmd() to system() calls to avoid
+                         problems with special characters in passwords.
+                       + Bugfix: Reload failure was not being detected.
+                       + Bugfix: Table-/database dumps were not showing key names
+                         correctly.
+                       + Added support for DROP TABLE to the dumps.
+                       + Added support for UNSIGNED & UNSIGNED ZEROFILL attributes.
+                       + Added a shell-script to make it possible to change the
+                         file-extension and all references from ".php3" to
+                         ".phtml" and vice versa.
+ --- SWITCHED TO CVS ---
+ v 1.4.1 - 02/07/1999  + Bugfix: Corrected a small error in the table header of
+                         tbl_change.php3.
+                       + Added preliminary support for context sensitive help.
+                       + Enhanced the table-dump to allow dumping only the structure
+                         or structure+data or CVS export. Made it possible to
+                         download the dump directly as a file.
+                       + Bugfix (*Security*): Until now you were able to connect to
+                         a database different from $only_db. Fixed.
+                       + Changed the display of the databases to highlight the
+                         current db.
+                       + Added a way to execute multiple sql-queries at once
+                         (eg. for reading in a create-schema).
+                       + Added the possiblity to view the dump of a whole
+                         database.
+                       + Added an output of the record-count for all tables to
+                         db_details.php3.
+                       + Bugfix: get_table_content() didn't work correctly when
+                         a field contained an unescaped single quote.
+                       + Bugfix: Corrected various errors in display_table()
+                         when ORDER BY was set.
+                       + Enhanced table-browsing to use the choosen sortorder
+                         over the whole result set; start and end buttons added
+                         for navigation
+                       + Added the possibility to specify whether BLOB fields
+                         should be shown when browsing a table or not.
+                       + New languages: Danish, Norvegian, Spanish, Catalan.
+                       + Eliminated many warning messages when error reporting
+                         is set high.
+                       + Bugfix: Data containing HTML is now properly displayed
+                         when dumping table or database data.
+                       + Improved handling of NULL fields.
+                       + Made tbl_replace.php3 use INSERT and UPDATE rather than
+                         REPLACE INTO.  It is much less likely to lose data now.
+v 1.4.0 - 01/16/1999   + Bugfix: in config.inc.php3 $adv_auth was written as
+                         $mod_auth.
+                       + Changed tbl_change.php3 to display a <textarea> for
+                         *text fields.
+                       + Changed $max_inputsize to a CSS value.
+                       + Changed the input field for the sql-query to
+                         <textarea>.
+                       + Changed some variables references to prevent warnings.
+                       + Moved "LOAD DATA INFILE" from db_details.php3 to
+                         tbl_properties.php3.
+                       + Added htmlspecialchars() to the output of
+                         field-contents.
+                       + Due to the changed behavior of SHOW STATUS in MySQL
+                         3.22, I've removed this information from the homepage
+                         and made seperate links to MySQL internal information.
+                       + Bugfix: when browsing a table, "insert new row" was
+                         not visbible.
+                       + Added ORDER BY fieldname to display_table().
+                       + Added the possiblity to rename a table.
+                       + Added the possiblity to copy a table (structure only
+                         or structure and data).
+                       + Changed the table-dump to a more memory-efficient way.
+                       + Added $border and $th_bgcolor, to offer the user more
+                         control over the look and feel.
+                       + Added support for MySQL-functions.
+                       + Added some information for DEVELOPERS.
+                       + Added stripslashes() to all output of field-types.
+                       + Added a small FAQ to Documentation.html.
+                       + New language: Russian
+ v 1.3.1 - 12/27/1998  + Added complete mulit-language support by outsourcing
+                         all strings to a separate file.
+                       + Bugfix: in tbl_addfield.php3 a stripslashes() was
+                         missing.
+                       + Changed *.inc to *.inc.php3 to avoid security-
+                         problems when .inc-files were not parsed by PHP3.
+                       + New languages: German, French
+ v 1.3.0 - 12/16/1998  + Changed display_table() to show the number of found
+                         records.
+                       + Changed display_table() to align=right for numeric
+                         fields.
+                       + Changed all PHP3 opening tags to the XML-compliant
+                         version.
+                       + Added a "query by example" to tbl_select.php3.
+                       + Added the possibility to specify the length of input-
+                         fields when inserting to a table.
+                       + Changed the input-fields to have a maxlength
+                         equivalent to the field's size.
+                       + Bugfix: Corrected a typo in tbl_create.php3
+                       + Added a checkbox to the load-data-infile function to
+                         allow existing data to be overwritten.
+                       + Added authentification: now you can log with any
+                         valid MySQL- user (through HTTP-auth).
+                       + Added the possibility to show only one database
+                         (useful when you want to let users adminstrate one own
+                         database).
+                       + Added an "Empty" command to tbl_properties.php3.
+                       + Added support for UNIQUE keys when creating a table
+                         or adding a field.
+                       + Bugfix: the dump of a table didn't show the correct
+                         table-name.
+                       + Bugfix: Inserting a CVS-file with single-quote
+                         enclosed fields didn't work.
+ v 1.2.0 - 11/29/1998  + Bugfix: Delete didn't work correctly when a table's
+                         primary key spanned multiple colums.
+                       + Changed the texfile-import funtion to import text-files
+                         directly from the local file-system via file-upload.
+                       + Added a confirmation when a custom SQL-query was
+                         completed succesfully.
+                       + Changed the background image so that the page is
+                         readable even with crappy browsers (like IE 4.x or
+                         Navigator 4.5/Mac) that don't interpret style sheets
+                         correctly.
+                       + Changed tbl_addfield.php3 to allow specifying a
+                         primary key or an index when adding a field.
+                       + Added the possibility to create a dump from a table.
+                         (port from mysqldump.c)
+                       + Added the missing TODO file.
+ v 1.1.2 - 11/18/1998: + Bugfix: Edit or delete didn't work with a alpha-
+                         numerical primary key (' was missing).
+                       + Bugfix: Creating a table with both a primary key
+                         and an index didn't work.
+                       + Added the possiblity to browse only selected
+                         fields from a table.
+ v 1.1.1 - 11/05/1998: + Bugfix: After a custom SQL-statement the edit-
+                         function didn't work.
+                       + Added the possibility to import data from ascii-
+                         textfiles.
+                       + Added the possibility to limit the displayed
+                         rows to $max_rows.
+                       + Expanded the drop-confirmation to DELETE FROM.
+ v 1.1.0 - 11/03/1998: + Expanded the drop-confirmation to DROP FIELD.
+                       + You can now turn off the confirmations.
+                       + It's now possible to specify the primary key
+                         and an index when creating a table.
+                       + Made the background-image larger.
+                       + Bugfix: in tbl_properties.inc, if one primary
+                         key was found, it was displayed twice.
+                       + Bugfix: On DROP DATABASE, a wrong confirmation
+                         was displayed.
+                       + Added a "nofollow" directive for robots in
+                         header.inc.
+                       + Added more documentation (due to several
+                         requests).
+                       + Made seperate INSTALL, ChangeLog and TODO
+                         files.
+ v 1.0.1 - 10/26/1998: + Added a check when dropping a table or database.
+                       + Bugfix: when a field contained a " it wouldn't
+                         be displayed correctly in tbl_change.
+ v 0.9.0 - 09/09/1998: + First internally used version

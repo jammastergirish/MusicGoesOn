@@ -1,0 +1,18 @@
+User-agent: vscooter
+Disallow: /
+
+User-agent: *
+Disallow: /adcp/
+Disallow: /admin/
+Disallow: /article-extras/
+Disallow: /cgi-bin/
+Disallow: /images/
+Disallow: /inc/
+Disallow: /mail/
+Disallow: /menu/
+Disallow: /session_data/
+Disallow: /stats/
+Disallow: /banner.php
+Disallow: /favicon.ico
+Disallow: /redir.php
+Disallow: /search.php

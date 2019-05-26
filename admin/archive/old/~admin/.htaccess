@@ -1,0 +1,10 @@
+AuthUserFile /home/mgo/.htpasswd
+AuthGroupFile /dev/null
+AuthName "MusicGoesOn.com - Admin"
+AuthType Basic
+
+<limit GET POST>
+require user webmaster
+</limit>
+
+DirectoryIndex index.html /error403.php

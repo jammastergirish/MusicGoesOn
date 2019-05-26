@@ -1,0 +1,23 @@
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Library General Public License for more details.
+//
+// You should have received a copy of the GNU Library General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+
+PHPMailApp
+This application is going to be progressing as quickly as i can make it.  If you have any suggestions, questions, bugs to report please feel free to email me at transistor@users.sourceforge.net
+As of September 02, 2000 PHPMailApp now uses class.POP3.php3 which can be found at http://www.thewebmasters.net/php/.
+Also, Sourceforge transfered over to PHP4.  So if any oddities are found by users on sytems with PHP3 please let me know so i can fix them.
+
+Thanks and more will be coming soon, including more documentation.
+
+TC Powers
