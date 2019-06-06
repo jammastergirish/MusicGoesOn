@@ -41,7 +41,7 @@ The email address is $email. \n The visitor prefers $preference.");
 /* Insert information into table */
 $query = "INSERT INTO $userstable VALUES('$name','$email', '$preference')";
 
-$result = MYSQL_QUERY($query);
+$result = mysqli_query($link, $query);
 
 PRINT "Your information has also been inserted into our database, for future reference.";
 

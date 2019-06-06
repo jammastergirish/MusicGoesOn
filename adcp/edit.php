@@ -2,7 +2,7 @@
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 $id = ereg_replace("/", "", $PATH_INFO);
-$banner_data = mysql_fetch_array(mysql_query("SELECT * FROM banners WHERE id = '$id'"));
+$banner_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM banners WHERE id = '$id'"));
 
 $title = 'Ad Control Panel - Edit Banner - '.$banner_data[name].' ('.$id.')';
 $description = '';

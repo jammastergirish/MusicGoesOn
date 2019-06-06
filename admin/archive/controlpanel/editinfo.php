@@ -7,7 +7,7 @@ mysql_select_db (musicgoeson_com);
 
 $result_user = mysql_query ("SELECT * FROM advertising WHERE id = '$userID'");
 
-if ($row_user = mysql_fetch_array($result_user))
+if ($row_user = mysqli_fetch_array($result_user))
 {
     print "Name: <input type=\"text\" name=\"name\" value=\"$row_user[name]\" size=\"50\" maxlength=\"255\"><br><br>";
 

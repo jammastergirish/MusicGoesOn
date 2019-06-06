@@ -6,7 +6,7 @@ mysql_select_db (musicgoeson_com);
 
 $selectresult = mysql_query ("SELECT * FROM cookie WHERE USERID = '$CookieID'");
 
-$row = mysql_fetch_array($selectresult);
+$row = mysqli_fetch_array($selectresult);
 
 ?>
 

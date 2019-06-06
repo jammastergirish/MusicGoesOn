@@ -39,7 +39,7 @@ $id_ = explode("-", $id);
 $title_ = addslashes($title_);
 $tracklisting = addslashes($tracklisting);
 
-mysql_query("INSERT INTO shop_cat(id, title, artist, label, cat, release, tracklisting, price) VALUES ('$id', '$title_', '$artist', '$label', '$cat', '$release', '$tracklisting', '$price')");
+mysqli_query($link, "INSERT INTO shop_cat(id, title, artist, label, cat, release, tracklisting, price) VALUES ('$id', '$title_', '$artist', '$label', '$cat', '$release', '$tracklisting', '$price')");
 
 echo "<b>ID: </b><a href=\"addcat.php?id=$id_[0]&title_=$title_&artist=$artist&label=$label&cat=$cat&release=$release&tracklisting=$tracklisting&price=$price\">$id_[0]</a>";
 

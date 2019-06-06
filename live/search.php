@@ -21,25 +21,25 @@ if ($searchby=="date")
  $date = $date[0];
  if ($searchbydate=="on")
  {
-  $result = mysql_query("SELECT * FROM live WHERE date = '$date' ORDER BY artist DESC");
+  $result = mysqli_query($link, "SELECT * FROM live WHERE date = '$date' ORDER BY artist DESC");
  }
  else if ($searchbydate=="after")
  {
-  $result = mysql_query("SELECT * FROM live WHERE date >= '$date' ORDER BY date ASC");
+  $result = mysqli_query($link, "SELECT * FROM live WHERE date >= '$date' ORDER BY date ASC");
  }
  else if ($searchbydate=="before")
  {
-  $result = mysql_query("SELECT * FROM live WHERE date <= '$date' ORDER BY date ASC");
+  $result = mysqli_query($link, "SELECT * FROM live WHERE date <= '$date' ORDER BY date ASC");
  }
 }
 else if ($searchby=="artist")
 {
- $result = mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist%' ORDER BY date DESC"); 
+ $result = mysqli_query($link, "SELECT * FROM live WHERE artist LIKE '%$artist%' ORDER BY date DESC"); 
 }
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
- $row_location = mysql_fetch_array(mysql_query("SELECT * FROM live_venues WHERE id = '$data[venue]'"));
+ $row_location = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM live_venues WHERE id = '$data[venue]'"));
 
  $row_location[location] = strtoupper($row_location[location]);
 

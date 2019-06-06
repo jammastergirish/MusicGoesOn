@@ -18,11 +18,11 @@ include("../inc/top.inc");
 $date = explode(" ", datetime());
 $date = $date[0];
 
-$result = mysql_query("SELECT * FROM live WHERE date = '$date' ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM live WHERE date = '$date' ORDER BY artist");
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
- $row_location = mysql_fetch_array(mysql_query("SELECT * FROM live_venues WHERE id = '$data[venue]'"));
+ $row_location = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM live_venues WHERE id = '$data[venue]'"));
 
  $row_location[location] = strtoupper($row_location[location]);
 

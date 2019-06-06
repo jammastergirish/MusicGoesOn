@@ -7,7 +7,7 @@ mysql_select_db (musicgoeson_com);
 
 $result_banner = mysql_query ("SELECT * FROM banner WHERE id = '$bannerID' AND userid = '$userID'");
 
-if ($row_banner = mysql_fetch_array($result_banner))
+if ($row_banner = mysqli_fetch_array($result_banner))
 {
     print "<form action=\"http://www.musicgoeson.com/advertising/controlpanel/doeditbanner.php\" method=\"post\">";
 

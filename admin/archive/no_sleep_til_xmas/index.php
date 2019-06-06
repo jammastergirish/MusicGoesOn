@@ -131,9 +131,9 @@ include("/home/mgo/musicgoeson-www/inc/header.php");
 
 $date = gmdate("j");
 
-$query_promo = mysql_query("SELECT * FROM no_sleep_til_xmas_tracks WHERE date = '$date'");
+$query_promo = mysqli_query($link, "SELECT * FROM no_sleep_til_xmas_tracks WHERE date = '$date'");
 
-$row_promo = mysql_fetch_array($query_promo);
+$row_promo = mysqli_fetch_array($query_promo);
 
 ?>
 

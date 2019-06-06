@@ -136,11 +136,11 @@ if ($num_dbs > 1) {
         $tot_idx     = 0;
         $tot_all     = 0;
         $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
-        $result      = @mysql_query($local_query);
+        $result      = @mysqli_query($link, $local_query);
         if (@mysql_num_rows($result)) {
              // needs the "@": otherwise, warnings in case of special DB names:
              // Warning: Supplied argument is not a valid MySQL result resource in db_stats.php on line 140
-             while ($row = mysql_fetch_array($result)) {
+             while ($row = mysqli_fetch_array($result)) {
                 $tot_data += $row['Data_length'];
                 $tot_idx  += $row['Index_length'];
             } 

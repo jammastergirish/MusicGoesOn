@@ -11,7 +11,7 @@ if (empty($email))
  header("Location: https://mgo.girish-gupta.com/mail/manager/edit.php?name=$name&h_t=$h_t&error=email");
 }
 
-if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE email = '$email'")))
+if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mail WHERE email = '$email'")))
 {
  header("Location: https://mgo.girish-gupta.com/mail/manager/edit.php?name=$name&h_t=$h_t&error=email_exists");
 }
@@ -61,7 +61,7 @@ include("inc/top.inc");
 
 <?php
 
-mysql_query("UPDATE mail SET name = '$name', email = '$email', h_t = '$h_t' WHERE SID = '$SID'");
+mysqli_query($link, "UPDATE mail SET name = '$name', email = '$email', h_t = '$h_t' WHERE SID = '$SID'");
 
 ?>
 

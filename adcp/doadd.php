@@ -44,8 +44,8 @@ if (empty($url))
 }
 
 $name = addslashes($name);
-$id = mysql_num_rows((mysql_query("SELECT * FROM banners"))) + 1;
-mysql_query("INSERT INTO banners (id, advertiser, location, width, height, alt, url, keywords, name) VALUES ('$id', '$advertiser', '$location', '$width', '$height', '$alt', '$url', '$keywords', '$name')");
+$id = mysql_num_rows((mysqli_query($link, "SELECT * FROM banners"))) + 1;
+mysqli_query($link, "INSERT INTO banners (id, advertiser, location, width, height, alt, url, keywords, name) VALUES ('$id', '$advertiser', '$location', '$width', '$height', '$alt', '$url', '$keywords', '$name')");
 header("Location: https://mgo.girish-gupta.com/adcp/banner.php/$id/"); 
 
 ?>

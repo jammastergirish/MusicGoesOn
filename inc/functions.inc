@@ -9,19 +9,21 @@ function update_user($CookieID, $datetime)
   $referrer = str_replace("www.", "", $referrer);
   $referrer = str_replace("http://", "", $referrer);
  }
- mysql_query("INSERT INTO visits (datetime, CookieID, SID, referrer, uri, user_agent, remote_host, remote_addr) VALUES ('$datetime', '$CookieID', '".session_id()."', '$referrer', '".getenv(REQUEST_URI)."', '".getenv(HTTP_USER_AGENT)."', '".getenv(REMOTE_HOST)."', '".getenv(REMOTE_ADDR)."')");
+ mysqli_query($link, "INSERT INTO visits (datetime, CookieID, SID, referrer, uri, user_agent, remote_host, remote_addr) VALUES ('$datetime', '$CookieID', '".session_id()."', '$referrer', '".getenv(REQUEST_URI)."', '".getenv(HTTP_USER_AGENT)."', '".getenv(REMOTE_HOST)."', '".getenv(REMOTE_ADDR)."')");
  return $CookieID;
 }
 
 function add_user($datetime)
 {
- $tmpvar = mysql_fetch_array(mysql_query("SELECT max(CookieID) FROM visits"));
+ $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT max(CookieID) FROM visits"));
  SetCookie("CookieID", $tmpvar[0] + 1, time()+315360000, "/", ".musicgoeson.com");
  return $tmpvar[0] + 1;
 }
 
 function GetUserInfo($CookieID = 0, $function = "", $data = "")
 {
+ global $link;
+
  if ($CookieID==0)
  {
   $CookieID = getenv(CookieID);
@@ -29,7 +31,7 @@ function GetUserInfo($CookieID = 0, $function = "", $data = "")
 
  if ($function==""  && $data=="") // GetUserInfo(int $CookieID)
  {
-  return mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+  return mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
  }
  else
  {
@@ -39,94 +41,96 @@ function GetUserInfo($CookieID = 0, $function = "", $data = "")
   }
   else if ($function=="datetime" && $data=="") // GetUserInfo(int $CookieID, string "datetime")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[datetime];
   }
   else if ($function=="CookieID" && $data=="" ) // GetUserInfo(int $CookieID, string "CookieID")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[CookieID];
   }
   else if ($function=="SID" && $data=="" ) // GetUserInfo(int $CookieID, string "SID")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[SID];
   }
   else if ($function=="referrer" && $data=="" ) // GetUserInfo(int $CookieID, string "referrer")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[referrer];
   }
   else if ($function=="uri" && $data=="" ) // GetUserInfo(int $CookieID, string "uri")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[uri];
   }
   else if ($function=="user_agent" && $data=="" ) // GetUserInfo(int $CookieID, string "user_agent")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[user_agent];
   }
   else if ($function=="remote_host" && $data=="" ) // GetUserInfo(int $CookieID, string "remote_host")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[remote_host];
   }
   else if ($function=="remote_addr" && $data=="" ) // GetUserInfo(int $CookieID, string "remote_addr")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime DESC LIMIT 0,1"));
    return $tmpvar[remote_addr];
   }
   else if ($function=="FirstVisit" && $data=="") // GetUserInfo(int $CookieID, string "FirstVisit")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[datetime];
   }
   else if ($function=="OriginalReferrer" && $data=="") // GetUserInfo(int $CookieID, string "OriginalReferrer")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[referrer];
   }
   else if ($function=="OriginalURI" && $data=="") // GetUserInfo(int $CookieID, string "OriginalURI")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[uri];
   }
   else if ($function=="OriginalUserAgent" && $data=="") // GetUserInfo(int $CookieID, string "OriginalUserAgent")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[user_agent];
   }
   else if ($function=="OriginalRemoteHost" && $data=="") // GetUserInfo(int $CookieID, string "OriginalRemoteHost")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[remote_host];
   }
   else if ($function=="OriginalRemoteAddr" && $data=="") // GetUserInfo(int $CookieID, string "OriginalRemoteAddr")
   {
-   $tmpvar = mysql_fetch_array(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
+   $tmpvar = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' ORDER BY datetime ASC LIMIT 0,1"));
    return $tmpvar[remote_addr];
   }
   else if ($function=="HasVisited" && $data!="") // GetUserInfo(int $CookieID, string "HasVisited", string $data)
   {
-   if (mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID' AND uri LIKE '%$data%'"))
+   if (mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID' AND uri LIKE '%$data%'"))
    {
     return 1;
    }
   }
   else if ($function=="NumVisits" && $data=="") // GetUserInfo(int $CookieID, string "NumVisits")
   {
-   return mysql_num_rows(mysql_query("SELECT * FROM visits WHERE CookieID = '$CookieID'"));
+   return mysql_num_rows(mysqli_query($link, "SELECT * FROM visits WHERE CookieID = '$CookieID'"));
   }
   else if ($function=="NumSessions" && $data=="") // GetUserInfo(int $CookieID, string "NumSessions")
   {
-   return mysql_num_rows(mysql_query("SELECT DISTINCT(SID) FROM visits WHERE CookieID = '$CookieID'"));
+   return mysql_num_rows(mysqli_query($link, "SELECT DISTINCT(SID) FROM visits WHERE CookieID = '$CookieID'"));
   }
  }
 }
 
 function GetStats($numof = "", $starttime = "", $endtime = "", $uri = "")
 {
+ global $link;
+
  if ($starttime=="")
  {
   $starttime = gmdate('1970-01-01 00:00:00');
@@ -138,28 +142,30 @@ function GetStats($numof = "", $starttime = "", $endtime = "", $uri = "")
 
  if ($numof=="uniques" && $uri=="") // GetStats(string "uniques", [datetime $starttime, datetime $endtime])
  {
-  return mysql_num_rows(mysql_query("SELECT DISTINCT CookieID FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime'"));
+  return mysql_num_rows(mysqli_query($link, "SELECT DISTINCT CookieID FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime'"));
  }
  if ($numof=="pageviews" && $uri=="") // GetStats(string "pageviews", [datetime $starttime, datetime $endtime])
  {
-  return mysql_num_rows(mysql_query("SELECT * FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime'"));
+  return mysql_num_rows(mysqli_query($link, "SELECT * FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime'"));
  }
 
  if ($numof=="uniques" && $uri!="") // GetStats(string "uniques", [datetime $starttime, datetime $endtime], string $uri)
  {
-  return mysql_num_rows(mysql_query("SELECT DISTINCT CookieID FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime' AND uri LIKE '%$uri%'"));
+  return mysql_num_rows(mysqli_query($link, "SELECT DISTINCT CookieID FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime' AND uri LIKE '%$uri%'"));
  }
  if ($numof=="pageviews" && $uri!="") // GetStats(string "pageviews", [datetime $starttime, datetime $endtime], string $uri)
  {
-  return mysql_num_rows(mysql_query("SELECT * FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime' AND uri LIKE '%$uri%'"));
+  return mysql_num_rows(mysqli_query($link, "SELECT * FROM visits WHERE datetime >= '$starttime' AND datetime < '$endtime' AND uri LIKE '%$uri%'"));
  }
 }
 
 function banner($width = 468, $height = 60, $banner_keywords = "", $banner = 0)
 {
+ global $link;
+
  if ($banner!=0)
  {
-  $banner_details = mysql_fetch_array(mysql_query("SELECT * FROM banners WHERE id = '$banner'"));
+  $banner_details = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM banners WHERE id = '$banner'"));
   $bannershow = 1;
  } 
  else 
@@ -176,18 +182,18 @@ function banner($width = 468, $height = 60, $banner_keywords = "", $banner = 0)
 
    if ($banner_keywords=="")
    {
-    $banner_details = mysql_fetch_array(mysql_query("SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' ORDER BY rand_col"));
+    $banner_details = mysqli_fetch_array(mysqli_query($link, "SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' ORDER BY rand_col"));
     $bannershow = 1;
 
    }
    else
    {
-    $banner_row = mysql_query("SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' AND keywords LIKE '%$banner_keywords%' ORDER BY rand_col");
-    $banner_details = mysql_fetch_array($banner_row);
+    $banner_row = mysqli_query($link, "SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' AND keywords LIKE '%$banner_keywords%' ORDER BY rand_col");
+    $banner_details = mysqli_fetch_array($banner_row);
 
     if (mysql_num_rows($banner_row)==0)
     {
-     $banner_details = mysql_fetch_array(mysql_query("SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' ORDER BY rand_col"));
+     $banner_details = mysqli_fetch_array(mysqli_query($link, "SELECT *, id*0+rand() as rand_col FROM banners WHERE width = '$width' AND height = '$height' AND deleted = '0' ORDER BY rand_col"));
     }
     $bannershow = 1;
    }
@@ -198,12 +204,12 @@ function banner($width = 468, $height = 60, $banner_keywords = "", $banner = 0)
  {
   if (ereg("http\:\/\/", $banner_details[location]))
   {
-   mysql_query("UPDATE banners SET impressions = impressions + 1 WHERE id = '$banner_details[id]'");
+   mysqli_query($link, "UPDATE banners SET impressions = impressions + 1 WHERE id = '$banner_details[id]'");
    return "<a href=\"/banner.php?click=$banner_details[id]\" target=\"_blank\"><img src=\"$banner_details[location]\" width=\"$banner_details[width]\" height=\"$banner_details[height]\" alt=\"$banner_details[alt]\" border=\"0\"></a>";
   }
   else
   {
-   mysql_query("UPDATE banners SET impressions = impressions + 1 WHERE id = '$banner_details[id]'");
+   mysqli_query($link, "UPDATE banners SET impressions = impressions + 1 WHERE id = '$banner_details[id]'");
    return "<a href=\"/banner.php?click=$banner_details[id]\" target=\"_blank\"><img src=\"/images/banners/advertiser/$banner_details[id].$banner_details[location]\" width=\"$banner_details[width]\" height=\"$banner_details[height]\" alt=\"$banner_details[alt]\" border=\"0\"></a>";
   }
  }
@@ -211,9 +217,11 @@ function banner($width = 468, $height = 60, $banner_keywords = "", $banner = 0)
 
 function format($text, $linkcolor = "FFFFFF")
 {
- $query = mysql_query("SELECT * FROM artists");
+ global $link;
 
- while ($artist = mysql_fetch_array($query))
+ $query = mysqli_query($link, "SELECT * FROM artists");
+
+ while ($artist = mysqli_fetch_array($query))
  {
   $text = str_replace("[\"".$artist[artist]."\"]", "<a href=\"/artists/artist.php?id=".$artist[id]."\"><b>$artist[artist]</b></a>", $text);
  }
@@ -300,13 +308,13 @@ function timestamp_to_text($timestamp)
 function delete_from_visits()
 {
  $delete = "DELETE FROM visits WHERE ";
- mysql_query($delete." remote_host = 'musicgoeson.com'");
- mysql_query($delete." user_agent LIKE '%cosmos/%(robot@xyleme.com)%' AND remote_host LIKE '%xyleme.com%'");
- mysql_query($delete." user_agent LIKE '%Scooter%' AND remote_host LIKE '%sv.av.com%'");
- mysql_query($delete." remote_host LIKE '%crawl%.googlebot.com%'");
- mysql_query($delete." user_agent LIKE '%almaden.ibm.com/cs/crawler%'");
- mysql_query($delete." user_agent LIKE '%FAST-WebCrawler%'");
- mysql_query($delete." user_agent LIKE '%libwww-perl%'");
+ mysqli_query($link, $delete." remote_host = 'musicgoeson.com'");
+ mysqli_query($link, $delete." user_agent LIKE '%cosmos/%(robot@xyleme.com)%' AND remote_host LIKE '%xyleme.com%'");
+ mysqli_query($link, $delete." user_agent LIKE '%Scooter%' AND remote_host LIKE '%sv.av.com%'");
+ mysqli_query($link, $delete." remote_host LIKE '%crawl%.googlebot.com%'");
+ mysqli_query($link, $delete." user_agent LIKE '%almaden.ibm.com/cs/crawler%'");
+ mysqli_query($link, $delete." user_agent LIKE '%FAST-WebCrawler%'");
+ mysqli_query($link, $delete." user_agent LIKE '%libwww-perl%'");
 }
 
 function admin($aSID, $SID)
@@ -316,40 +324,40 @@ function admin($aSID, $SID)
 
  $aSID_split = explode("--", $aSID);
 
- if ($row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE aSID = '$aSID'")))
+ if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM users WHERE aSID = '$aSID'")))
  {
  }
  else
  {
    session_unregister("aSID");
-   mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
+   mysqli_query($link, "UPDATE users SET aSID = '' WHERE user = '$user'");
    header("Location: https://mgo.girish-gupta.com/admin/index.php?error=1");
  }
 
  if ($aSID_split[0]!=$date)
  {
   session_unregister("aSID");
-  mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
+  mysqli_query($link, "UPDATE users SET aSID = '' WHERE user = '$user'");
   header("Location: https://mgo.girish-gupta.com/admin/index.php?error=2");
  } 
 
  if ($aSID_split[1]!=$hour)
  {
   session_unregister("aSID");
-  mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
+  mysqli_query($link, "UPDATE users SET aSID = '' WHERE user = '$user'");
   header("Location: https://mgo.girish-gupta.com/admin/index.php?error=3");
  }   
 
  if ($aSID_split[2]!=$SID)
  {
   session_unregister("aSID");
-  mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
+  mysqli_query($link, "UPDATE users SET aSID = '' WHERE user = '$user'");
   header("Location: https://mgo.girish-gupta.com/admin/index.php?error=4&asid=$aSID_split[2]&sid=$SID");
  }  
 
 
 
- if ($row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE aSID = '$aSID'")))
+ if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM users WHERE aSID = '$aSID'")))
  {
   if (empty($section))
   {
@@ -374,7 +382,7 @@ function adcp()
  {
   if ($REQUEST_URI!="/adcp/")
   {
-   if ($advertiser_row = mysql_fetch_array(mysql_query("SELECT * FROM advertisers WHERE SID = '$SID'")))
+   if ($advertiser_row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM advertisers WHERE SID = '$SID'")))
    {
     
    }
@@ -390,17 +398,17 @@ function adcp()
 function live($datetime)
 {
  $date = explode(" ", $datetime);
- mysql_query("DELETE FROM live WHERE date < '$date[0]'");
+ mysqli_query($link, "DELETE FROM live WHERE date < '$date[0]'");
 }
 
 function forum_users()
 {
- //mysql_query("DELETE FROM forum_users WHERE viewed = '' AND username LIKE 'Guest%' AND ");
+ //mysqli_query($link, "DELETE FROM forum_users WHERE viewed = '' AND username LIKE 'Guest%' AND ");
 }
 
 function icon($id)
 {
- $article = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE id = '$id'"));
+ $article = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE id = '$id'"));
 
  if (ereg(".jpg", $article[icon]))
  {
@@ -461,8 +469,10 @@ return "<a class=\"link_onf7f7f7\" href=\"$link\" target=\"_blank\">$linktext</a
 
 function TopXArtists($x = 10)
 {
+ global $link;
+
  $var = "<table width=\"100%\"><tr><td bgcolor=\"#006699\" align=\"center\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\"><b>TOP $x ARTISTS</b></font></td></tr><tr><td bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\">";
- $results = mysql_query("SELECT * FROM artists ORDER BY uniques DESC LIMIT 0,$x"); while ($row = mysql_fetch_array($results)) { $var .= "<a class=\"link_onf7f7f7\" href=\"/artists/artist.php?id=$row[id]\">$row[artist]</a><br>\n"; }
+ $results = mysqli_query($link, "SELECT * FROM artists ORDER BY uniques DESC LIMIT 0,$x"); while ($row = mysqli_fetch_array($results)) { $var .= "<a class=\"link_onf7f7f7\" href=\"/artists/artist.php?id=$row[id]\">$row[artist]</a><br>\n"; }
  $var .= "</font></td></tr></table>";
  return $var;
 }

@@ -23,7 +23,7 @@ include("inc/top.inc");
 
 <?php
 
-mysql_query("UPDATE mail SET pass = password('$pass') WHERE SID = '$SID'");
+mysqli_query($link, "UPDATE mail SET pass = password('$pass') WHERE SID = '$SID'");
 
 ?>
 

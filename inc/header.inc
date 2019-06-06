@@ -1,8 +1,4 @@
-<?php include_once("inc/php_header.inc");  ?>
-
-<?php
-//error_reporting(E_ALL);
-?>
+<?php include_once($_SERVER["DOCUMENT_ROOT"]."/inc/php_header.inc");  ?>
 <!-- START: /inc/header.inc -->
 <!DOCTYPE html>
 <html>
@@ -120,10 +116,10 @@ function OpenWindow(url, width, height)
 </table>
 */ ?>
 <br>
-<table border="1" cellpadding="4" cellspacing="0" style="table-layout:fixed" width=700 align=center>
+<table border="0" cellpadding="4" cellspacing="0" style="table-layout:fixed" width=700 align=center>
 <tr>
-<td bgcolor="#98FF98" width="100" valign="top" align="center">
-<font face=verdana size=1><p align=justify>I built and ran this website in 2000/2001. It became one of around twenty listed on MTV's now defunct MusicNewswire, alongside Billboard, VH1 and others. The most exciting part of it &mdash; for a music-obsessed 13/14-year-old &mdash; was receiving scores of promotional CDs to review from record companies. The entire project was written in PHP linking to a mySQL database, with HTML, CSS and JavaScript for the frontend.<br><p align=right><i><a href="mailto:girish@girish-gupta.com"><font color=black>Girish Gupta</font></a></i></p></p></font>
+<td bgcolor="lightgrey" width="100" valign="top" align="center">
+<font face=verdana size=1><p align=justify>I built and ran this website between 2000 and 2001. It was listed by MTV's now defunct MusicNewswire, alongside Billboard, VH1 and others, as one of the then nascent web's top twenty sources. The most exciting part of it &mdash; for a 13/14-year-old excited by new music &mdash; was receiving scores of promotional CDs to review from record companies. The entire project was written in PHP linking to a MySQL database, with HTML, CSS and JavaScript for the frontend; the code, which I am still proud of, is <a href="https://github.com/jammastergirish/MusicGoesOn">here</a>.<br><p align=right><i><a href="https://www.girish-gupta.com"><font color=black>Girish Gupta</font></a></i></p></p></font>
 </td>
 </tr>
 </table>
@@ -140,12 +136,12 @@ function OpenWindow(url, width, height)
 srand((double)microtime()*1000000); 
 if (rand(0,2)==0)
 {
- $banner = mysql_fetch_array(mysql_query("SELECT * FROM ads WHERE network = 'ad.com' AND width = '468' AND height = '60' LIMIT 0,1"));
+ $banner = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM ads WHERE network = 'ad.com' AND width = '468' AND height = '60' LIMIT 0,1"));
  echo $banner['html'];
 }
 else
 {
- $banner = mysql_fetch_array(mysql_query("SELECT * FROM ads WHERE network = 'vc' AND width = '468' AND height = '60' LIMIT 0,1"));
+ $banner = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM ads WHERE network = 'vc' AND width = '468' AND height = '60' LIMIT 0,1"));
  echo $banner['html'];
 }
 */
@@ -171,7 +167,7 @@ if ($menu=="home")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/\" onMouseOver=\"Home.src='/images/menu/home_.gif';\" onMouseOut=\"Home.src='/images/menu/home.gif';\"><img src=\"/images/menu/home.gif\" width=\"100\" height=\"20\" alt=\"Home\" border=\"0\" name=\"Home\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/\" onMouseOver=\"Home.src='images/menu/home_.gif';\" onMouseOut=\"Home.src='images/menu/home.gif';\"><img src=\"/images/menu/home.gif\" width=\"100\" height=\"20\" alt=\"Home\" border=\"0\" name=\"Home\"></a><br>\n";
 }
 
 if ($menu=="news")
@@ -182,7 +178,7 @@ if ($menu=="news")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/news/\" onMouseOver=\"News.src='/images/menu/news_.gif';\" onMouseOut=\"News.src='/images/menu/news.gif';\"><img src=\"/images/menu/news.gif\" width=\"100\" height=\"20\" alt=\"News\" border=\"0\" name=\"News\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/news/\" onMouseOver=\"News.src='images/menu/news_.gif';\" onMouseOut=\"News.src='images/menu/news.gif';\"><img src=\"/images/menu/news.gif\" width=\"100\" height=\"20\" alt=\"News\" border=\"0\" name=\"News\"></a><br>\n";
 }
 
 if ($menu=="reviews")
@@ -194,7 +190,7 @@ if ($menu=="reviews")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/reviews/\" onMouseOver=\"Reviews.src='/images/menu/reviews_.gif';\" onMouseOut=\"Reviews.src='/images/menu/reviews.gif';\"><img src=\"/images/menu/reviews.gif\" width=\"100\" height=\"20\" alt=\"Reviews\" border=\"0\" name=\"Reviews\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/reviews/\" onMouseOver=\"Reviews.src='images/menu/reviews_.gif';\" onMouseOut=\"Reviews.src='images/menu/reviews.gif';\"><img src=\"/images/menu/reviews.gif\" width=\"100\" height=\"20\" alt=\"Reviews\" border=\"0\" name=\"Reviews\"></a><br>\n";
 }
 
 if ($menu=="artists")
@@ -204,11 +200,11 @@ if ($menu=="artists")
  if ($s_menu=="artist")
  {
   echo "<br>\n";
-  $data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$artist[id]'"));
+  $data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$artist[id]'"));
   echo "<a class=\"link_on006699\" href=\"/artists/artist.php?id=$data[id]\" title=\"$data[artist]\"><b>$data[artist]</b></a><img src=\"/images/pixel.gif\" width=\"10\"><br>\n";
 
-  $artists_query = mysql_query("SELECT * FROM mgo WHERE section = 'Artists/Biographies' AND artists_id = '$data[id]' ORDER BY id DESC LIMIT 0,1");
-  if ($row = mysql_fetch_array($artists_query))
+  $artists_query = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Artists/Biographies' AND artists_id = '$data[id]' ORDER BY id DESC LIMIT 0,1");
+  if ($row = mysqli_fetch_array($artists_query))
   {
    echo "<a class=\"link_on006699\" href=\"/article.php?id=$row[id]\" title=\"$data[artist] Biography\">Biography</a><img src=\"/images/pixel.gif\" width=\"10\"><br>\n";
   }
@@ -224,13 +220,13 @@ if ($menu=="artists")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/artists/az.php\" onMouseOver=\"Artists.src='/images/menu/artists_.gif';\" onMouseOut=\"Artists.src='/images/menu/artists.gif';\"><img src=\"/images/menu/artists.gif\" width=\"100\" height=\"20\" alt=\"Artists\" border=\"0\" name=\"Artists\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/artists/az.php\" onMouseOver=\"Artists.src='images/menu/artists_.gif';\" onMouseOut=\"Artists.src='images/menu/artists.gif';\"><img src=\"/images/menu/artists.gif\" width=\"100\" height=\"20\" alt=\"Artists\" border=\"0\" name=\"Artists\"></a><br>\n";
 }
 
 if ($menu=="forums")
 {
  echo "<a class=\"link_on006699\" href=\"/forums/\"><img src=\"/images/menu/forums+.gif\" width=\"100\" height=\"20\" alt=\"Forums\" border=\"0\"></a><br>\n";
- if ($forums_row = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE SID = '$SID'")))
+ if ($forums_row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_users WHERE SID = '$SID'")))
  {
   if ($s_menu=="forum")
   {
@@ -255,7 +251,7 @@ if ($menu=="forums")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/forums/forum.php?id=general\" onMouseOver=\"Forums.src='/images/menu/forums_.gif';\" onMouseOut=\"Forums.src='/images/menu/forums.gif';\"><img src=\"/images/menu/forums.gif\" width=\"100\" height=\"20\" alt=\"Forums\" border=\"0\" name=\"Forums\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/forums/forum.php?id=general\" onMouseOver=\"Forums.src='images/menu/forums_.gif';\" onMouseOut=\"Forums.src='images/menu/forums.gif';\"><img src=\"/images/menu/forums.gif\" width=\"100\" height=\"20\" alt=\"Forums\" border=\"0\" name=\"Forums\"></a><br>\n";
 }
 
 if ($menu=="live")
@@ -264,7 +260,7 @@ if ($menu=="live")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/live/\" onMouseOver=\"Live.src='/images/menu/live_.gif';\" onMouseOut=\"Live.src='/images/menu/live.gif';\"><img src=\"/images/menu/live.gif\" width=\"100\" height=\"20\" alt=\"Live\" border=\"0\" name=\"Live\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/live/\" onMouseOver=\"Live.src='images/menu/live_.gif';\" onMouseOut=\"Live.src='images/menu/live.gif';\"><img src=\"/images/menu/live.gif\" width=\"100\" height=\"20\" alt=\"Live\" border=\"0\" name=\"Live\"></a><br>\n";
 }
 
 if ($menu=="au_vi")
@@ -273,7 +269,7 @@ if ($menu=="au_vi")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/au_vi/\" onMouseOver=\"AudioVideo.src='/images/menu/au_vi_.gif';\" onMouseOut=\"AudioVideo.src='/images/menu/au_vi.gif';\"><img src=\"/images/menu/au_vi.gif\" width=\"100\" height=\"20\" alt=\"AudioVideo\" border=\"0\" name=\"AudioVideo\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/au_vi/\" onMouseOver=\"AudioVideo.src='images/menu/au_vi_.gif';\" onMouseOut=\"AudioVideo.src='images/menu/au_vi.gif';\"><img src=\"/images/menu/au_vi.gif\" width=\"100\" height=\"20\" alt=\"AudioVideo\" border=\"0\" name=\"AudioVideo\"></a><br>\n";
 }
 
 if ($menu=="interviews")
@@ -282,7 +278,7 @@ if ($menu=="interviews")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/interviews/\" onMouseOver=\"Interviews.src='/images/menu/interviews_.gif';\" onMouseOut=\"Interviews.src='/images/menu/interviews.gif';\"><img src=\"/images/menu/interviews.gif\" width=\"100\" height=\"20\" alt=\"Interviews\" border=\"0\" name=\"Interviews\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/interviews/\" onMouseOver=\"Interviews.src='images/menu/interviews_.gif';\" onMouseOut=\"Interviews.src='images/menu/interviews.gif';\"><img src=\"/images/menu/interviews.gif\" width=\"100\" height=\"20\" alt=\"Interviews\" border=\"0\" name=\"Interviews\"></a><br>\n";
 }
 
 if ($menu=="admin")
@@ -303,7 +299,7 @@ if ($menu=="admin")
 if ($menu=="adcp")
 {
  echo "<a class=\"link_on006699\" href=\"/adcp/\"><img src=\"/images/menu/adcp+.gif\" width=\"100\" height=\"20\" alt=\"adcp\" border=\"0\"></a><br>\n";
- if ($adcp_row = mysql_fetch_array(mysql_query("SELECT * FROM advertisers WHERE SID = '$SID'")))
+ if ($adcp_row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM advertisers WHERE SID = '$SID'")))
  {
   echo "<a class=\"link_on006699\" href=\"/adcp/main.php\" title=\"Your Banners\">Your Banners</a><img src=\"/images/pixel.gif\" width=\"10\"><br>\n";
   echo "<a class=\"link_on006699\" href=\"/adcp/add.php\" title=\"Add Banner\">Add Banner</a><img src=\"/images/pixel.gif\" width=\"10\"><br>\n";

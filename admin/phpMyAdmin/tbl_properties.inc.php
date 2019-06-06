@@ -52,7 +52,7 @@ if (!$is_backup) {
 <?phpphp
 for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($result)) {
-        $row = mysql_fetch_array($result);
+        $row = mysqli_fetch_array($result);
     }
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     ?>
@@ -275,9 +275,9 @@ if ($action == 'tbl_create.php' && MYSQL_INT_VERSION >= 32300) {
     if ($action == 'tbl_create.php') {
         // find mysql capability - staybyte - 11. June 2001
         $query = 'SHOW VARIABLES LIKE \'have_%\'';
-        $result = mysql_query($query);
+        $result = mysqli_query($link, $query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($tmp = mysql_fetch_array($result)) {
+            while ($tmp = mysqli_fetch_array($result)) {
                 if (isset($tmp['Variable_name'])) {
                     switch ($tmp['Variable_name']) {
                         case 'have_bdb':

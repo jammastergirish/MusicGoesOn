@@ -7,7 +7,7 @@ mysql_select_db (musicgoeson_com);
 
 $result_banner = mysql_query ("SELECT * FROM banner WHERE id = '$bannerID' AND userid = '$userID'");
 
-if ($row_banner = mysql_fetch_array($result_banner))
+if ($row_banner = mysqli_fetch_array($result_banner))
 {
     print "<b>$row_banner[name]</b><br><br>";
     print "<a href=\"$row_banner[link_url]\" target=\"_blank\"><img src=\"$row_banner[image_url]\" width=\"$row_banner[width]\" height=\"$row_banner[height]\" alt=\"$row_banner[alt]\" border=\"0\"></a><br><br>";

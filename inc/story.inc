@@ -3,7 +3,7 @@
 
 echo "<table width=\"100%\" border=\"0\"><tr><td><font face=\"verdana\" size=\"1\" color=\"#000000\">";
 
-$article = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE id = '$id'"));
+$article = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE id = '$id'"));
 
 if ($showicon==0)
 {

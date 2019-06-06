@@ -20,14 +20,14 @@ $just = ereg_replace("/", "", $PATH_INFO);
 
 if (empty($just))
 {
- $result = mysql_query("SELECT * FROM mgo WHERE datetime <= '".datetime()."' ORDER BY datetime DESC");
+ $result = mysqli_query($link, "SELECT * FROM mgo WHERE datetime <= '".datetime()."' ORDER BY datetime DESC");
 }
 else
 {
- $result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%$just%' AND datetime <= '".datetime()."' ORDER BY datetime DESC");
+ $result = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE '%$just%' AND datetime <= '".datetime()."' ORDER BY datetime DESC");
 }
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  echo "<a href=\"http://www.musicgoeson.com/article.php/$data[id]/\">$data[headline]</a><br><font size=\"1\">".datetime_to_text($data[datetime])."</font><br><br>\n";
 }
@@ -45,9 +45,9 @@ if (empty($just))
 
 if ($just=="Artists")
 {
- $result = mysql_query("SELECT * FROM artists ORDER BY artist");
+ $result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
- while ($data = mysql_fetch_array($result))
+ while ($data = mysqli_fetch_array($result))
  {
   echo "<a href=\"http://www.musicgoeson.com/artists/artist.php/$data[id]/\">$data[artist]</a><br>\n";
  }

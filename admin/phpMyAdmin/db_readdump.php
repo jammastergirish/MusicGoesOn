@@ -76,7 +76,7 @@ if (!$cfgAllowUserDropDatabase
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @mysql_query('USE mysql');
+    $result = @mysqli_query($link, 'USE mysql');
     if (mysql_error()) {
         include('./header.inc.php');
         mysql_die($strNoDropDatabases);
@@ -115,7 +115,7 @@ if ($sql_query != '') {
         for ($i = 0; $i < $pieces_count; $i++) {
             $a_sql_query = trim($pieces[$i]);
             if (!empty($a_sql_query) && $a_sql_query[0] != '#') {
-                $result = mysql_query($a_sql_query);
+                $result = mysqli_query($link, $a_sql_query);
                 if ($result == FALSE) { // readdump failed
                     $my_die = $a_sql_query;
                     break;

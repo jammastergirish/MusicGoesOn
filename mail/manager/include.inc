@@ -1,5 +1,5 @@
 <?php
 
-$row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE SID = '$SID'"))
+$row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mail WHERE SID = '$SID'"))
 
 ?>

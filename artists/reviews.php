@@ -5,7 +5,7 @@ $id = ereg_replace("/", "", $PATH_INFO);
 
 $id = addslashes($id);
 
-$artist = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$id'"));
+$artist = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$id'"));
 
 $title = 'Artists - '.$artist[artist].' - Reviews';
 $description = '';
@@ -26,14 +26,14 @@ $showicon = 'false';
 
 $section = 'Reviews';
 
-$query = mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC");
+$query = mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC");
 if (mysql_num_rows($query)!="0")
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>".strtoupper($section)."</u></b><br><br>";
- while ($data = mysql_fetch_array($query))
+ while ($data = mysqli_fetch_array($query))
  {
-  $id = $data[id];
+  $id = $data['id'];
   include("inc/story.inc");
  }
 }

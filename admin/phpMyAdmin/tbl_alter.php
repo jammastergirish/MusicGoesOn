@@ -61,7 +61,7 @@ if (isset($submit)) {
 
    // Optimization fix - 2 May 2001 - Robbat2
    $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
-   $result    = mysql_query($sql_query) or mysql_die();
+   $result    = mysqli_query($link, $sql_query) or mysql_die();
    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
    include('./tbl_properties.php');
    exit();
@@ -78,7 +78,7 @@ else {
         $field = sql_addslashes($field, TRUE);
     }
     $local_query = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
     $num_fields  = mysql_num_rows($result);
     $action      = 'tbl_alter.php';
     include('./tbl_properties.inc.php');

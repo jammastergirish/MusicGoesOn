@@ -7,13 +7,13 @@ $password = strtolower($password);
 $date = gmdate("jmY");
 $hour = gmdate("G");
 
-if ($row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE user = '$user' AND password = password('$password')")))
+if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM users WHERE user = '$user' AND password = password('$password')")))
 {
  $aSID = $date.'--'.$hour.'--'.$SID;
  session_unregister("aSID");
- mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
+ mysqli_query($link, "UPDATE users SET aSID = '' WHERE user = '$user'");
  session_register("aSID");
- mysql_query("UPDATE users SET aSID = '$aSID' WHERE user = '$user'");
+ mysqli_query($link, "UPDATE users SET aSID = '$aSID' WHERE user = '$user'");
  header("Location: https://mgo.girish-gupta.com/admin/admin.php");
 }
 else

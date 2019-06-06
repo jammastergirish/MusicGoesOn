@@ -15,8 +15,8 @@ include("../inc/top.inc");
 
 $showicon = 'true';
 
-$result_auvi = mysql_query("SELECT * FROM mgo WHERE section = 'Au_Vi' AND datetime < '".datetime()."' ORDER BY id DESC LIMIT 0,3");
-while ($data_auvi = mysql_fetch_array($result_auvi))
+$result_auvi = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Au_Vi' AND datetime < '".datetime()."' ORDER BY id DESC LIMIT 0,3");
+while ($data_auvi = mysqli_fetch_array($result_auvi))
 {
  $id = $data_auvi[id];
  include("../inc/story.inc");
@@ -24,8 +24,8 @@ while ($data_auvi = mysql_fetch_array($result_auvi))
 
 $showicon = 'false';
 
-$result_auvi = mysql_query("SELECT * FROM mgo WHERE section = 'Au_Vi' AND datetime < '".datetime()."' ORDER BY id DESC LIMIT 3,10000");
-while ($data_auvi = mysql_fetch_array($result_auvi))
+$result_auvi = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Au_Vi' AND datetime < '".datetime()."' ORDER BY id DESC LIMIT 3,10000");
+while ($data_auvi = mysqli_fetch_array($result_auvi))
 {
  $id = $data_auvi[id];
  include("../inc/story.inc");

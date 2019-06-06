@@ -10,7 +10,7 @@ $number = 0;
 
 if ($all=="1")
 {
- $result = mysql_query("SELECT * FROM mail");
+ $result = mysqli_query($link, "SELECT * FROM mail");
 }
 else
 {
@@ -22,30 +22,30 @@ else
  {
   if (empty($to2))
   {
-   $result = mysql_query("SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
+   $result = mysqli_query($link, "SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
   }
   else
   {
    if (empty($to3))
    {
-    $result = mysql_query("SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
+    $result = mysqli_query($link, "SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
    }
    else
    {
     if (empty($to4))
     {
-     $result = mysql_query("SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|$to3%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
+     $result = mysqli_query($link, "SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|$to3%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
     }
     else
     {
-     $result = mysql_query("SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|$to3%' OR lists LIKE '%|$to4%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
+     $result = mysqli_query($link, "SELECT * FROM mail WHERE lists LIKE '%|$to1%' OR lists LIKE '%|$to2%' OR lists LIKE '%|$to3%' OR lists LIKE '%|$to4%' OR lists LIKE '%|ALL%' OR lists = '--ALL LISTS--'");
     }
    }
   }
  }
 }
  
-while ($row_ = mysql_fetch_array($result))
+while ($row_ = mysqli_fetch_array($result))
 {
   
  if ($row_[h_t]=="h")

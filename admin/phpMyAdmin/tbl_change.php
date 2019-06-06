@@ -21,16 +21,16 @@ if (get_magic_quotes_gpc()) {
  * Get the list of the fields of the current table
  */
 mysql_select_db($db);
-$table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
+$table_def = mysqli_query($link, 'SHOW FIELDS FROM ' . backquote($table));
 if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $row         = mysql_fetch_array($result);
+    $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+    $row         = mysqli_fetch_array($result);
 }
 else
 {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' LIMIT 1';
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 }
 
 
@@ -71,7 +71,7 @@ $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
-    $row_table_def   = mysql_fetch_array($table_def);
+    $row_table_def   = mysqli_fetch_array($table_def);
     $field           = $row_table_def['Field'];
     if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
         $row[$field] = date('Y-m-d H:i:s', time());

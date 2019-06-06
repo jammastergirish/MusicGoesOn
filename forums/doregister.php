@@ -1,7 +1,7 @@
 <?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
-if (mysql_num_rows(mysql_query("SELECT * FROM forum_users WHERE username = '$username'"))==1)
+if (mysql_num_rows(mysqli_query($link, "SELECT * FROM forum_users WHERE username = '$username'"))==1)
 {
  header("Location: https://mgo.girish-gupta.com/forums/register.php?error=username&name=$name&email=$email&goto=$goto");
  exit;
@@ -44,14 +44,14 @@ if (!IsEmail($email))
 }
 
 $datetime = datetime();
-$forums_row = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE username = 'Guest$CookieID'"));
-mysql_query("UPDATE forum_users SET username = '$username', password = password('$pass1'), name = '$name', email = '$email', SID = '$SID', CookieID = '$CookieID', registered = '$datetime', last_loggedin = '$datetime' WHERE username = '$forums_row[username]'");
+$forums_row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_users WHERE username = 'Guest$CookieID'"));
+mysqli_query($link, "UPDATE forum_users SET username = '$username', password = password('$pass1'), name = '$name', email = '$email', SID = '$SID', CookieID = '$CookieID', registered = '$datetime', last_loggedin = '$datetime' WHERE username = '$forums_row[username]'");
 if ($assign==1)
 {
- $query = mysql_query("SELECT * FROM forum_posts WHERE poster = '$forums_row[username]'");
- while ($row = mysql_fetch_array($query))
+ $query = mysqli_query($link, "SELECT * FROM forum_posts WHERE poster = '$forums_row[username]'");
+ while ($row = mysqli_fetch_array($query))
  {
-  mysql_query("UPDATE forum_posts SET poster = '$username' WHERE poster = '$forums_row[username]'");
+  mysqli_query($link, "UPDATE forum_posts SET poster = '$username' WHERE poster = '$forums_row[username]'");
  }
 }
 header("Location: https://mgo.girish-gupta.com/forums/".$goto); 

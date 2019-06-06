@@ -70,7 +70,7 @@ if (isset($submit)) {
     $query = ereg_replace(', ADD $', '', $query);
 
     $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
-    $result    = mysql_query($sql_query) or mysql_die();
+    $result    = mysqli_query($link, $sql_query) or mysql_die();
 
     // Builds the primary keys statements and updates the table
     $primary = '';
@@ -82,7 +82,7 @@ if (isset($submit)) {
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
             $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')') or mysql_die();
+            $result    = mysqli_query($link, 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')') or mysql_die();
         }
     } // end if
      
@@ -96,7 +96,7 @@ if (isset($submit)) {
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
             $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')') or mysql_die();
+            $result    = mysqli_query($link, 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')') or mysql_die();
         }
     } // end if
      
@@ -110,7 +110,7 @@ if (isset($submit)) {
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {
             $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')') or mysql_die();
+            $result    = mysqli_query($link, 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')') or mysql_die();
         }
     } // end if
      

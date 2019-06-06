@@ -48,12 +48,12 @@ if (!defined('PMA_WINDOWS')) {
 // MySQL Version
 if (!defined('MYSQL_MAJOR_VERSION') && isset($link)) {
     if (!empty($server)) {
-        $result = mysql_query('SELECT VERSION() AS version');
+        $result = mysqli_query($link, 'SELECT VERSION() AS version');
         if ($result != FALSE && @mysql_num_rows($result) > 0) {
-            $row   = mysql_fetch_array($result);
+            $row   = mysqli_fetch_array($result);
             $match = explode('.', $row['version']);
         } else {
-            $result = @mysql_query('SHOW VARIABLES LIKE \'version\'');
+            $result = @mysqli_query($link, 'SHOW VARIABLES LIKE \'version\'');
             if ($result != FALSE && @mysql_num_rows($result) > 0){
                 $row   = mysql_fetch_row($result);
                 $match = explode('.', $row[1]);

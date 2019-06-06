@@ -128,7 +128,7 @@ if (isset($submit)) {
     }
 
     // Executes the query
-    $result  = mysql_query($sql_query) or mysql_die();
+    $result  = mysqli_query($link, $sql_query) or mysql_die();
     $message = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
     include('./tbl_properties.php');
     exit();

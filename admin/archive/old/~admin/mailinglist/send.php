@@ -3,9 +3,9 @@
 mysql_connect("localhost", "mgo", "h47fh20e");
 mysql_select_db(musicgoeson_com);
 
-$result = mysql_query("SELECT * FROM mailinglist");
+$result = mysqli_query($link, "SELECT * FROM mailinglist");
 
-while ($row = mysql_fetch_array($result))
+while ($row = mysqli_fetch_array($result))
 {
 
 $recipient = "";

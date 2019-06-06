@@ -42,8 +42,8 @@ echo "\n";
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
     $local_query = 'SELECT Version() as version';
-    $res_version = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
-    $row_version = mysql_fetch_array($res_version);
+    $res_version = mysqli_query($link, $local_query) or mysql_die('', $local_query, FALSE, FALSE);
+    $row_version = mysqli_fetch_array($res_version);
     echo '<p><b>MySQL ' . $row_version['version'] . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
@@ -59,7 +59,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE);
+    $result = mysqli_query($link, 'FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -170,8 +170,8 @@ if ($server > 0
 
         // Does user have global Create priv?
         $local_query  = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr       = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
-        $result_usr   = mysql_fetch_array($rs_usr);
+        $rs_usr       = mysqli_query($link, $local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+        $result_usr   = mysqli_fetch_array($rs_usr);
         $create       = ($result_usr['Create_priv'] == 'Y');
         $db_to_create = '';
 
@@ -194,8 +194,8 @@ if ($server > 0
             }
 
             $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs_usr      = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
-            while ($row = mysql_fetch_array($rs_usr)) {
+            $rs_usr      = mysqli_query($link, $local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+            while ($row = mysqli_fetch_array($rs_usr)) {
                 if (!mysql_select_db($row['Db'], $userlink)) {
                     $db_to_create = $row['Db'];
                     $create       = TRUE;
@@ -275,7 +275,7 @@ if ($server > 0
             echo "\n";
         }
 
-        $result = @mysql_query('USE mysql');
+        $result = @mysqli_query($link, 'USE mysql');
         if (!mysql_error()) {
             ?>
         <tr>
@@ -366,7 +366,7 @@ if ($server > 0
             </td>
         </tr>
         <?php
-        $result = @mysql_query('USE mysql');
+        $result = @mysqli_query($link, 'USE mysql');
         if (!mysql_error()) {
             echo "\n";
             ?>

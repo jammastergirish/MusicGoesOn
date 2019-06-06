@@ -13,12 +13,12 @@ include("../inc/top.inc");
 
 <?php
 
-$query = mysql_query("SELECT * FROM artists ORDER BY uniques DESC LIMIT 0,10");
+$query = mysqli_query($link, "SELECT * FROM artists ORDER BY uniques DESC LIMIT 0,10");
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"30%\" style=\"table-layout:fixed\" align=\"right\">\n\n";
  echo "    <tr>\n";
  echo "        <td width=\"100%\" valign=\"top\" align=\"left\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\"><b>Top Ten Artists</b></font></td>\n";
  echo "    </tr>\n";
-while ($data = mysql_fetch_array($query))
+while ($data = mysqli_fetch_array($query))
 {
  echo "    <tr>\n";
  echo "        <td width=\"100%\" valign=\"top\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\"><a href=\"/artists/artist.php/$data[id]/\"><b>$data[artist]</b></a></font></td>\n";
@@ -30,7 +30,7 @@ echo "</table>\n\n";
 
 <?php
 
-//$query = mysql_query("SELECT * FROM artists WHERE artistweek LIMIT 0,10");
+//$query = mysqli_query($link, "SELECT * FROM artists WHERE artistweek LIMIT 0,10");
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"65%\" style=\"table-layout:fixed\" align=\"left\">\n\n";
  echo "    <tr>\n";
  echo "        <td width=\"100%\" valign=\"top\" align=\"left\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\"><b>Artist of the Week</b></font></td>\n";

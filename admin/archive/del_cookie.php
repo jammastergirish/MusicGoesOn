@@ -5,7 +5,7 @@ mysql_select_db (musicgoeson_com);
 
 $query = "SELECT * FROM cookie";
 
-$result = MYSQL_QUERY($query);
+$result = mysqli_query($link, $query);
 
 $number = MYSQL_NUMROWS($result);
 

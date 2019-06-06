@@ -3,9 +3,9 @@
 mysql_connect("localhost", "mgo", "h47fh20e");
 mysql_select_db(musicgoeson_com);
 
-$result = mysql_query("SELECT * FROM mgo_index ORDER BY id ASC LIMIT 131,100");
+$result = mysqli_query($link, "SELECT * FROM mgo_index ORDER BY id ASC LIMIT 131,100");
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
 
 $metatags = get_meta_tags("http://www.musicgoeson.com".$data[uri]);

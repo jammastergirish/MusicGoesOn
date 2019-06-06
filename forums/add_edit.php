@@ -4,7 +4,7 @@ include_once("../inc/php_header.inc");
 if ($action=="reply") /* if user is replying to a post... */
 {
  $title = 'Forums - Reply To Post';
- $reply_data = mysql_fetch_array(mysql_query("SELECT * FROM forum_posts WHERE id = '$replyto'"));
+ $reply_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_posts WHERE id = '$replyto'"));
 
  $email_checked = "checked";
  $sig_checked = "checked";
@@ -19,7 +19,7 @@ else if ($action=="add") /* if user is adding a post...  */
 else if ($action=="edit") /* if user is editing a post... */
 {
  $title = 'Forums - Edit Post';
- $edit_data = mysql_fetch_array(mysql_query("SELECT * FROM forum_posts WHERE id = '$edit'"));
+ $edit_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_posts WHERE id = '$edit'"));
 
  if (preg_match("\[SIGNATURE\]", $edit_data[post]))
  {
@@ -27,10 +27,10 @@ else if ($action=="edit") /* if user is editing a post... */
   $sig_checked = "checked";
  }
 
- $CurrentForumsUser = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE SID = '$SID'"));
+ $CurrentForumsUser = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_users WHERE SID = '$SID'"));
  if ($edit_data[replyto]!=0) /* if user is editing a reply... */
  {
-  $editreply_data = mysql_fetch_array(mysql_query("SELECT * FROM forum_posts WHERE id = '$edit_data[replyto]'"));
+  $editreply_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_posts WHERE id = '$edit_data[replyto]'"));
 
   if (preg_match($CurrentForumsUser[username], $editreply_data[email]))
   {
@@ -85,36 +85,36 @@ else /* if error is empty, ie, no error... */
   echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">Forum:</b></font></td>\n";
   if ($action=="reply") /* if user is replying to a topic... */
   {
-   if ($forum_data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$reply_data[forum]'"))) /* if forum is an artist... */
+   if ($forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$reply_data[forum]'"))) /* if forum is an artist... */
    {
    }
    else /* if forum is not an artist... */
    { /* set forum to actual forum */
-    $forum_data = mysql_fetch_array(mysql_query("SELECT * FROM forums WHERE id = '$reply_data[forum]'"));
+    $forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forums WHERE id = '$reply_data[forum]'"));
     $forum_data[artist] = $forum_data[forum];
    }
    echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\"><a class=\"link_onf7f7f7\" href=\"/forums/forum.php/$forum_data[id]/\">$forum_data[artist]</a></font></td>\n";
   }
   else if ($action=="add") /* if user is adding a topic...*/
   {
-   if ($forum_data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$forum'"))) /* again, is it an artist's forum... */
+   if ($forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$forum'"))) /* again, is it an artist's forum... */
    {
    }
    else
    { /* if not set it to the actual forum...*/
-    $forum_data = mysql_fetch_array(mysql_query("SELECT * FROM forums WHERE id = '$forum'"));
+    $forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forums WHERE id = '$forum'"));
     $forum_data[artist] = $forum_data[forum];
    }
    echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\"><a class=\"link_onf7f7f7\" href=\"/forums/forum.php/$forum_data[id]/\">$forum_data[artist]</a></font></td>\n";
   }
   else if ($action=="edit") /* if user is editing a post... */
   {
-   if ($forum_data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$edit_data[forum]'"))) /* as above */
+   if ($forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$edit_data[forum]'"))) /* as above */
    {
    }
    else
    { /* as above */
-    $forum_data = mysql_fetch_array(mysql_query("SELECT * FROM forums WHERE id = '$edit_data[forum]'"));
+    $forum_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forums WHERE id = '$edit_data[forum]'"));
     $forum_data[artist] = $forum_data[forum];
    }
    echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\"><a class=\"link_onf7f7f7\" href=\"/forums/forum.php/$forum_data[id]/\">$forum_data[artist]</a></font></td>\n";

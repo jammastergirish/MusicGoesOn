@@ -9,7 +9,7 @@ mysql_select_db (musicgoeson_com);
 
 $result = mysql_query ("SELECT * FROM cookie_db WHERE USERID = '$CookieID'");
 
-if ($row = mysql_fetch_array($result))
+if ($row = mysqli_fetch_array($result))
 {
 mysql_query ("DELETE FROM cookie_db WHERE USERID = '$CookieID'");
 

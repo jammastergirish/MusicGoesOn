@@ -13,7 +13,7 @@ require('./header.inc.php');
  * Executes the db creation sql query
  */
 $local_query = 'CREATE DATABASE ' . backquote($db);
-$result       = mysql_query('CREATE DATABASE ' . backquote($db)) or mysql_die('', $local_query, FALSE);
+$result       = mysqli_query($link, 'CREATE DATABASE ' . backquote($db)) or mysql_die('', $local_query, FALSE);
 
 
 /**

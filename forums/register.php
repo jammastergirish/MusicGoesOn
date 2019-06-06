@@ -3,7 +3,7 @@ $title = 'Forums - Register';
 $description = '';
 $keywords = '';
 $menu = 'forums';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
@@ -71,7 +71,7 @@ echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" sty
  echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">E-Mail Address:</b></font></td>\n";
  echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><input type=\"text\" name=\"email\" size=\"30\" value=\"$email\"></td>\n";
  echo "    </tr>\n";
- if (mysql_num_rows(mysql_query("SELECT * FROM forum_posts WHERE poster = 'Guest$CookieID'"))!=0)
+ if (mysql_num_rows(mysqli_query($link, "SELECT * FROM forum_posts WHERE poster = 'Guest$CookieID'"))!=0)
  {
   echo "    <tr>\n";
   echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">Assign Posts:</b></font></td>\n";

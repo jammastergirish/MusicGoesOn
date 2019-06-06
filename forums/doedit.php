@@ -1,5 +1,5 @@
 <?php
-include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
+include_once($_SERVER["DOCUMENT_ROOT"]."/inc/php_header.inc");
 
 if (empty($pass1))
 {
@@ -33,7 +33,7 @@ $aim = addslashes($aim);
 $yahoo_im = addslashes($yahoo_im);
 $signature = addslashes($signature);
 
-mysql_query("UPDATE forum_users SET password = password('$pass1'), name = '$name', email = '$email', CookieID = '$CookieID', icq = '$icq', msn_messenger = '$msn_messenger', aim = '$aim', yahoo_im = '$yahoo_im', signature = '$signature' WHERE SID = '$SID'");
+mysqli_query($link, "UPDATE forum_users SET password = password('$pass1'), name = '$name', email = '$email', CookieID = '$CookieID', icq = '$icq', msn_messenger = '$msn_messenger', aim = '$aim', yahoo_im = '$yahoo_im', signature = '$signature' WHERE SID = '$SID'");
 header("Location: https://mgo.girish-gupta.com/forums/".$goto); 
 
 ?>

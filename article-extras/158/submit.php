@@ -16,7 +16,7 @@ include("inc/top.inc");
 <?php
 
 $id = md5(uniqid (rand()));
-mysql_query("INSERT INTO mailinglist (id, email, CookieID) VALUES ('$id', '$email', '$CookieID')");
+mysqli_query($link, "INSERT INTO mailinglist (id, email, CookieID) VALUES ('$id', '$email', '$CookieID')");
 
 mysql_query ("INSERT INTO limp_bizkit (name, email, age, ans, CookieID) VALUES ('$name', '$email', '$age', '$ans', '$CookieID')");
 

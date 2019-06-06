@@ -1,7 +1,7 @@
 <?php
 include_once("../inc/php_header.inc");
 
-$au_vi = mysql_fetch_array(mysql_query("SELECT * FROM au_vi WHERE id = '$id'"));
+$au_vi = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM au_vi WHERE id = '$id'"));
 ?>
 
 <html>

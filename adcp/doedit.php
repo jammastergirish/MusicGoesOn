@@ -44,7 +44,7 @@ if (empty($url))
 }
 
 $name = addslashes($name);
-mysql_query("UPDATE banners SET name = '$name', location = '$location', width = '$width', height = '$height', alt = '$alt', url = '$url', keywords = '$keywords', deleted = '$delete' WHERE id = '$id'");
+mysqli_query($link, "UPDATE banners SET name = '$name', location = '$location', width = '$width', height = '$height', alt = '$alt', url = '$url', keywords = '$keywords', deleted = '$delete' WHERE id = '$id'");
 header("Location: https://mgo.girish-gupta.com/adcp/banner.php/$id/"); 
 
 ?>

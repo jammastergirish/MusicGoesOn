@@ -16,7 +16,7 @@ include("/home/mgo/musicgoeson-www/inc/top.php");
 
 if ($u=="yes")
 {
- mysql_query("DELETE FROM mail WHERE SID = '$SID'");
+ mysqli_query($link, "DELETE FROM mail WHERE SID = '$SID'");
  echo "You have been removed from <i>Music Goes On</i>'s mailing lists.";
 }
 

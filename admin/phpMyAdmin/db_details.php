@@ -43,10 +43,10 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result = mysql_query($query);
+        $result = mysqli_query($link, $query);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($tmp = mysql_fetch_array($result)) {
+            while ($tmp = mysqli_fetch_array($result)) {
                 // if in use memorize tablename
                 if (eregi('in_use=[1-9]+', $tmp)) {
                     $sot_cache[$tmp[0]] = TRUE;
@@ -56,12 +56,12 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
 
             if (isset($sot_cache)) {
                 $query  = 'SHOW TABLES FROM ' . backquote($db);
-                $result = mysql_query($query);
+                $result = mysqli_query($link, $query);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
-                    while ($tmp = mysql_fetch_array($result)) {
+                    while ($tmp = mysqli_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
-                            $sts_result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'');
-                            $sts_tmp     = mysql_fetch_array($sts_result);
+                            $sts_result  = mysqli_query($link, 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'');
+                            $sts_tmp     = mysqli_fetch_array($sts_result);
                             $tbl_cache[] = $sts_tmp;
                         } else { // table in use
                             $tbl_cache[] = array('Name' => $tmp[0]);
@@ -74,9 +74,9 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
         }
     }
     if (!isset($sot_ready)) {
-        $result = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
+        $result = mysqli_query($link, 'SHOW TABLE STATUS FROM ' . backquote($db));
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($sts_tmp = mysql_fetch_array($result)) {
+            while ($sts_tmp = mysqli_fetch_array($result)) {
                 $tbl_cache[] = $sts_tmp;
             }
             mysql_free_result($result);
@@ -547,7 +547,7 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 // Check if the user is a Superuser
 // TODO: set a global variable with this information
 // loic1: optimized query
-$result       = @mysql_query('USE mysql');
+$result       = @mysqli_query($link, 'USE mysql');
 $is_superuser = (!mysql_error());
   
 // Display the DROP DATABASE link only if allowed to do so

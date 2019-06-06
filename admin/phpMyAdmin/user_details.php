@@ -24,7 +24,7 @@ function check_operations()
 function check_db($dbcheck)
 {
     $select = "SELECT host, user FROM mysql.user ORDER BY host, user";
-    $result = mysql_query($select);
+    $result = mysqli_query($link, $select);
     $rows = @mysql_num_rows($result);
 
     # Errors
@@ -33,7 +33,7 @@ function check_db($dbcheck)
 
     table_grants_header($dbcheck);
 
-    while ($row = mysql_fetch_array($result))
+    while ($row = mysqli_fetch_array($result))
        table_grants($row['host'], $row['user'], $dbcheck);
 
     table_grants_tail();
@@ -110,7 +110,7 @@ function normal_operations()
     <table width="100%"><tr>
     <td><?php echo $strDatabase; ?>:&nbsp;<select name="db">
 <?php
-    $result = mysql_query("SHOW DATABASES");
+    $result = mysqli_query($link, "SHOW DATABASES");
     if (@mysql_num_rows($result))
         while ($row = mysql_fetch_row($result))
             echo "<option>" . $row[0] . "</option>\n";
@@ -274,7 +274,7 @@ function grant_operations()
     <select name="database" onchange="change(userForm3.database, 'dbgrant')">
 <?php
     if (!isset($dbgrant)) echo "<option selected></option>";
-    $result = mysql_query("SHOW DATABASES");
+    $result = mysqli_query($link, "SHOW DATABASES");
     if (@mysql_num_rows($result))
         while ($row = mysql_fetch_row($result)) {
             $selected = ($row[0] == $dbgrant)? "SELECTED" : "";
@@ -293,7 +293,7 @@ function grant_operations()
 <?php
     if (isset($dbgrant)) {
         if (!isset($tablegrant)) echo "<option selected></option>";
-        $result = mysql_query("SHOW TABLES from ".backquote($dbgrant));
+        $result = mysqli_query($link, "SHOW TABLES from ".backquote($dbgrant));
         if (@mysql_num_rows($result))
            while ($row = mysql_fetch_row($result)) {
                 $selected = ($row[0] == $tablegrant)? "SELECTED" : "";
@@ -313,7 +313,7 @@ function grant_operations()
 <?php
 
     if (isset($dbgrant) && isset($tablegrant)) {
-       $result = mysql_query("SHOW COLUMNS FROM ".backquote($dbgrant)."." .
+       $result = mysqli_query($link, "SHOW COLUMNS FROM ".backquote($dbgrant)."." .
 	backquote($tablegrant));
        if (@mysql_num_rows($result))
            while ($row = mysql_fetch_row($result))
@@ -375,7 +375,7 @@ function table_grants($host, $user, $dbcheck = FALSE)
     global $strNoPrivileges;
 
     $select = "SHOW GRANTS FOR '$user'@'$host'";
-    $result = mysql_query($select);
+    $result = mysqli_query($link, $select);
     $rows = @mysql_num_rows($result);
 
     # Errors
@@ -588,14 +588,14 @@ function edit_operations($host, $user)
     global $strDeletePassword, $strUpdatePassword, $strEditPrivileges;
     global $strPassword, $strReType;
 
-    $result = mysql_query("SELECT * FROM mysql.user WHERE user = '$user' and host = '$host'");
+    $result = mysqli_query($link, "SELECT * FROM mysql.user WHERE user = '$user' and host = '$host'");
     $rows = @mysql_num_rows($result);
 
     # Errors
     if (!isset($rows)) return -1;
     if ($rows == 0) return 0;
 
-    $row = mysql_fetch_array($result);
+    $row = mysqli_fetch_array($result);
 
     #Delete Password
     $del_url  = "sql.php";
@@ -682,7 +682,7 @@ function edit_operations($host, $user)
  */
 function check_rights()
 {
-    $result = @mysql_query('USE mysql');
+    $result = @mysqli_query($link, 'USE mysql');
     if (mysql_error()) {
         mysql_die($GLOBALS['strNoRights']);
     }
@@ -710,7 +710,7 @@ function table_users($host = FALSE, $user = FALSE)
        }
     $select .= " ORDER BY host, user";
 
-    $result = mysql_query($select);
+    $result = mysqli_query($link, $select);
     $rows = @mysql_num_rows($result);
 
     # Errors
@@ -726,7 +726,7 @@ function table_users($host = FALSE, $user = FALSE)
     echo "<th>$strPrivileges</th></tr>";
 
     $i = 0;
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result)) {
 
         $bgcolor = $cfgBgcolorOne;
         $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
@@ -765,7 +765,7 @@ function table_users($host = FALSE, $user = FALSE)
         $check_url .= "?server=$server&lang=$lang";
         $check_url .= "&grants=1&host=" . urlencode($row['Host']) . "&user=" . urlencode($row['User']);
 
-#        $check_result =  mysql_query("SHOW GRANTS FOR '" . $row['User'] . "'@'" . $row['Host'] ."'");
+#        $check_result =  mysqli_query($link, "SHOW GRANTS FOR '" . $row['User'] . "'@'" . $row['Host'] ."'");
 #        if (@mysql_num_rows($check_result) == 0) $check_url = ""
         ?>
 
@@ -847,7 +847,7 @@ if (isset($confirm) && $confirm && (!isset($clickyes) || !$clickyes)) {
 
 if (($server > 0) && isset($mode) && ($mode == "reload"))
    {
-     $result = mysql_query("FLUSH PRIVILEGES");
+     $result = mysqli_query($link, "FLUSH PRIVILEGES");
      if ($result != 0) {
        echo "<b>$strMySQLReloaded</b>";
      } else {
@@ -859,11 +859,11 @@ if (($server > 0) && isset($mode) && ($mode == "reload"))
 if (isset($delete) && $delete && isset($delete_host) && isset($delete_user)) {
 
    # Delete Grants First!
-   mysql_query("DELETE FROM mysql.columns_priv WHERE host = '$delete_host' and user = '$delete_user'");
-   mysql_query("DELETE FROM mysql.db WHERE host = '$delete_host' and user = '$delete_user'");
-   mysql_query("DELETE FROM mysql.tables_priv WHERE host = '$delete_host' and user = '$delete_user'");
+   mysqli_query($link, "DELETE FROM mysql.columns_priv WHERE host = '$delete_host' and user = '$delete_user'");
+   mysqli_query($link, "DELETE FROM mysql.db WHERE host = '$delete_host' and user = '$delete_user'");
+   mysqli_query($link, "DELETE FROM mysql.tables_priv WHERE host = '$delete_host' and user = '$delete_user'");
 
-   $result = mysql_query("DELETE FROM mysql.user WHERE host = '$delete_host' and user = '$delete_user'");
+   $result = mysqli_query($link, "DELETE FROM mysql.user WHERE host = '$delete_host' and user = '$delete_user'");
    if ($result != 0) {
       echo "<b>$strDeleteUserMessage <font color=#002E80>$delete_user@$delete_host</font><br>$strRememberReload</b>";
    } else {

@@ -7,9 +7,9 @@ session_start();
 session_name("SID");
 $session_id = session_id();
 
-$result_session = mysql_query("SELECT * FROM sessions WHERE id = '$session_id'");
+$result_session = mysqli_query($link, "SELECT * FROM sessions WHERE id = '$session_id'");
 
-if ($row_session = mysql_fetch_array($result_session))
+if ($row_session = mysqli_fetch_array($result_session))
 {
  session_register("PID");
  mysql_query ("UPDATE sessions set ref = '$PID' WHERE id = '$session_id'");

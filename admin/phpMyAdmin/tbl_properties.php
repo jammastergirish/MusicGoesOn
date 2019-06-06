@@ -48,7 +48,7 @@ if (empty($db) || !$is_db) {
 }
 // Not a valid table name -> back to the db_details.php
 if (!empty($table)) {
-    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+    $is_table = @mysqli_query($link, 'SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
 }
 if (empty($table) || !@mysql_numrows($is_table)) {
     header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
@@ -78,23 +78,23 @@ if (MYSQL_INT_VERSION >= 32303) {
         }
         if (empty($prev_comment) || urldecode($prev_comment) != str_replace('&quot;', '"', $comment)) {
             $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
-            $result      = mysql_query($local_query) or mysql_die('', $local_query);
+            $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
         }
     }
     if (isset($submittype)) {
         $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
     }
     if (isset($submitorderby) && !empty($order_field)) {
         $order_field = backquote(urldecode($order_field));
         $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
     }
 
     // Get table type and comments and displays first browse links
     $local_query = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $showtable   = mysql_fetch_array($result);
+    $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+    $showtable   = mysqli_fetch_array($result);
     $tbl_type    = strtoupper($showtable['Type']);
 
     if (isset($showtable['Rows']) && $showtable['Rows'] > 0) {
@@ -143,9 +143,9 @@ if (MYSQL_INT_VERSION >= 32303) {
 
 // 2. Get table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 $primary     = '';
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
     $ret_keys[]  = $row;
     if ($row['Key_name'] == 'PRIMARY') {
         $primary .= $row['Column_name'] . ', ';
@@ -154,7 +154,7 @@ while($row = mysql_fetch_array($result)) {
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result = mysql_query($local_query) or mysql_die('', $local_query);
+$result = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 
 
 /**
@@ -187,7 +187,7 @@ echo "\n";
 $i         = 0;
 $aryFields = array();
 
-while ($row = mysql_fetch_array($result)) {
+while ($row = mysqli_fetch_array($result)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     $aryFields[]      = $row['Field'];
@@ -927,9 +927,9 @@ if (MYSQL_INT_VERSION >= 32322) {
     <?phpphp
     // modify robbat2 code - staybyte - 11. June 2001
     $query  = "SHOW VARIABLES LIKE 'have_%'";
-    $result = mysql_query($query);
+    $result = mysqli_query($link, $query);
     if ($result != FALSE && mysql_num_rows($result) > 0) {
-        while ($tmp = mysql_fetch_array($result)) {
+        while ($tmp = mysqli_fetch_array($result)) {
             if (isset($tmp['Variable_name'])) {
                 switch ($tmp['Variable_name']) {
                     case 'have_bdb':

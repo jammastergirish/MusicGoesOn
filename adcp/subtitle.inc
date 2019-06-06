@@ -1,6 +1,6 @@
 <?php
 
-if ($advertiser_row = mysql_fetch_array(mysql_query("SELECT * FROM advertisers WHERE SID = '$SID'")))
+if ($advertiser_row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM advertisers WHERE SID = '$SID'")))
 {
  $subtitle = "Logged in: <b>$advertiser_row[name]</b> [<a href=\"/adcp/dologout.php\">Logout</a>]";
 }

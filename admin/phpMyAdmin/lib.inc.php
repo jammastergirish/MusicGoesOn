@@ -337,7 +337,7 @@ if (!defined('__LIB_INC__')){
                             . 'WHERE '
                             .    'User = \'' . $PHP_AUTH_USER . '\' '
                             .    'AND Password = PASSWORD(\'' . $PHP_AUTH_PW . '\')';
-                $rs         = mysql_query($auth_query, $dbh) or mysql_die('', $auth_query, FALSE, FALSE);
+                $rs         = mysqli_query($link, $auth_query, $dbh) or mysql_die('', $auth_query, FALSE, FALSE);
 
                 // Invalid login -> relog
                 if (@mysql_numrows($rs) <= 0) {
@@ -345,7 +345,7 @@ if (!defined('__LIB_INC__')){
                 }
                 // Seems to be a valid login...
                 else {
-                    $row = mysql_fetch_array($rs);
+                    $row = mysqli_fetch_array($rs);
                     // Correction uva 19991215
                     // Previous code assumed database "mysql" admin table "db"
                     // column "db" contains literal name of user database, and
@@ -360,14 +360,14 @@ if (!defined('__LIB_INC__')){
                     // regular expressions.
                     if ($row['Select_priv'] != 'Y') {
                         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND User = \'' . $PHP_AUTH_USER . '\'';
-                        $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+                        $rs          = mysqli_query($link, $local_query) or mysql_die('', $local_query, FALSE, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
                             $local_query = 'SELECT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
-                            $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+                            $rs          = mysqli_query($link, $local_query) or mysql_die('', $local_query, FALSE, FALSE);
                             if (@mysql_numrows($rs) <= 0) {
                                 auth();
                             } else {
-                                while ($row = mysql_fetch_array($rs)) {
+                                while ($row = mysqli_fetch_array($rs)) {
                                     $dblist[] = $row['Db'];
                                 }
                             }
@@ -383,11 +383,11 @@ if (!defined('__LIB_INC__')){
                             // did. But it is now populated with actual
                             // database names instead of with regular
                             // expressions.
-                            while ($row = mysql_fetch_array($rs)) {
+                            while ($row = mysqli_fetch_array($rs)) {
                                 $uva_mydbs[$row['Db']] = 1;
                             }
                             $uva_alldbs = mysql_list_dbs();
-                            while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                            while ($uva_row = mysqli_fetch_array($uva_alldbs)) {
                                 $uva_db = $uva_row[0];
                                 if (isset($uva_mydbs[$uva_db]) && 1 == $uva_mydbs[$uva_db]) {
                                     $dblist[]           = $uva_db;
@@ -556,7 +556,7 @@ if (!defined('__LIB_INC__')){
      */
     function count_records($db, $table, $ret = FALSE)
     {
-        $result = mysql_query('select count(*) as num from ' . backquote($db) . '.' . backquote($table));
+        $result = mysqli_query($link, 'select count(*) as num from ' . backquote($db) . '.' . backquote($table));
         $num    = mysql_result($result,0,"num");
         if ($ret) {
             return $num;
@@ -944,8 +944,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
         else if (!$is_simple && !empty($table) && !empty($db)) {
             $local_query = 'SELECT COUNT(*) as total FROM ' . backquote($db) . '.' . backquote($table);
-            $result      = mysql_query($local_query) or mysql_die('', $local_query);
-            $row         = mysql_fetch_array($result);
+            $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+            $row         = mysqli_fetch_array($result);
             $total       = $row['total'];
         } // end if
 
@@ -1200,8 +1200,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     // if $cfgShowBlob is false -> get the true type of the
                     // fields.
                     $local_query     = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'';
-                    $result_type     = mysql_query($local_query) or mysql_die('', $local_query);
-                    $true_field_type = mysql_fetch_array($result_type);
+                    $result_type     = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+                    $true_field_type = mysqli_fetch_array($result_type);
                     if (eregi('BLOB', $true_field_type['Type'])) {
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
@@ -1307,13 +1307,13 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         if (MYSQL_INT_VERSION >= 32321) {
             // Whether to quote table and fields names or not
             if ($use_backquotes) {
-                mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
+                mysqli_query($link, 'SET SQL_QUOTE_SHOW_CREATE = 1');
             } else {
-                mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
+                mysqli_query($link, 'SET SQL_QUOTE_SHOW_CREATE = 0');
             }
-            $result = mysql_query('SHOW CREATE TABLE ' . backquote($db) . '.' . backquote($table));
+            $result = mysqli_query($link, 'SHOW CREATE TABLE ' . backquote($db) . '.' . backquote($table));
             if ($result != FALSE && mysql_num_rows($result) > 0) {
-                $tmpres        = mysql_fetch_array($result);
+                $tmpres        = mysqli_fetch_array($result);
                 $schema_create .= str_replace("\n", $crlf, html_format($tmpres[1]));
             }
             return $schema_create;
@@ -1323,8 +1323,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         $schema_create .= 'CREATE TABLE ' . html_format(backquote($table), $use_backquotes) . ' (' . $crlf;
 
         $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table);
-        $result        = mysql_query($local_query) or mysql_die('', $local_query);
-        while ($row = mysql_fetch_array($result)) {
+        $result        = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+        while ($row = mysqli_fetch_array($result)) {
             $schema_create     .= '   ' . html_format(backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
                 $schema_create .= ' DEFAULT \'' . html_format(sql_addslashes($row['Default'])) . '\'';
@@ -1340,8 +1340,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
         $local_query = 'SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table);
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
-        while ($row = mysql_fetch_array($result))
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+        while ($row = mysqli_fetch_array($result))
         {
             $kname    = $row['Key_name'];
             $comment  = (isset($row['Comment'])) ? $row['Comment'] : '';
@@ -1418,7 +1418,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         global $use_backquotes;
 
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
 
@@ -1524,7 +1524,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         global $use_backquotes;
 
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
         $i           = 0;
         $isFirstRow  = TRUE;
 
@@ -1699,7 +1699,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         // Gets the data from the database
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 
         // Format the data
         $i      = 0;
@@ -1883,9 +1883,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 . ' WHERE dbase = \'' . sql_addslashes($db) . '\''
                 . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\'';
         if (isset($GLOBALS['dbh'])) {
-            $result = mysql_query($query, $GLOBALS['dbh']);
+            $result = mysqli_query($link, $query, $GLOBALS['dbh']);
         } else {
-            $result = mysql_query($query);
+            $result = mysqli_query($link, $query);
         }
 
         // There is some bookmarks -> store them
@@ -1920,9 +1920,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
                         . ' AND id = ' . $id;
         if (isset($GLOBALS['dbh'])) {
-            $result = mysql_query($query, $GLOBALS['dbh']);
+            $result = mysqli_query($link, $query, $GLOBALS['dbh']);
         } else {
-            $result = mysql_query($query);
+            $result = mysqli_query($link, $query);
         }
         $bookmark_query = mysql_result($result, 0, 'query');
 
@@ -1941,9 +1941,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         $query = 'INSERT INTO ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
                . ' (id, dbase, user, query, label) VALUES (\'\', \'' . sql_addslashes($fields['dbase']) . '\', \'' . sql_addslashes($fields['user']) . '\', \'' . sql_addslashes(urldecode($fields['query'])) . '\', \'' . sql_addslashes($fields['label']) . '\')';
         if (isset($GLOBALS['dbh'])) {
-            $result = mysql_query($query, $GLOBALS['dbh']);
+            $result = mysqli_query($link, $query, $GLOBALS['dbh']);
         } else {
-            $result = mysql_query($query);
+            $result = mysqli_query($link, $query);
         }
     } // end of the 'add_bookmarks()' function
 
@@ -1961,9 +1961,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 . ' WHERE user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
                 . ' AND id = ' . $id;
         if (isset($GLOBALS['dbh'])) {
-            $result = mysql_query($query, $GLOBALS['dbh']);
+            $result = mysqli_query($link, $query, $GLOBALS['dbh']);
         } else {
-            $result = mysql_query($query);
+            $result = mysqli_query($link, $query);
         }
     } // end of the 'delete_bookmarks()' function
 

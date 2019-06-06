@@ -1,9 +1,9 @@
 <?php
-include("inc/php_header.inc");
+include("../inc/php_header.inc");
 
 //$username = ereg_replace("/", "", $PATH_INFO);
 $username = $_GET['id'];
-$user_data = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE username = '$username'"));
+$user_data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM forum_users WHERE username = '$username'"));
 
 $title = 'Forums - Profiles - '.$user_data[username];
 $description = '';
@@ -75,7 +75,7 @@ echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" sty
  }
  echo "    <tr>\n";
  echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">Number of Posts:</b></font></td>\n";
- echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\">".number_format(mysql_num_rows(mysql_query("SELECT * FROM forum_posts WHERE poster = '$user_data[username]' AND deleted = '0'")))."</font></td>\n";
+ echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\">".number_format(mysql_num_rows(mysqli_query($link, "SELECT * FROM forum_posts WHERE poster = '$user_data[username]' AND deleted = '0'")))."</font></td>\n";
  echo "    </tr>\n";
 echo "</table>\n\n";
 

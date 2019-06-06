@@ -17,13 +17,13 @@ You are now subscribed to the following lists:
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
 $var = '';
 $lists = '';
 
 echo "<ul>\n";
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  if ($$data[id]=="1")
  {
@@ -36,11 +36,11 @@ echo "</ul>\n";
 
 if ($lists==$var)
 {
- mysql_query("UPDATE mail SET lists = '--ALL LISTS--' WHERE SID = '$SID'");
+ mysqli_query($link, "UPDATE mail SET lists = '--ALL LISTS--' WHERE SID = '$SID'");
 }
 else
 {
- mysql_query("UPDATE mail SET lists = '$lists' WHERE SID = '$SID'");
+ mysqli_query($link, "UPDATE mail SET lists = '$lists' WHERE SID = '$SID'");
 }
 
 ?>

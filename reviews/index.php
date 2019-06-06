@@ -3,12 +3,12 @@ $title = 'Reviews';
 $description = '';
 $keywords = '';
 $menu = 'reviews';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Reviews';
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <hr width="20%" align="left">
@@ -18,20 +18,20 @@ include("inc/top.inc");
 
 $showicon = 1;
 
-$result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Album' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
-while ($data_reviews = mysql_fetch_array($result_reviews))
+$result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Reviews/Album' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("inc/story.inc");
+ include("../inc/story.inc");
 }
 
 $showicon = 0;
 
-$result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Album' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 3,2");
-while ($data_reviews = mysql_fetch_array($result_reviews))
+$result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Reviews/Album' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 3,2");
+while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("inc/story.inc");
+ include("../inc/story.inc");
 }
 
 ?>
@@ -48,17 +48,17 @@ while ($data_reviews = mysql_fetch_array($result_reviews))
 
 $showicon = 1;
 
-$result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Single' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
-while ($data_reviews = mysql_fetch_array($result_reviews))
+$result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Reviews/Single' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("inc/story.inc");
+ include("../inc/story.inc");
 }
 
 $showicon = 0;
 
-$result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Single' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 3,2");
-while ($data_reviews = mysql_fetch_array($result_reviews))
+$result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Reviews/Single' AND datetime <= '".datetime()."' ORDER BY datetime DESC LIMIT 3,2");
+while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
  include("../inc/story.inc");

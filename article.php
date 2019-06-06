@@ -8,11 +8,11 @@ $id = (int)$_GET['id'];
 
 if ($show!=1)
 {
- $data = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE id = '$id' AND datetime <= '".datetime()."'"));
+ $data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE id = '$id' AND datetime <= '".datetime()."'"));
 }
 else
 {
- $data = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE id = '$id'"));
+ $data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE id = '$id'"));
 }
 
 $section = explode("/", $data[section]);
@@ -43,7 +43,7 @@ include("inc/header.inc");
 
 if (strtolower($main_section)=="artists")
 {
- $data = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE id = '$id'"));
+ $data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE id = '$id'"));
 
  $data[headline] = $data[headline]." Biography";
 }

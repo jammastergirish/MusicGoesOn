@@ -17,7 +17,7 @@ $result = mysql_query ("SELECT * FROM search
                          OR description LIKE '$q%'
                        ");
 
-if ($row = mysql_fetch_array($result)) {
+if ($row = mysqli_fetch_array($result)) {
 
 do {
   print ("<font face=verdana size=2>\n");
@@ -29,7 +29,7 @@ do {
   print $row["description"];
   print ("\n");
   print ("</font><br><br>\n\n");
-} while($row = mysql_fetch_array($result));
+} while($row = mysqli_fetch_array($result));
 
 } else {print "<font face=verdana size=2>Sorry, nothing could be found!</font>";}
 

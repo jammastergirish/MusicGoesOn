@@ -25,8 +25,8 @@ mysql_select_db($db);
  */
 if (MYSQL_INT_VERSION >= 32300) {
     $local_query = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $row         = mysql_fetch_array($result);
+    $result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
+    $row         = mysqli_fetch_array($result);
     if (!empty($row['Comment'])) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $row['Comment'];
     }
@@ -38,7 +38,7 @@ if (MYSQL_INT_VERSION >= 32300) {
  */
 // Gets fields properties
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 ?>
 
 <!-- TABLE INFORMATIONS -->
@@ -54,7 +54,7 @@ $result      = mysql_query($local_query) or mysql_die('', $local_query);
 
 <?php
 $i = 0;
-while ($row = mysql_fetch_array($result)) {
+while ($row = mysqli_fetch_array($result)) {
     $bgcolor = ($i % 2) ?$cfgBgcolorOne : $cfgBgcolorTwo;
     $i++;
 
@@ -118,7 +118,7 @@ echo "\n";
  * Displays indexes
  */
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysqli_query($link, $local_query) or mysql_die('', $local_query);
 if (mysql_num_rows($result) > 0) {
     ?>
 
@@ -133,7 +133,7 @@ if (mysql_num_rows($result) > 0) {
  </tr>
     <?php
     for ($i = 0 ; $i < mysql_num_rows($result); $i++) {
-        $row = mysql_fetch_array($result);
+        $row = mysqli_fetch_array($result);
         echo "\n";
         ?>
 <tr>

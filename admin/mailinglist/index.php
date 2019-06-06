@@ -33,8 +33,8 @@ function Confirm()
 <select name="to1">
 <option></option>
 <?php
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
-while ($data = mysql_fetch_array($result))
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+while ($data = mysqli_fetch_array($result))
 {
  echo "<option value=\"$data[id]\">$data[artist]</option>";
 }
@@ -44,8 +44,8 @@ while ($data = mysql_fetch_array($result))
 <select name="to2">
 <option></option>
 <?php
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
-while ($data = mysql_fetch_array($result))
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+while ($data = mysqli_fetch_array($result))
 {
  echo "<option value=\"$data[id]\">$data[artist]</option>";
 }
@@ -55,8 +55,8 @@ while ($data = mysql_fetch_array($result))
 <select name="to3">
 <option></option>
 <?php
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
-while ($data = mysql_fetch_array($result))
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+while ($data = mysqli_fetch_array($result))
 {
  echo "<option value=\"$data[id]\">$data[artist]</option>";
 }
@@ -66,8 +66,8 @@ while ($data = mysql_fetch_array($result))
 <select name="to4">
 <option></option>
 <?php
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
-while ($data = mysql_fetch_array($result))
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+while ($data = mysqli_fetch_array($result))
 {
  echo "<option value=\"$data[id]\">$data[artist]</option>";
 }

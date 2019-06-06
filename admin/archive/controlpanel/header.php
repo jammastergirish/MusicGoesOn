@@ -5,7 +5,7 @@ mysql_select_db (musicgoeson_com);
 
 $result_login = mysql_query ("SELECT * FROM advertising WHERE id = '$userID' AND sid = '$SID'");
 
-if ($row_login = mysql_fetch_array($result_login))
+if ($row_login = mysqli_fetch_array($result_login))
 {
 }
 else
@@ -41,7 +41,7 @@ mysql_select_db (musicgoeson_com);
 
 $query = "SELECT * FROM banner WHERE userid = '$userID'";
 
-$result = MYSQL_QUERY($query);
+$result = mysqli_query($link, $query);
 
 $number = MYSQL_NUMROWS($result);
 

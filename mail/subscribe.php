@@ -11,7 +11,7 @@ if (empty($email))
  header("Location: https://mgo.girish-gupta.com/mail/index.php?name=$name&h_t=$h_t&error=email");
 }
 
-if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE email = '$email'")))
+if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mail WHERE email = '$email'")))
 {
  header("Location: https://mgo.girish-gupta.com/mail/index.php?name=$name&h_t=$h_t&error=email_exists");
 }
@@ -60,14 +60,14 @@ include("../inc/top.inc");
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
 echo "\n\n";
 echo "<SCRIPT LANGUAGE=\"JavaScript\">\n";
 echo "<!-- Begin\n";
 echo "function CheckAll()\n";
 echo "{\n";
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  echo " document.form.$data[id].checked = true;\n";
 }
@@ -86,9 +86,9 @@ Now, you need to decide which artists you would like to receive information on. 
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  echo "<input type=\"checkbox\" name=\"$data[id]\" value=\"1\" style=\"BACKGROUND-COLOR: #f7f7f7\"><a class=\"link_onf7f7f7\" href=\"/artists/artist.php/$data[id]/\">$data[artist]</a><br>\n";
 }

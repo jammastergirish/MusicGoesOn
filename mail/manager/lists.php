@@ -38,14 +38,14 @@ uncheck the box.
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
 echo "\n\n";
 echo "<SCRIPT LANGUAGE=\"JavaScript\">\n";
 echo "<!-- Begin\n";
 echo "function CheckAll()\n";
 echo " {\n";
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  echo " document.form.$data[id].checked = true;\n";
 }
@@ -59,9 +59,9 @@ echo "</script>\n\n";
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  if (ereg($data[id], $row[lists]))
  {

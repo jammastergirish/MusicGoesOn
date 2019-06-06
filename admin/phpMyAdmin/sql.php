@@ -18,7 +18,7 @@ if (!defined('PMA_CHK_DROP')
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @mysql_query('USE mysql');
+    $result = @mysqli_query($link, 'USE mysql');
     if (mysql_error()) {
         include('./header.inc.php');
         mysql_die($strNoDropDatabases);
@@ -170,7 +170,7 @@ else {
     if ($is_delete
         && eregi('^DELETE( .+)?( FROM (.+))$', $sql_query, $parts)
         && !eregi(' WHERE ', $parts[3])) {
-        $OPresult     = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
+        $OPresult     = @mysqli_query($link, 'SELECT COUNT(*) as count' .  $parts[2]);
         if ($OPresult) {
             $num_rows = mysql_result($OPresult, 0, 'count');
         } else {
@@ -179,7 +179,7 @@ else {
     }
 
     // Executes the query
-    $result   = @mysql_query($full_sql_query);
+    $result   = @mysqli_query($link, $full_sql_query);
 
     // Displays an error message if required and stop parsing the script
     if (mysql_error()) {
@@ -206,7 +206,7 @@ else {
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             $count_query       = 'SELECT COUNT(*) AS count FROM ' . $array[1];
-            $OPresult          = mysql_query($count_query);
+            $OPresult          = mysqli_query($link, $count_query);
             if ($OPresult) {
                 $SelectNumRows = mysql_result($OPresult, 0, 'count');
             }

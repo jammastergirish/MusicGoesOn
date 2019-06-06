@@ -21,7 +21,7 @@ if ($ent==1)
 {
  if ($pass1==$pass2)
  {
-  mysql_query("UPDATE users SET password = password('$pass1') WHERE aSID = '$aSID'");
+  mysqli_query($link, "UPDATE users SET password = password('$pass1') WHERE aSID = '$aSID'");
   echo "<b>Your password has been changed</b>";
  }
  else

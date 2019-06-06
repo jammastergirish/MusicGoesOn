@@ -1,7 +1,7 @@
 <?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
-if (mysql_num_rows(mysql_query("SELECT * FROM forum_users WHERE username = '$username'"))==1)
+if (mysql_num_rows(mysqli_query($link, "SELECT * FROM forum_users WHERE username = '$username'"))==1)
 {
  header("Location: https://mgo.girish-gupta.com/forums/register.php?error=username&name=$name&email=$email&goto=$goto");
  exit;
@@ -34,7 +34,7 @@ else
  exit;
 }
 
-mysql_query("INSERT INTO forum_users(username, password, name, email, SID, CookieID) VALUES ('$username', password('$pass1'), '$name', '$email', '$SID', '$CookieID')");
+mysqli_query($link, "INSERT INTO forum_users(username, password, name, email, SID, CookieID) VALUES ('$username', password('$pass1'), '$name', '$email', '$SID', '$CookieID')");
 header("Location: https://mgo.girish-gupta.com/forums/".$goto); 
 
 ?>

@@ -5,7 +5,7 @@ $id = ereg_replace("/", "", $PATH_INFO);
 
 $id = addslashes($id);
 
-$artist = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$id'"));
+$artist = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$id'"));
 
 $title = 'Artists - '.$artist[artist].' - Live';
 $description = '';
@@ -22,7 +22,7 @@ include("subtitle.inc");
 
 <?php
 
-if (mysql_num_rows(mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"))!=0)
+if (mysql_num_rows(mysqli_query($link, "SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"))!=0)
 {
 
  echo "<hr width=\"30%\" align=\"left\">";
@@ -30,11 +30,11 @@ if (mysql_num_rows(mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[a
 
  $artist[artist] = addslashes($artist[artist]);
 
- $result = mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"); 
+ $result = mysqli_query($link, "SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"); 
 
- while ($data = mysql_fetch_array($result))
+ while ($data = mysqli_fetch_array($result))
  {
-  $row_location = mysql_fetch_array(mysql_query("SELECT * FROM live_venues WHERE id = '$data[venue]'"));  
+  $row_location = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM live_venues WHERE id = '$data[venue]'"));  
 
   $row_location[location] = strtoupper($row_location[location]);
 

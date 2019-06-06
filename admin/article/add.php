@@ -25,7 +25,7 @@ if (empty($action))
  echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n\n";
   echo "    <tr>\n";
   echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">ID:</b></font></td>\n";
-  $id = mysql_num_rows(mysql_query("SELECT * FROM mgo")) + 1;
+  $id = mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo")) + 1;
   echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\">$id</font></td>\n";
   echo "    </tr>\n";
   echo "    <tr>\n";
@@ -34,7 +34,7 @@ if (empty($action))
   echo "    </tr>\n";
   echo "    <tr>\n";
   echo "        <td width=\"120\" valign=\"center\" align=\"right\" bgcolor=\"#006699\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\">Description:</b></font></td>\n";
-  $id = mysql_num_rows(mysql_query("SELECT * FROM mgo")) + 1;
+  $id = mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo")) + 1;
   echo "        <td width=\"100%\" valign=\"center\" align=\"left\" bgcolor=\"#f7f7f7\"><input type=\"text\" name=\"description__\" size=\"60\"></td>\n";
   echo "    </tr>\n";
  echo "</table>\n\n";

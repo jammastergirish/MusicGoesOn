@@ -7,7 +7,7 @@ mysql_select_db (musicgoeson_com);
 
 $selectresult_stats = mysql_query ("SELECT * FROM advertising WHERE id = '$userID'");
 
-$row_stats = mysql_fetch_array($selectresult_stats);
+$row_stats = mysqli_fetch_array($selectresult_stats);
 
 $remaining_impressions = $row_stats[total_impressions] - $row_stats[impressions];
 

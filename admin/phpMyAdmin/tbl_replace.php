@@ -192,7 +192,7 @@ else {
  */
 mysql_select_db($db);
 $sql_query = $query;
-$result    = mysql_query($query);
+$result    = mysqli_query($link, $query);
 
 if (!$result) {
     $error = mysql_error();

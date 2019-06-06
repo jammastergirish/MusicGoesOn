@@ -16,7 +16,7 @@ MYSQL_CONNECT($hostname, $username, $password) OR DIE("Unable to connect to data
 /* Select all users with the preference Apples */
 $query = "SELECT * FROM $userstable WHERE choice = 'Apples'";
 
-$result = MYSQL_QUERY($query);
+$result = mysqli_query($link, $query);
 
 /* How many of these users are there? */
 $number = MYSQL_NUMROWS($result);

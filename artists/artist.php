@@ -1,5 +1,5 @@
 <?php
-include("inc/php_header.inc");
+include("../inc/php_header.inc");
 
 //$id = ereg_replace("/", "", $PATH_INFO);
 
@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 $id = addslashes($id);
 
-$artist = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$id'"));
+$artist = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$id'"));
 
 $title = 'Artists - '.$artist[artist];
 $description = '';
@@ -24,7 +24,7 @@ include("../artists/subtitle.inc");
 
 <?php
 
-if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE section = 'Artists/Biographies' AND artists_id = '$data[id]' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,1")))
+if ($row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Artists/Biographies' AND artists_id = '$data[id]' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,1")))
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>BIOGRAPHY</u></b><br><br>";
@@ -40,18 +40,18 @@ $showicon = 'false';
 
 $section = 'News';
 
-$query = mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+$query = mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
 if (mysql_num_rows($query)!="0")
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>".strtoupper($section)."</u></b><br><br>";
- while ($data = mysql_fetch_array($query))
+ while ($data = mysqli_fetch_array($query))
  {
-  $id = $data[id];
-  include("inc/story.inc");
+  $id = $data['id'];
+  include("../inc/story.inc");
  }
 
- if (mysql_num_rows(mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
+ if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
  {
   echo "<a class=\"link_onf7f7f7\" href=\"/artists/".strtolower($section).".php/$artist[id]/\"><font size=\"1\">More <b>$artist[artist]</b> $section...</font></a>";
  }
@@ -67,18 +67,18 @@ $showicon = 'false';
 
 $section = 'Reviews';
 
-$query = mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+$query = mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
 if (mysql_num_rows($query)!="0")
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>".strtoupper($section)."</u></b><br><br>";
- while ($data = mysql_fetch_array($query))
+ while ($data = mysqli_fetch_array($query))
  {
-  $id = $data[id];
-  include("inc/story.inc");
+  $id = $data['id'];
+  include("../inc/story.inc");
  }
 
- if (mysql_num_rows(mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
+ if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
  {
   echo "<a class=\"link_onf7f7f7\" href=\"/artists/".strtolower($section).".php/$artist[id]/\"><font size=\"1\">More <b>$artist[artist]</b> $section...</font></a>";
  }
@@ -90,7 +90,7 @@ echo "<br>\n\n";
 
 <?php
 
-if (mysql_num_rows(mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"))!=0)
+if (mysql_num_rows(mysqli_query($link, "SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"))!=0)
 {
 
  echo "<hr width=\"30%\" align=\"left\">";
@@ -98,11 +98,11 @@ if (mysql_num_rows(mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[a
 
  $artist[artist] = addslashes($artist[artist]);
 
- $result = mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"); 
+ $result = mysqli_query($link, "SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"); 
 
- while ($data = mysql_fetch_array($result))
+ while ($data = mysqli_fetch_array($result))
  {
-  $row_location = mysql_fetch_array(mysql_query("SELECT * FROM live_venues WHERE id = '$data[venue]'"));  
+  $row_location = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM live_venues WHERE id = '$data[venue]'"));  
 
   $row_location[location] = strtoupper($row_location[location]);
 
@@ -124,18 +124,18 @@ $showicon = 'false';
 
 $section = 'Au_Vi';
 
-$query = mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+$query = mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
 if (mysql_num_rows($query)!="0")
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>".strtoupper($section)."</u></b><br><br>";
- while ($data = mysql_fetch_array($query))
+ while ($data = mysqli_fetch_array($query))
  {
-  $id = $data[id];
-  include("inc/story.inc");
+  $id = $data['id'];
+  include("../inc/story.inc");
  }
 
- if (mysql_num_rows(mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
+ if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
  {
   echo "<a class=\"link_onf7f7f7\" href=\"/artists/".strtolower($section).".php/$artist[id]/\"><font size=\"1\">More <b>$artist[artist]</b> $section...</font></a>";
  }
@@ -151,18 +151,18 @@ $showicon = 'false';
 
 $section = 'Interviews';
 
-$query = mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
+$query = mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,3");
 if (mysql_num_rows($query)!="0")
 {
  echo "<hr width=\"30%\" align=\"left\">";
  echo "<b><u>".strtoupper($section)."</u></b><br><br>";
- while ($data = mysql_fetch_array($query))
+ while ($data = mysqli_fetch_array($query))
  {
-  $id = $data[id];
-  include("inc/story.inc");
+  $id = $data['id'];
+  include("../inc/story.inc");
  }
 
- if (mysql_num_rows(mysql_query("SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
+ if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
  {
   echo "<a class=\"link_onf7f7f7\" href=\"/artists/".strtolower($section).".php/$artist[id]/\"><font size=\"1\">More <b>$artist[artist]</b> $section...</font></a>";
  }

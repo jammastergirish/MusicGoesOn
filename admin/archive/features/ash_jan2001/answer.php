@@ -20,7 +20,7 @@ Why not listen to and download <i>Shining Light</i> for FREE...
 
 $id = md5(uniqid (rand()));
  
-mysql_query("INSERT INTO mailinglist (id, email, CookieID) VALUES ('$id', '$email', '$CookieID')");
+mysqli_query($link, "INSERT INTO mailinglist (id, email, CookieID) VALUES ('$id', '$email', '$CookieID')");
 
 mail("webmaster@musicgoeson.com", "Answer: $answer", "Name: $name\nE-Mail: $email\nAnswer: $answer\nCookieID: $CookieID");
 

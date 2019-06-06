@@ -15,13 +15,13 @@ You have been added to the following lists: <font size="1">(More information bel
 
 <?php
 
-$result = mysql_query("SELECT * FROM artists ORDER BY artist");
+$result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
 
 $var = '';
 $lists = '';
 
 echo "<ul>\n";
-while ($data = mysql_fetch_array($result))
+while ($data = mysqli_fetch_array($result))
 {
  if ($$data[id]=="1")
  {
@@ -34,12 +34,12 @@ echo "</ul>\n";
 
 if ($lists==$var)
 {
- mysql_query("INSERT INTO mail (email, pass, name, h_t, lists, CookieID) VALUES ('$email', password('$pass'), '$name', '$h_t', '--ALL LISTS--', '$CookieID')");
+ mysqli_query($link, "INSERT INTO mail (email, pass, name, h_t, lists, CookieID) VALUES ('$email', password('$pass'), '$name', '$h_t', '--ALL LISTS--', '$CookieID')");
  $all = 1;
 }
 else
 {
- mysql_query("INSERT INTO mail (email, pass, name, h_t, lists, CookieID) VALUES ('$email', password('$pass'), '$name', '$h_t', '$lists', '$CookieID')");
+ mysqli_query($link, "INSERT INTO mail (email, pass, name, h_t, lists, CookieID) VALUES ('$email', password('$pass'), '$name', '$h_t', '$lists', '$CookieID')");
  $all = 0;
 }
 
@@ -58,8 +58,8 @@ if ($h_t=="h")
 {
  $message = "<STYLE type=\"text/css\">\n<!--\na {color:\"#CC3300\"; text-decoration:\"none\";}\na:visited {color:\"#E68164\"; text-decoration:\"none\";}\na:hover {color:\"#006699\"; text-decoration:\"underline\";}\ninput {background-color:\"#006699\"; font-family:\"verdana\"; color:\"white\"; font-size:\"11px\";}\nselect {background-color:\"#006699\"; font-family:\"verdana\"; color:\"white\"; font-size:\"11px\";}\ntextarea {background-color:\"#006699\"; font-family:\"verdana\"; color:\"white\"; font-size:\"11px\";}\n.linked_img {border: \"#000000\"; border-style: \"solid\"; border-width: \"1,4\";}\n-->\n</STYLE>\n\n<base href=\"http://www.musicgoeson.com/\">\n\n<p align=\"justify\">\n\n<font face=\"verdana\" size=\"2\">";
  $message .= "Thank you for subscribing to <i>Music Goes On</i>'s Mailing Lists.  You have been added to the following lists: <font size=\"1\">(More information below)</font>\n\n<ul>";
- $result = mysql_query("SELECT * FROM artists ORDER BY artist");
- while ($data = mysql_fetch_array($result))
+ $result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+ while ($data = mysqli_fetch_array($result))
  {
   if ($$data[id]=="1")
   {
@@ -85,8 +85,8 @@ if ($h_t=="h")
 if ($h_t=="t")
 {
  $message = "Thank you for subscribing to Music Goes On's Mailing Lists.  You have been added to the following lists: (More information below)\n\n";
- $result = mysql_query("SELECT * FROM artists ORDER BY artist");
- while ($data = mysql_fetch_array($result))
+ $result = mysqli_query($link, "SELECT * FROM artists ORDER BY artist");
+ while ($data = mysqli_fetch_array($result))
  {
   if ($$data[id]=="1")
   {

@@ -1,7 +1,7 @@
 <?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
-$row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE SID = '$SID'"));
+$row = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM mail WHERE SID = '$SID'"));
 
 $SID_ = $SID;
 

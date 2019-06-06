@@ -11,7 +11,7 @@ include("mail/manager/include.inc");
 ?>
 
 <?php
-$data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$artist' LIMIT 0,1"));
+$data = mysqli_fetch_array(mysqli_query($link, "SELECT * FROM artists WHERE id = '$artist' LIMIT 0,1"));
 
 $title = 'Mailing Lists - Manager - Add '.$data[artist].' To Your Mailing List';
 $subtitle = $row[name]." [".$row[email]."]";
@@ -20,7 +20,7 @@ include("inc/top.inc");
 
 <?php
 
-mysql_query("UPDATE mail SET lists = '$row[lists]|$data[id]' WHERE SID = '$SID'");
+mysqli_query($link, "UPDATE mail SET lists = '$row[lists]|$data[id]' WHERE SID = '$SID'");
 
 ?>
 
