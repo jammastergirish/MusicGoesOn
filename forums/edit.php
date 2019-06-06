@@ -3,13 +3,13 @@ $title = 'Forums - Edit Profile';
 $description = '';
 $keywords = '';
 $menu = 'forums';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Forums - Edit Profile';
 include("forums/subtitle.inc");
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <?php
@@ -32,7 +32,7 @@ if ($error=="emptypass")
 
 if ($error=="pass")
 {
- wcho "<font color=\"red\">Your passwords do not match.</font><br><br>";
+ echo "<font color=\"red\">Your passwords do not match.</font><br><br>";
 }
 
 if ($error=="name")
@@ -100,8 +100,8 @@ echo "</form>";
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

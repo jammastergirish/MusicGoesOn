@@ -6,13 +6,13 @@ $description = '';
 $keywords = '';
 $menu = 'admin';
 $php_header = 'false';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Admin';
 $subtitle = $aSID;
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <CENTER>
@@ -21,8 +21,8 @@ include("inc/top.inc");
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

@@ -3,12 +3,12 @@ $title = 'Live';
 $description = '';
 $keywords = '';
 $menu = 'live';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Live';
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <font face="verdana" size="2"><u>Tonight</u></font><br><br>
@@ -139,8 +139,8 @@ $date = explode(" ", $date[0]);
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

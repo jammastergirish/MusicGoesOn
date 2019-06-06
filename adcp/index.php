@@ -3,12 +3,12 @@ $title = 'Ad Control Panel - Login';
 $description = '';
 $keywords = '';
 $menu = 'adcp';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Ad Control Panel - Login';
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <?php if ($login=="failed") { ?>
@@ -40,8 +40,8 @@ echo "</form>";
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

@@ -9,13 +9,13 @@ $description = '';
 $keywords = '';
 $menu = 'adcp';
 $php_header = 'false';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Ad Control Panel - Edit Banner - '.$banner_data[name].' ('.$id.')';
 include("adcp/subtitle.inc");
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 <?php
@@ -100,8 +100,8 @@ echo "<a href=\"/adcp/edit.php/$id/?num=$dbnum\">Edit</a> | <a href=\"/adcp/dele
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

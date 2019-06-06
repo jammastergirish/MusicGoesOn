@@ -21,7 +21,7 @@ $keywords = '';
 $menu = 'forums';
 $s_menu = 'forum';
 $php_header = 'false';
- include("inc/story.inc");
+ include("../inc/story.inc");
 ?>
 
 <?php
@@ -30,7 +30,7 @@ if (file_exists("/home/mgo/musicgoeson-www/images/library/".$forum_data[id]."/ic
  $image = "<img src=\"/images/library/".$forum_data[id]."/icon.jpg\" width=\"60\" height=\"60\" alt=\"".$forum_data[artist]."\" align=\"left\" border=\"1\">";
 }
 $title = $image.$forum_data[artist].' Forum';
- include("forums/subtitle.inc");
+ include("subtitle.inc");
 ?>
 
 <?php
@@ -99,8 +99,8 @@ echo "</table>\n\n";
 
 <?php
 
- include("inc/middle.inc");
- include("inc/bottom.inc");
- include("inc/footer.inc");
+ include("../inc/middle.inc");
+ include("../inc/bottom.inc");
+ include("../inc/footer.inc");
 
 ?>

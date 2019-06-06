@@ -3,12 +3,12 @@ $title = 'Mailing Lists - Subscribe';
 $description = '';
 $keywords = '';
 $menu = 'mail';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Mailing Lists - Subscribe';
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 You have been added to the following lists: <font size="1">(More information below)</font>
@@ -115,8 +115,8 @@ if ($h_t=="t")
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

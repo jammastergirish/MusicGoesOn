@@ -3,12 +3,12 @@ $title = 'Mailing Lists';
 $description = '';
 $keywords = '';
 $menu = 'mail';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Mailing Lists';
-include("inc/top.inc");
+include("../inc/top.inc");
 ?>
 
 Welcome to <i>Music Goes On</i>'s mailing lists.  All you need to do to subscribe is fill in the following information and select the lists you want to subscribe to.
@@ -60,8 +60,8 @@ if ($error=="pass")
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

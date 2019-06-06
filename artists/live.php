@@ -13,11 +13,11 @@ $keywords = '';
 $menu = 'artists';
 $s_menu = 'artist';
 $php_header = 'false';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
-include("artists/subtitle.inc");
+include("subtitle.inc");
 ?>
 
 <?php
@@ -54,8 +54,8 @@ else
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../nc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>

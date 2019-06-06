@@ -10,12 +10,12 @@ $description = '';
 $keywords = '';
 $menu = 'forums';
 $php_header = 'false';
-include("inc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
 $title = 'Profiles - '.$user_data[username];
-include("forums/subtitle.inc");
+include("subtitle.inc");
 ?>
 
 <?php
@@ -83,8 +83,8 @@ echo "</table>\n\n";
 
 <?php
 
-include("inc/middle.inc");
-include("inc/bottom.inc");
-include("inc/footer.inc");
+include("../inc/middle.inc");
+include("../inc/bottom.inc");
+include("../inc/footer.inc");
 
 ?>
