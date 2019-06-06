@@ -119,7 +119,7 @@ function OpenWindow(url, width, height)
 <table border="0" cellpadding="4" cellspacing="0" style="table-layout:fixed" width=700 align=center>
 <tr>
 <td bgcolor="lightgrey" width="100" valign="top" align="center">
-<font face=verdana size=1><p align=justify>I built and ran this website between 2000 and 2001. It was listed by MTV's now defunct MusicNewswire, alongside Billboard, VH1 and others, as one of the then nascent web's top twenty sources. The most exciting part of it &mdash; for a 13/14-year-old excited by new music &mdash; was receiving scores of promotional CDs to review from record companies. The entire project was written in PHP linking to a MySQL database, with HTML, CSS and JavaScript for the frontend; the code, which I am still proud of, is <a href="https://github.com/jammastergirish/MusicGoesOn">here</a>.<br><p align=right><i><a href="https://www.girish-gupta.com"><font color=black>Girish Gupta</font></a></i></p></p></font>
+<font face=verdana size=1><p align=justify>I built this website between 2000 and 2001. It was listed by MTV's now defunct MusicNewswire as one of the then nascent web's top twenty sources, alongside Billboard and VH1. The most exciting part of it &mdash; for a 13/14-year-old excited by new music &mdash; was receiving scores of CDs to review from record companies. The entire project was written in PHP linking to a MySQL database, with HTML as well as a little CSS and JavaScript for the frontend; the code, which I am still proud of, is <a href="https://github.com/jammastergirish/MusicGoesOn">here</a>.<br><p align=right><i><a href="https://www.girish-gupta.com"><font color=black>Girish Gupta</font></a></i></p></p></font>
 </td>
 </tr>
 </table>
