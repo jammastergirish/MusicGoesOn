@@ -43,7 +43,7 @@ $strBinaryDoNotEdit = ' Binari - no editeu ';
 $strBookmarkLabel = 'Etiqueta';
 $strBookmarkQuery = 'Consulta SQL registrada';
 $strBookmarkThis = 'Registra aquesta consulta SQL';
-$strBookmarkView = 'Només mirar';
+$strBookmarkView = 'Nomï¿½s mirar';
 $strBrowse = 'Navega';
 $strBzip = '"comprimit amb bzip"';
 

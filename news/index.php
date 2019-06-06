@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'News';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'news';
 include("../inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'News';
 include("../inc/top.inc");
 ?>
 
-<?
+<?php
 
 $section = "News";
 
@@ -37,8 +37,8 @@ while ($data = mysql_fetch_array($result))
 
 ?>
 
-<? include("../inc/middle.inc"); ?>
+<?php include("../inc/middle.inc"); ?>
 
-<? include("../inc/bottom.inc"); ?>
+<?php include("../inc/bottom.inc"); ?>
 
-<? include("../inc/footer.inc"); ?>
+<?php include("../inc/footer.inc"); ?>

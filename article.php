@@ -1,4 +1,4 @@
-<?
+<?php
 
 include_once("inc/php_header.inc");
 
@@ -39,7 +39,7 @@ if (strtolower($main_section)=="artists")
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 
 if (strtolower($main_section)=="artists")
 {
@@ -111,7 +111,7 @@ if (!empty($data[related]))
 
 ?>
 
-<?
+<?php
 
 include("inc/bottom.inc");
 include("inc/footer.inc");

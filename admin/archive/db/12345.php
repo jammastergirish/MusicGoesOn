@@ -1,4 +1,4 @@
-<form action="<? echo $PHP_SELF; ?>">
+<form action="<?php echo $PHP_SELF; ?>">
 
 <textarea name="text"></textarea>
 <input type="submit" value="submit">
@@ -6,10 +6,10 @@
 
 <hr>
 
-<?
+<?php
 
 $text = addslashes($text);
 
 ?>
 
-<textarea name="text"><? echo $text; ?></textarea>
+<textarea name="text"><?php echo $text; ?></textarea>

@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Forums - Edit Profile';
 $description = '';
 $keywords = '';
@@ -6,13 +6,13 @@ $menu = 'forums';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Forums - Edit Profile';
 include("forums/subtitle.inc");
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if (empty($goto))
 {
@@ -21,7 +21,7 @@ if (empty($goto))
 
 ?>
 
-<?
+<?php
 
 /* SORT OUT ERRORS */
 
@@ -98,7 +98,7 @@ echo "</form>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

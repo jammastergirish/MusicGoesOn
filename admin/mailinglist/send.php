@@ -1,8 +1,8 @@
-<?
+<?php
 include("/home/mgo/musicgoeson-www/inc/php_header.inc");
 ?>
 
-<?
+<?php
 
 set_time_limit(0);
 

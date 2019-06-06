@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Forums - Login';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'forums';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Forums - Login';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if (empty($goto))
 {
@@ -22,7 +22,7 @@ if (empty($goto))
 
 ?>
 
-<?
+<?php
 
 if ($login=="failed") /* if login failed... */
 {
@@ -59,7 +59,7 @@ echo "</form>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Competitions';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'competitions';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Competitions';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $showicon = 'true';
 
@@ -33,7 +33,7 @@ include("inc/story.inc");
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 
 $file = fopen("http://www.amazon.co.uk/exec/obidos/ASIN/".$asin."/musicgoesoncom", "r");
 

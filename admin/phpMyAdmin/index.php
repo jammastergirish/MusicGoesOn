@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 /* $Id: index.php,v 1.13 2001/08/29 07:15:40 loic1 Exp $ */
 
 
@@ -33,12 +33,12 @@ $url_query = 'lang=' . $lang
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "DTD/xhtml1-frameset.dtd">
 <html>
 <head>
-<title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
+<title>phpMyAdmin <?phpphp echo PHPMYADMIN_VERSION; ?> - <?phpphp echo $HTTP_HOST; ?></title>
 </head>
 
-<frameset cols="<?php echo $cfgLeftWidth; ?>,*"  rows="*" border="0" frameborder="0">
-    <frame src="left.php?<?php echo $url_query; ?>" name="nav">
-    <frame src="<?php echo (empty($db)) ? 'main.php' : 'db_details.php'; ?>?<?php echo $url_query; ?>" name="phpmain">
+<frameset cols="<?phpphp echo $cfgLeftWidth; ?>,*"  rows="*" border="0" frameborder="0">
+    <frame src="left.php?<?phpphp echo $url_query; ?>" name="nav">
+    <frame src="<?phpphp echo (empty($db)) ? 'main.php' : 'db_details.php'; ?>?<?phpphp echo $url_query; ?>" name="phpmain">
 </frameset>
 <noframes>
     <body bgcolor="#FFFFFF">

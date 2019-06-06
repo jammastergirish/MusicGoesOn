@@ -1,4 +1,4 @@
-<?
+<?php
 
 $metatags = get_meta_tags($url);
 

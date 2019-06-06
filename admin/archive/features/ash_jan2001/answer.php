@@ -1,11 +1,11 @@
-<?
+<?php
 $title = 'Features - Ash - Shining Light';
 $description = '';
 $keywords = '';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'Ash - Shining Light';
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
@@ -16,7 +16,7 @@ You have been entered into the draw to win a copy of <b>Ash</b>'s latest single,
 Light</i>.  If you are one of the five lucky winners you will be notified by e-mail.<br><br>
 Why not listen to and download <i>Shining Light</i> for FREE...
 
-<?
+<?php
 
 $id = md5(uniqid (rand()));
  
@@ -26,7 +26,7 @@ mail("webmaster@musicgoeson.com", "Answer: $answer", "Name: $name\nE-Mail: $emai
 
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <br>
 
@@ -39,6 +39,6 @@ Listen...<b>Ash - Shining Light</b><br>
 
 </font>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 if ($CurrentForumsUser = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE SID = '$SID'")))
 {

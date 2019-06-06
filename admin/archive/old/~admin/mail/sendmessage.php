@@ -1,7 +1,7 @@
-<? include("inc/header.inc"); ?>
-<? include("inc/menu.inc"); ?>
+<?php include("inc/header.inc"); ?>
+<?php include("inc/menu.inc"); ?>
 
-<?
+<?php
 
 	/* mail($to,$subject,$message,"From: $phpmailapp[un]@$phpmailapp[host]\n"); */
 

@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 if (mysql_num_rows(mysql_query("SELECT * FROM forum_users WHERE username = '$username'"))==1)

@@ -1,4 +1,4 @@
-<?
+<?php
 /* script to output to screen all users preferring Apples to Oranges */
 
 /* declare some relevant variables */

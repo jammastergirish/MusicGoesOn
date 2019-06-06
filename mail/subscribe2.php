@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Subscribe';
 $description = '';
 $keywords = '';
@@ -6,14 +6,14 @@ $menu = 'mail';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Subscribe';
 include("inc/top.inc");
 ?>
 
 You have been added to the following lists: <font size="1">(More information below)</font>
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -113,7 +113,7 @@ if ($h_t=="t")
 ?>
 </ul>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

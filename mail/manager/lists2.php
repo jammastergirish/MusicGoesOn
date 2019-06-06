@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Manager - Subscribe/Unsubscribe';
 $description = '';
 $keywords = '';
@@ -7,7 +7,7 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Subscribe/Unsubscribe';
 include("inc/top.inc");
 ?>
@@ -15,7 +15,7 @@ include("inc/top.inc");
 You are now subscribed to the following lists:
 <br><br>
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -45,7 +45,7 @@ else
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

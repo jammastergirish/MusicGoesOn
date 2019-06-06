@@ -1,4 +1,4 @@
-<?
+<?php
 
 function update_user($CookieID, $datetime)
 {

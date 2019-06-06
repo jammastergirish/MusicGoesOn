@@ -1,4 +1,4 @@
-<?
+<?php
 include("inc/php_header.inc");
 
 //$id = ereg_replace("/", "", $PATH_INFO);
@@ -18,11 +18,11 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 include("artists/subtitle.inc");
 ?>
 
-<?
+<?php
 
 if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE section = 'Artists/Biographies' AND artists_id = '$data[id]' AND datetime < '".datetime()."' ORDER BY datetime DESC LIMIT 0,1")))
 {
@@ -34,7 +34,7 @@ if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mgo WHERE section = 'Art
 
 ?>
 
-<?
+<?php
 
 $showicon = 'false';
 
@@ -61,7 +61,7 @@ echo "<br>\n\n";
 
 ?>
 
-<?
+<?php
 
 $showicon = 'false';
 
@@ -88,7 +88,7 @@ echo "<br>\n\n";
 
 ?>
 
-<?
+<?php
 
 if (mysql_num_rows(mysql_query("SELECT * FROM live WHERE artist LIKE '%$artist[artist]%' ORDER BY date DESC"))!=0)
 {
@@ -118,7 +118,7 @@ echo "<br>\n\n";
 
 ?>
 
-<?
+<?php
 
 $showicon = 'false';
 
@@ -145,7 +145,7 @@ echo "<br>\n\n";
 
 ?>
 
-<?
+<?php
 
 $showicon = 'false';
 
@@ -172,7 +172,7 @@ echo "<br>\n\n";
 
 ?>
 
-<?
+<?php
 
 if (!empty($artist[links]))
 {
@@ -194,7 +194,7 @@ if (!empty($artist[links]))
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

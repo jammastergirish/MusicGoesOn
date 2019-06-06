@@ -1,4 +1,4 @@
-<?
+<?php
 
 $ID = md5(uniqid (rand()));
 

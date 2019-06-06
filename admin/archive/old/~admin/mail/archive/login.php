@@ -1,15 +1,15 @@
-<?
+<?php
   setcookie("phpmailapp[host]", $host, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[pass]", $pass, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[un]", $un, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[port]", $port, time()+1800, "/mail/", ".musicgoeson.com",0);
 ?>
 
-<? $pagetext = "Your Mailbox"; ?>
-<? include("inc/header.inc"); ?>
-<? include("inc/menu.inc"); ?>
-<? include("inc/class.POP3.php"); ?>
-<?
+<?php $pagetext = "Your Mailbox"; ?>
+<?php include("inc/header.inc"); ?>
+<?php include("inc/menu.inc"); ?>
+<?php include("inc/class.POP3.php"); ?>
+<?php
 
   $accnt = new POP3($host, 60);
 

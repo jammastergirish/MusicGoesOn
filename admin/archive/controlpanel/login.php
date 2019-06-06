@@ -19,9 +19,9 @@
 <blockquote>
 <font face="verdana" size="2" color="#0E96A9">
 
-<? if ($login=="failed") { ?>
+<?php if ($login=="failed") { ?>
 <font color="red">Your userID/password has not been recognised, please try again:</font><br>
-<? } else { ?><? } ?>
+<?php } else { ?><?php } ?>
 
 <form action ="http://www.musicgoeson.com/advertising/controlpanel/dologin.php" method="post"> 
 <b>UserID:</b><br><input type="text" name="userID" size="50" value=""><br>

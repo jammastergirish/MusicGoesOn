@@ -1,4 +1,4 @@
-<?
+<?php
 
 $ProductData = file('/home/mgo/musicgoeson-www/od2/'.$cat.'/Product/ProductData.txt');
  $ProductData = explode(",", $ProductData[0]);

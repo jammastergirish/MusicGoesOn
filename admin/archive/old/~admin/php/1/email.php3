@@ -1,4 +1,4 @@
-<?
+<?php
 /* this script will handle the variables passed from the moreinfo.html file */
 
 PRINT "<CENTER>";
@@ -10,7 +10,7 @@ PRINT "</CENTER>";
 
 ?>
 
-<?
+<?php
 mail("$email", "Your request for information", "$namen
 Thank you for your interest!n
 We sell fresh corn daily over the Internet!

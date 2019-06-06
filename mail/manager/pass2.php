@@ -1,4 +1,4 @@
-<?
+<?php
 
 if ($pass==$pass2)
 {
@@ -16,12 +16,12 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Change Password';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 mysql_query("UPDATE mail SET pass = password('$pass') WHERE SID = '$SID'");
 
@@ -29,7 +29,7 @@ mysql_query("UPDATE mail SET pass = password('$pass') WHERE SID = '$SID'");
 
 Your password has been changed.
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

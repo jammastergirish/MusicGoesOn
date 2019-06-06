@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Manager';
 $description = '';
 $keywords = '';
@@ -7,13 +7,13 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager';
 $subtitle = $row[name]." [".$row[email]."]";
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if (empty($row[pass]))
 {
@@ -36,7 +36,7 @@ uncheck the box.
 
 <form action="/mail/manager/lists2.php" method="post" name="form">
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -57,7 +57,7 @@ echo "</script>\n\n";
 
 <input type="button" value="Select All Artists" onClick="CheckAll()"><br><br>
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -86,7 +86,7 @@ while ($data = mysql_fetch_array($result))
 
 <input type="submit" value="Subscribe/Unsubscribe">
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

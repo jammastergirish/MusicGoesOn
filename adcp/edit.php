@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 $id = ereg_replace("/", "", $PATH_INFO);
@@ -12,13 +12,13 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Ad Control Panel - Edit Banner - '.$banner_data[name].' ('.$id.')';
 include("adcp/subtitle.inc");
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 echo "<form action=\"/adcp/doedit.php\" method=\"post\">";
 
@@ -77,7 +77,7 @@ echo "</form>";
 
 <CENTER>
 
-<?
+<?php
   if (ereg("http\:\/\/", $banner_data[location]))
   {
    echo "<a href=\"/banner.php?click=$banner_data[id]\" target=\"_blank\"><img src=\"$banner_data[location]\" width=\"$banner_data[width]\" height=\"$banner_data[height]\" alt=\"$banner_data[alt]\" border=\"0\"></a>";
@@ -90,7 +90,7 @@ echo "</form>";
 
 <br>
 
-<?
+<?php
 
 echo "<a href=\"/adcp/edit.php/$id/?num=$dbnum\">Edit</a> | <a href=\"/adcp/delete.php/$id/?num=$dbnum\">Delete</a>";
 
@@ -98,7 +98,7 @@ echo "<a href=\"/adcp/edit.php/$id/?num=$dbnum\">Edit</a> | <a href=\"/adcp/dele
 
 </CENTER>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

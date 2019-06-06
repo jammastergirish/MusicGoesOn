@@ -1,4 +1,4 @@
-<?
+<?php
 include("inc/php_header.inc");
 
 //$username = ereg_replace("/", "", $PATH_INFO);
@@ -13,12 +13,12 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Profiles - '.$user_data[username];
 include("forums/subtitle.inc");
 ?>
 
-<?
+<?php
 
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n\n";
  echo "    <tr>\n";
@@ -81,7 +81,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

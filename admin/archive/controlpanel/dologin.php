@@ -1,4 +1,4 @@
-<?
+<?php
 
 $userID = strtolower($userID);
 $password = strtolower($password);

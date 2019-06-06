@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 $id = ereg_replace("/", "", $PATH_INFO);
@@ -12,13 +12,13 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Ad Control Panel - '.$banner_data[name].' ('.$id.')';
 include("adcp/subtitle.inc");
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if ($banner_data[deleted]==1)
 {
@@ -65,7 +65,7 @@ echo "</table>\n\n";
 
 <CENTER>
 
-<?
+<?php
   if (ereg("http\:\/\/", $banner_data[location]))
   {
    echo "<a href=\"/banner.php?click=$banner_data[id]\" target=\"_blank\"><img src=\"$banner_data[location]\" width=\"$banner_data[width]\" height=\"$banner_data[height]\" alt=\"$banner_data[alt]\" border=\"0\"></a>";
@@ -78,7 +78,7 @@ echo "</table>\n\n";
 
 <br>
 
-<?
+<?php
 
 if ($banner_data[deleted]==1)
 {
@@ -93,7 +93,7 @@ else
 
 </CENTER>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

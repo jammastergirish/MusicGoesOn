@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 admin($HTTP_SESSION_VARS["aSID"], $HTTP_COOKIE_VARS["SID"]);
 $title = 'Admin';
@@ -9,7 +9,7 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Admin';
 $subtitle = $HTTP_SESSION_VARS["aSID"];
 include("inc/top.inc");
@@ -17,7 +17,7 @@ include("inc/top.inc");
 
 Welcome to the 'Admin' section of <i>Music Goes On</i>...
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 /* this script will handle the variables passed from the moreinfo.html file */
 
 /* declare some relevant variables */

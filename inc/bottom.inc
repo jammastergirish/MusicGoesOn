@@ -1,5 +1,5 @@
 <!-- START: /inc/bottom.inc -->
-<?
+<?php
  if($columns==2)
  {
   echo "</font></td>\n";

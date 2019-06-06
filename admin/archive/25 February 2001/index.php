@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'www.musicgoeson.com';
 $description = 'Visit Music Goes On for your very own upbeat player in the music industry with the latest music news and reviews; including features, competitions and loads more...';
 $keywords = 'music, uk, entertainment, pop, indie, rock, dance, garage, news, reviews, features, promos, live, gig, concert, artists';
@@ -6,11 +6,11 @@ $menu = 'home';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<? /* NEWS BEGIN */ ?>
+<?php /* NEWS BEGIN */ ?>
 
-<? $title = 'N E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'N E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
-<?
+<?php
 $headline = 'No Brits For Craig David';
 $uri = '2001/02/24-cd.php';
 $date = '24 February 2001';
@@ -18,7 +18,7 @@ $description = 'Despite being nominated for six Brit Awards Craig David will not
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Robbie Williams Attacked';
 $uri = '2001/02/22-rw.php';
 $date = '22 February 2001';
@@ -26,7 +26,7 @@ $description = 'Robbie Williams was thrown off stage by a man believed to have p
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Eminem and U2 Dominate 43rd Grammy Awards';
 $uri = '2001/02/22-grammys.php';
 $date = '22 February 2001';
@@ -34,7 +34,7 @@ $description = 'Eminem, U2 and Steely Dan were all winners at the 43rd annual Gr
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Napster Offers $1 Billion To Labels';
 $uri = '2001/02/21-napster.php';
 $date = '21 February 2001';
@@ -42,7 +42,7 @@ $description = 'Napster is offering $1 billion to the major labels';
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Radiohead To Tour USA';
 $uri = '2001/02/21-radiohead.php';
 $date = '21 February 2001';
@@ -50,7 +50,7 @@ $description = 'Radiohead are planning to tour the US in June';
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Atomic Kitten Set To Stay At Number One';
 $uri = '2001/02/20-mcharts.php';
 $date = '20 February 2001';
@@ -58,7 +58,7 @@ $description = 'Atomic Kitten are set to stay at Number One for a fourth week';
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<?
+<?php
 $headline = 'Nick Cave and The Bad Seeds Announce European Tour Dates';
 $uri = '2001/02/15-bad.php';
 $date = '15 February 2001';
@@ -66,7 +66,7 @@ $description = 'Nick Cave and The Bad Seeds have announced details of a European
 include("/home/mgo/musicgoeson-www/news/news.inc");
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <form method="post" action="/redir.php">
 <font color="black" size="1" face="verdana">More News...</font><br>
@@ -140,17 +140,17 @@ include("/home/mgo/musicgoeson-www/news/news.inc");
 <i>Music Goes On</i>'s headlines are featured on Sonicnet.com's <a href="/redir.php?url=http://www.musicnewswire.com/" target="_blank">MusicNewswire</a>
 </font>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* NEWS END */ ?>
+<?php /* NEWS END */ ?>
 
 <br>
 
-<? /* REVIEWS BEGIN */ ?>
+<?php /* REVIEWS BEGIN */ ?>
 
-<? $title = 'R E V I E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'R E V I E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
-<?
+<?php
 $headline = 'Kaci - Paradise';
 $uri = 'singles/kaci/paradise.php';
 $date = '24 February 2001';
@@ -161,7 +161,7 @@ $cat = '8573 87320 2';
 include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 ?>
 
-<?
+<?php
 $headline = 'Grand Theft Audio - We Luv U';
 $uri = 'singles/gta/we_luv_u.php';
 $date = '21 February 2001';
@@ -172,7 +172,7 @@ $cat = 'SCIFI1CD';
 include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 ?>
 
-<?
+<?php
 $headline = '2nd Gen - Irony Is';
 $uri = 'albums/2nd_gen/irony_is.php';
 $date = '20 February 2001';
@@ -183,7 +183,7 @@ $cat = 'NOMU68CD';
 include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 ?>
 
-<?
+<?php
 $headline = 'King Adora - Suffocate';
 $uri = 'singles/king_adora/suffocate.php';
 $date = '14 February 2001';
@@ -194,7 +194,7 @@ $cat = 'RQS 011CD';
 include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 ?>
 
-<?
+<?php
 $headline = 'Santos - Camels';
 $uri = 'singles/santos/camels.php';
 $date = '11 January 2001';
@@ -205,7 +205,7 @@ $cat = 'CENT15CD';
 include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <form method="post" action="https://musicgoeson.com/redir.php">
 <font color="black" size="1" face="verdana">More Reviews...</font><br>
@@ -236,8 +236,8 @@ include("/home/mgo/musicgoeson-www/reviews/reviews.inc");
 <input type="submit" value="GO!" align="absmiddle">
 </form>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* REVIEWS END */ ?>
+<?php /* REVIEWS END */ ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

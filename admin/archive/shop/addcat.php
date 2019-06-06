@@ -1,4 +1,4 @@
-<?
+<?php
 include("/home/mgo/musicgoeson-www/inc/php_header.php");
 include("/home/mgo/musicgoeson-www/admin/check.php");
 $title = 'Admin - Shop - Add to Catalogue';
@@ -9,7 +9,7 @@ $php_header = 'false';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'Admin - Shop - Add to Catalogue';
 $subtitle = $aSID;
 include("/home/mgo/musicgoeson-www/inc/top.php");
@@ -17,7 +17,7 @@ include("/home/mgo/musicgoeson-www/inc/top.php");
 
 <form action="https://musicgoeson.com/admin/shop/doaddcat.php" method="POST">
 
-<b>ID:</b><br><input type=text name="id" size="60" value="<? echo $id; ?>"><br><br>
+<b>ID:</b><br><input type=text name="id" size="60" value="<?php echo $id; ?>"><br><br>
 
 <b>Format:</b><br>
 <select name="format">
@@ -36,26 +36,26 @@ include("/home/mgo/musicgoeson-www/inc/top.php");
 
 </select><br><br>
 
-<b>Title:</b><br><input type=text name="title_" size="60" value="<? echo $title_; ?>"><br><br>
+<b>Title:</b><br><input type=text name="title_" size="60" value="<?php echo $title_; ?>"><br><br>
 
-<b>Artist:</b><br><input type=text name="artist" size="60" value="<? echo $artist; ?>"><br><br>
+<b>Artist:</b><br><input type=text name="artist" size="60" value="<?php echo $artist; ?>"><br><br>
 
-<b>Label:</b><br><input type=text name="label" size="60" value="<? echo $label; ?>"><br><br>
+<b>Label:</b><br><input type=text name="label" size="60" value="<?php echo $label; ?>"><br><br>
 
-<b>Cat. Number:</b><br><input type=text name="cat" size="60" value="<? echo $cat; ?>"><br><br>
+<b>Cat. Number:</b><br><input type=text name="cat" size="60" value="<?php echo $cat; ?>"><br><br>
 
-<b>Release:</b><br><input type=text name="release" size="60" value="<? echo $release; ?>"><br><br>
+<b>Release:</b><br><input type=text name="release" size="60" value="<?php echo $release; ?>"><br><br>
 
-<b>Tracklisting:</b><br><textarea name="tracklisting" rows="25" cols="60"><? echo $tracklisting; ?></textarea><br><br>
+<b>Tracklisting:</b><br><textarea name="tracklisting" rows="25" cols="60"><?php echo $tracklisting; ?></textarea><br><br>
 
-<b>Price:</b><br>£ <input type=text name="price" size="60" value="<? echo $price; ?>"><br><br>
+<b>Price:</b><br>ï¿½ <input type=text name="price" size="60" value<?php<? echo $price; ?>"><br><br>
 
 <input type="submit" value="Add To Catalogue" align="absmiddle">
 
 </form>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

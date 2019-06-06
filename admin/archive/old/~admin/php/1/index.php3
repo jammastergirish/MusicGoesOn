@@ -5,7 +5,7 @@
 <BODY>
 <CENTER>Our first PHP3.0 script</CENTER>
 
-<?
+<?php
 
 	$today = date("Y-m-d");
 

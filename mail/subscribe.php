@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 if (empty($name))
@@ -53,12 +53,12 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Subscribe';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -84,7 +84,7 @@ Now, you need to decide which artists you would like to receive information on. 
 
 <form action="/mail/subscribe2.php" method="post" name="form">
 
-<?
+<?php
 
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 
@@ -97,16 +97,16 @@ while ($data = mysql_fetch_array($result))
 
 <br><br>
 
-<input type="hidden" name="name" value="<? echo $name; ?>">
-<input type="hidden" name="email" value="<? echo $email; ?>">
-<input type="hidden" name="pass" value="<? echo $pass; ?>">
-<input type="hidden" name="h_t" value="<? echo $h_t; ?>">
+<input type="hidden" name="name" value="<?php echo $name; ?>">
+<input type="hidden" name="email" value="<?php echo $email; ?>">
+<input type="hidden" name="pass" value="<?php echo $pass; ?>">
+<input type="hidden" name="h_t" value="<?php echo $h_t; ?>">
 
 <CENTER><input type="submit" value="Subscribe!"></CENTER>
 
 </form>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

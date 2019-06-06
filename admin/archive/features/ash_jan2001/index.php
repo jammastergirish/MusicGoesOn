@@ -1,11 +1,11 @@
-<?
+<?php
 $title = 'Features - Ash - Shining Light';
 $description = '';
 $keywords = '';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'Ash - Shining Light';
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
@@ -35,7 +35,7 @@ Your E-Mail: <input type="text" name="email" maxlength="255"><br>
 
 <CENTER><img src="/images/features/ash_jan2001/col_250x167.jpg" width="250" height="167" align="center" border="1"></CENTER>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <br>
 
@@ -59,6 +59,6 @@ from 1 February 2001.  Judges' decision is final.
 </font>
 </p>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

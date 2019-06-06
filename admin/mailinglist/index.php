@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 $section = 'mailinglist';
 admin($HTTP_SESSION_VARS["aSID"], $HTTP_COOKIE_VARS["SID"]);
@@ -10,7 +10,7 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Admin - Mailing List - Send Mail';
 $subtitle = $aSID;
 include("inc/top.inc");
@@ -27,12 +27,12 @@ function Confirm()
 </script>
 
 <form action="/admin/mailinglist/send.php" method="post" name="Send"> 
-<b>Subject:</b><br><input type=text name="subject" size="60" value="<? echo $subject; ?>"><br>
-<b>Message (HTML):</b><br><textarea name="message_html" rows="25" cols="60"><? echo $message_html; ?></textarea><br><br>
-<b>Message (Plain Text):</b><br><textarea name="message_text" rows="25" cols="60"><? echo $message_text; ?></textarea><br><br>
+<b>Subject:</b><br><input type=text name="subject" size="60" value="<?php echo $subject; ?>"><br>
+<b>Message (HTML):</b><br><textarea name="message_html" rows="25" cols="60"><?php echo $message_html; ?></textarea><br><br>
+<b>Message (Plain Text):</b><br><textarea name="message_text" rows="25" cols="60"><?php echo $message_text; ?></textarea><br><br>
 <select name="to1">
 <option></option>
-<?
+<?php
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 while ($data = mysql_fetch_array($result))
 {
@@ -43,7 +43,7 @@ while ($data = mysql_fetch_array($result))
 <br>
 <select name="to2">
 <option></option>
-<?
+<?php
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 while ($data = mysql_fetch_array($result))
 {
@@ -54,7 +54,7 @@ while ($data = mysql_fetch_array($result))
 <br>
 <select name="to3">
 <option></option>
-<?
+<?php
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 while ($data = mysql_fetch_array($result))
 {
@@ -65,7 +65,7 @@ while ($data = mysql_fetch_array($result))
 <br>
 <select name="to4">
 <option></option>
-<?
+<?php
 $result = mysql_query("SELECT * FROM artists ORDER BY artist");
 while ($data = mysql_fetch_array($result))
 {
@@ -79,7 +79,7 @@ while ($data = mysql_fetch_array($result))
 <input type="button" value="Submit" align="absmiddle" onClick="javascript:Confirm()"> 
 </form>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

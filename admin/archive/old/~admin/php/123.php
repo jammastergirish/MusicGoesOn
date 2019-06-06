@@ -1,4 +1,4 @@
-<?
+<?php
 if ($page=='1') 
 {
  print "1 | ";
@@ -47,7 +47,7 @@ else
 
 <hr>
 
-<?
+<?php
 
 $date = gmdate("j");
 

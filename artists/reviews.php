@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 $id = ereg_replace("/", "", $PATH_INFO);
@@ -16,11 +16,11 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 include("artists/subtitle.inc");
 ?>
 
-<?
+<?php
 
 $showicon = 'false';
 
@@ -44,7 +44,7 @@ else
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

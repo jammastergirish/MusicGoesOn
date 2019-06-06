@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 /* $Id: db_stats.php,v 1.13 2001/08/30 12:52:52 swix Exp $ */
 
 /** 
@@ -82,10 +82,10 @@ header('Content-Type: text/html; charset=' . $charset);
 <body bgcolor="#D0DCE0">
 
 <h1>
-    <?php echo ucfirst($strDatabasesStats); ?> - 
-    <?php echo $strHost . ': ' . $cfgServer['host'] . "\n"; ?>
+    <?phpphp echo ucfirst($strDatabasesStats); ?> - 
+    <?phpphp echo $strHost . ': ' . $cfgServer['host'] . "\n"; ?>
 </h1>   
-<h2><?php echo $strGenTime . ': ' . date('F j, Y, H:i'); ?></h2>
+<h2><?phpphp echo $strGenTime . ': ' . date('F j, Y, H:i'); ?></h2>
 
 
 <table border="0" cellspacing="0" cellpadding="0">
@@ -94,17 +94,17 @@ header('Content-Type: text/html; charset=' . $charset);
 
     <!-- Databases list -->
 
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?phpphp echo $cfgBorder; ?>">
     <tr>
-        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;
+        <th>&nbsp;<?phpphp echo ucfirst($strDatabase); ?>&nbsp;
             <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" /></th>
-        <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;</th>
+        <th>&nbsp;<?phpphp echo ucfirst($strTable); ?>&nbsp;</th>
+        <th>&nbsp;<?phpphp echo ucfirst($strData); ?>&nbsp;</th>
+        <th>&nbsp;<?phpphp echo ucfirst($strIndexes); ?>&nbsp;</th>
+        <th>&nbsp;<?phpphp echo ucfirst($strTotal); ?>&nbsp;</th>
     </tr>
 
-<?php
+<?phpphp
 if ($num_dbs > 1) {
     $selected_db   = 0;
     $tot_tables    = 0;
@@ -186,14 +186,14 @@ if ($num_dbs > 1) {
     <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
     <td valign="top">
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?phpphp echo $cfgBorder; ?>">
     <tr>
         <th>&nbsp;&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;
+        <th>&nbsp;<?phpphp echo ucfirst($strDatabase); ?>&nbsp;</th>
+        <th>&nbsp;<?phpphp echo ucfirst($strTotal); ?>&nbsp;
             <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />&nbsp;</th>
     </tr> 
-    <?php
+    <?phpphp
     echo "\n";
     arsort($results_array);
     $display_max     = 20;
@@ -220,7 +220,7 @@ if ($num_dbs > 1) {
 
 </tr>
 </table>
-    <?php
+    <?phpphp
 } // end if ($num_dbs == 1)
 
 else {
@@ -232,8 +232,8 @@ else {
 </tr>
 </table>
 
-<p>&nbsp;&nbsp;<?php echo $strNoDatabases; ?></p>
-    <?php
+<p>&nbsp;&nbsp;<?phpphp echo $strNoDatabases; ?></p>
+    <?phpphp
 } // end if ($num_dbs == 0)
 echo "\n";
 ?>

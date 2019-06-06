@@ -1,4 +1,4 @@
-<? include("inc/header.inc"); ?>
+<?php include("inc/header.inc"); ?>
 
 <br><br>
 <center>

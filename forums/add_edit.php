@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 if ($action=="reply") /* if user is replying to a post... */
@@ -53,12 +53,12 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = $title;
 include("forums/subtitle.inc");
 ?>
 
-<?
+<?php
 
 if ($action=="edit") /* if user wants to edit a post... */
 {
@@ -202,7 +202,7 @@ else /* if error is empty, ie, no error... */
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 
 session_name("SID");
 
@@ -21,12 +21,12 @@ session_unregister("count");
 
 <font face="verdana" size="2">
 
-Hello <? echo $name; ?>, you have seen this page <? echo $count; ?> times.<br><br>
+Hello <?php echo $name; ?>, you have seen this page <?php echo $count; ?> times.<br><br>
 
 <A HREF="3a2.php">3a2.php</A><br>
 <A HREF="3a2.php?123=123">3a2.php</A><br><br>
 
-<?
+<?php
 
 $session_id = session_id();
 echo "<b>session_id</b> ", $session_id;
@@ -72,14 +72,14 @@ for(i = 0; i < document.anchors.length; i++)
 { 
 with(document.anchors[i]) 
 { 
-href = addvar(href, 'SID', '<? echo $SID ?>'); 
+href = addvar(href, 'SID', '<?php echo $SID ?>'); 
 } 
 } 
 for(i = 0; i < document.forms.length; i++) 
 { 
 with(document.forms[i]) 
 { 
-action = addvar(action, 'SID', '<? echo $SID ?>'); 
+action = addvar(action, 'SID', '<?php echo $SID ?>'); 
 } 
 } 
 

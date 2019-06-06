@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 $section = 'stats';
 admin($HTTP_SESSION_VARS["aSID"], $HTTP_COOKIE_VARS["SID"]);
@@ -10,13 +10,13 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Admin - Stats';
 $subtitle = $aSID;
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 echo "<b>Visitors</b><br>";
 
@@ -75,7 +75,7 @@ echo "</table>\n\n";
 
 <br>
 
-<?
+<?php
 
 echo "<b>Top Five Articles</b><br>";
 
@@ -102,7 +102,7 @@ echo "</table>\n\n";
 
 <br>
 
-<?
+<?php
 
 echo "<b>Top Five Artists</b><br>";
 
@@ -127,7 +127,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

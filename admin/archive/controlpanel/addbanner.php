@@ -1,8 +1,8 @@
-<? include("/home/mgo/musicgoeson-www/advertising/controlpanel/header.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/advertising/controlpanel/header.php"); ?>
 
 <form action="http://www.musicgoeson.com/advertising/controlpanel/doaddbanner.php" method="post">
 
-<?
+<?php
 
 print "<table border=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n";
 print "    <tr>\n";
@@ -33,8 +33,8 @@ print "</table>\n\n";
 
 ?>
 
-<input type="hidden" name="userID" value="<? echo $userID; ?>">
-<input type="hidden" name="SID" value="<? echo $SID; ?>">
+<input type="hidden" name="userID" value="<?php echo $userID; ?>">
+<input type="hidden" name="SID" value="<?php echo $SID; ?>">
 <input type="submit" value="Add Banner" align="absmiddle">
 
 </form>

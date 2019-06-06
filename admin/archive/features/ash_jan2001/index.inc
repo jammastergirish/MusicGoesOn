@@ -1,6 +1,6 @@
-<? /* ASH PROMO BEGIN */ ?>
+<?php /* ASH PROMO BEGIN */ ?>
 
-<? $title = 'ASH COMPETITION'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'ASH COMPETITION'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
 	<img src="/images/features/ash_jan2001/col_185x123.jpg" width="185" height="123" align="left" border="1">
 
@@ -13,8 +13,8 @@
 	</font>
 	<br><br>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* ASH PROMO END */ ?>
+<?php /* ASH PROMO END */ ?>

@@ -1,5 +1,5 @@
 <!-- START: /inc/top.inc -->
-<?
+<?php
 $headline = $title;
 
 echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\" align=\"center\" valign=\"top\">\n\n";

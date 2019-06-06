@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Live Search';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'live';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Live Search';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $artist = addslashes($artist);
 
@@ -51,7 +51,7 @@ while ($data = mysql_fetch_array($result))
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

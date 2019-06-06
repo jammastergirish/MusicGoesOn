@@ -1,4 +1,4 @@
-<?
+<?php
 
 if ($advertiser_row = mysql_fetch_array(mysql_query("SELECT * FROM advertisers WHERE SID = '$SID'")))
 {

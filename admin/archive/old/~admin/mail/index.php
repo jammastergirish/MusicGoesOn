@@ -1,11 +1,11 @@
-<?
+<?php
 $title = 'WebMail - Login';
 $description = '';
 $keywords = '';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'WebMail - Login';
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
@@ -34,8 +34,8 @@ include("/home/mgo/musicgoeson-www/inc/top.php");
 </td></tr></table>
 </center>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 //$topic = str_replace("/", "", $PATH_INFO);
@@ -26,7 +26,7 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 if (file_exists("/home/mgo/musicgoeson-www/images/library/".$forum_data[id]."/icon.jpg"))
 {
  $image = "<img src=\"/images/library/".$forum_data[id]."/icon.jpg\" width=\"60\" height=\"60\" alt=\"".$forum_data[artist]."\" align=\"left\" border=\"1\">";
@@ -35,7 +35,7 @@ $title = $image.$forum_data[artist].' - '.$topic_data[topic];
 include("forums/subtitle.inc");
 ?>
 
-<?
+<?php
 
 echo "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n\n";
  echo "    <tr>\n";
@@ -106,7 +106,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'News Archive';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'news';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'News Archive';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $section = "News";
 
@@ -36,7 +36,7 @@ while ($data = mysql_fetch_array($result))
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

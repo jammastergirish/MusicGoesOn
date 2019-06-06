@@ -1,12 +1,12 @@
-<? include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
-<?
+<?php include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
+<?php
   setcookie("phpmailapp[host]", $host, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[pass]", $pass, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[un]", $un, time()+1800, "/mail/", ".musicgoeson.com",0);
   setcookie("phpmailapp[port]", $port, time()+1800, "/mail/", ".musicgoeson.com",0);
  include("inc/class.POP3.php");
 ?>
-<?
+<?php
 $title = 'WebMail';
 $description = '';
 $keywords = '';
@@ -15,12 +15,12 @@ $php_header = 'false';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'WebMail';
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
 
-<?
+<?php
 
   $accnt = new POP3($host, 60);
 
@@ -63,8 +63,8 @@ include("/home/mgo/musicgoeson-www/inc/top.php");
 
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Reviews';
 $description = '';
 $keywords = '';
@@ -6,7 +6,7 @@ $menu = 'reviews';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Reviews';
 include("inc/top.inc");
 ?>
@@ -14,7 +14,7 @@ include("inc/top.inc");
 <hr width="20%" align="left">
 <font face="verdana" size="2"><b>ALBUMS</b></font><br><br>
 
-<?
+<?php
 
 $showicon = 1;
 
@@ -44,7 +44,7 @@ while ($data_reviews = mysql_fetch_array($result_reviews))
 <font face="verdana" size="2"><b>SINGLES</b></font><br><br>
 
 
-<?
+<?php
 
 $showicon = 1;
 
@@ -69,7 +69,7 @@ while ($data_reviews = mysql_fetch_array($result_reviews))
 <br>
 <a class="link_onf7f7f7" href="/reviews/singles/"><font size="1">More Single Reviews...</font></a>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

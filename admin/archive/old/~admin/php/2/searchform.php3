@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>MusicGoesOn.com - Search</title>
-<? include("http://www.musicgoeson.com/header.php3") ?>
+<?php include("http://www.musicgoeson.com/header.php3") ?>
 
 <?php 
 
@@ -35,7 +35,7 @@ do {
 
 ?>
 
-<? include("http://www.musicgoeson.com/footer.php3") ?>
+<?php include("http://www.musicgoeson.com/footer.php3") ?>
 
 </body>
 </html>

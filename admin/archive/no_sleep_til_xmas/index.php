@@ -1,13 +1,13 @@
-<?
+<?php
 $title = 'www.musicgoeson.com';
 $description = 'Visit this site for the latest music news and reviews, biographies and discographies of your favourite artists and loads more...';
 $keywords = 'music, entertainment, uk, albums, review';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<? /* NEWS BEGIN */ ?>
+<?php /* NEWS BEGIN */ ?>
 
-<? $title = 'N E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'N E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
 	<font size="2" face="verdana">
 	<a href="/news/2000/12/24-xmas_chart.php"><b><u>Bob The Builder's Christmas Number One</u></b></a><br>
@@ -64,7 +64,7 @@ include("/home/mgo/musicgoeson-www/inc/header.php");
 	</font>
 	<br><br>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <form method="post" action="/redir.php">
 <font color="black" size="1" face="verdana">More News...</font><br>
@@ -117,17 +117,17 @@ include("/home/mgo/musicgoeson-www/inc/header.php");
 <input type="submit" value="GO!" align="absmiddle">
 </form>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* NEWS END */ ?>
+<?php /* NEWS END */ ?>
 
 <br>
 
-<? /* NO SLEEP TIL' XMAS */ ?>
+<?php /* NO SLEEP TIL' XMAS */ ?>
 
-<? $title = 'NO SLEEP TIL\' XMAS'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'NO SLEEP TIL\' XMAS'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
-<?
+<?php
 
 $date = gmdate("j");
 
@@ -137,25 +137,25 @@ $row_promo = mysql_fetch_array($query_promo);
 
 ?>
 
-Today's track is <i><? echo $row_promo[title]; ?></i> by <b><? echo $row_promo[artist]; ?></b><br><br>
+Today's track is <i><?php echo $row_promo[title]; ?></i> by <b><?php echo $row_promo[artist]; ?></b><br><br>
 Coming up this month are FREE downloads from the <b>Spice Girls</b>, <b>Placebo</b>,
 <b>Gomez</b>, <b>Martine McCutcheon</b> and loads more available at <i>MusicGoesOn.com</i><br><br>
 All you need to do is <a href="/features/no_sleep_til_xmas/" target="_blank">click here</a> every
 day from now until Christmas day to download a new track for FREE.
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <br><CENTER><a href="/features/no_sleep_til_xmas/" target="_blank"><img src="/images/promotions/no-sleep-till-xmas_12-2000.gif" border="0" width="194" height="32"></a></CENTER>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* NO SLEEP TIL' XMAS */ ?>
+<?php /* NO SLEEP TIL' XMAS */ ?>
 
 <br>
 
-<? /* REVIEWS BEGIN */ ?>
+<?php /* REVIEWS BEGIN */ ?>
 
-<? $title = 'R E V I E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = 'R E V I E W S'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
 	<font size="2" face="verdana">
 	<a href="/reviews/singles/mo_solid_gold/davids_soul.php"><b><u>Mo Solid Gold - David's Soul</u></b></a><br>
@@ -199,7 +199,7 @@ day from now until Christmas day to download a new track for FREE.
 	<font color="silver" size="1" face="verdana">Release: 13 November 2000 | Label: Big Brother | Cat. Number: RKIDCD 005<br></font>
 	<br>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
 <form method="post" action="/redir.php">
 <font color="black" size="1" face="verdana">More Reviews...</font><br>
@@ -228,8 +228,8 @@ day from now until Christmas day to download a new track for FREE.
 <input type="submit" value="GO!" align="absmiddle">
 </form>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* REVIEWS END */ ?>
+<?php /* REVIEWS END */ ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

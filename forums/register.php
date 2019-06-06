@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Forums - Register';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'forums';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Forums - Register';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if (empty($goto))
 {
@@ -22,31 +22,31 @@ if (empty($goto))
 
 ?>
 
-<? if ($error=="username") { ?>
+<?php if ($error=="username") { ?>
 <font color="red">Someone else already has your username, please try another one.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<? if ($error=="username_len") { ?>
+<?php if ($error=="username_len") { ?>
 <font color="red">The username you chose is longer than fifteen characters.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<? if ($error=="emptypass") { ?>
+<?php if ($error=="emptypass") { ?>
 <font color="red">You must enter a password.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<? if ($error=="pass") { ?>
+<?php if ($error=="pass") { ?>
 <font color="red">Your passwords do not match.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<? if ($error=="name") { ?>
+<?php if ($error=="name") { ?>
 <font color="red">You must enter your name.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<? if ($error=="email") { ?>
+<?php if ($error=="email") { ?>
 <font color="red">You did not enter a valid e-mail address.</font><br><br>
-<? } ?>
+<?php } ?>
 
-<?
+<?php
 
 echo "<form action=\"/forums/doregister.php\" method=\"post\">\n\n";
 
@@ -90,7 +90,7 @@ echo "</form>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -5,7 +5,7 @@
 
 <body>
 
-<?
+<?php
 
 mysql_connect("localhost", "mgo", "h47fh20e");
 mysql_select_db(musicgoeson_com);
@@ -14,7 +14,7 @@ include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/functions.inc");
 
 ?>
 
-<?
+<?php
 
 $just = ereg_replace("/", "", $PATH_INFO);
 
@@ -36,7 +36,7 @@ while ($data = mysql_fetch_array($result))
 
 <br><br>
 
-<?
+<?php
 
 if (empty($just))
 {

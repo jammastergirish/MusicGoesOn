@@ -1,6 +1,6 @@
-<? /* ANNIE@IT BEGIN */ ?>
+<?php /* ANNIE@IT BEGIN */ ?>
 
-<? $title = '<br><CENTER><img src="/images/features/annie-it_feb2001/logo_anniemiddle.gif" width="180" height="51"></CENTER>'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
+<?php $title = '<br><CENTER><img src="/images/features/annie-it_feb2001/logo_anniemiddle.gif" width="180" height="51"></CENTER>'; include("/home/mgo/musicgoeson-www/inc/top.php"); ?>
 
 	<font size="2" face="verdana">
 	<a href="/features/annie-it_feb2001/"><b><u>ANNIE@IT</u></b></a><br>
@@ -15,8 +15,8 @@
 	information and to see Annie's video intro.<br><br>
 	</font>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? /* ANNIE@IT END */ ?>
+<?php /* ANNIE@IT END */ ?>

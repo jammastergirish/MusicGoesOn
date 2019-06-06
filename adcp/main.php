@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Ad Control Panel - Your Banners';
 $description = '';
 $keywords = '';
@@ -6,13 +6,13 @@ $menu = 'adcp';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Ad Control Panel - Your Banners';
 include("adcp/subtitle.inc");
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n\n";
  echo "    <tr>\n";
@@ -68,7 +68,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

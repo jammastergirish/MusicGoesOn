@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 /* $Id: tbl_dump.php,v 1.28 2001/08/29 18:57:34 loic1 Exp $ */
 
 

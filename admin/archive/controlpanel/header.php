@@ -1,4 +1,4 @@
-<?
+<?php
 
 mysql_connect ("localhost", "mgo", "h47fh20e");
 mysql_select_db (musicgoeson_com);
@@ -32,7 +32,7 @@ else
 <img src="/images/pixel.gif" width="3"><a href="controlpanel.php<?php include("/home/mgo/musicgoeson-www/advertising/controlpanel/link.inc"); ?>"><font color="#FFFFFF"><b>Home</b></font></a><br>
 <br>
 
-<?
+<?php
 
 mysql_connect ("localhost", "mgo", "h47fh20e");
 mysql_select_db (musicgoeson_com);

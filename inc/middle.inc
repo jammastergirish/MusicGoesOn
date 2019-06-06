@@ -1,5 +1,5 @@
 <!-- START: /inc/middle.inc -->
-<?
+<?php
  echo "</p></font></td>\n";
 
  if($columns==2)

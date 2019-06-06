@@ -1,7 +1,7 @@
 <?php include("/home/mgo/musicgoeson-www/php_header.php3"); ?>
 <html>
 <head>
-<title><? if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?></title>
+<title><?php if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?></title>
 <META NAME="Description" CONTENT="Visit this site for the latest music news and reviews, biographies and discographies of your favourite artists and loads more...">
 <META NAME="Keywords" CONTENT="music, entertainment, artist, band, uk, albums, review">
 <?php include("/home/mgo/musicgoeson-www/header.php3"); ?>
@@ -111,7 +111,7 @@ LITTLE KIX
 
 <td align="center" valign="top" width="20%">
 
-<? virtual ("/cgi-bin/vote/polls/napster_riaa.pl"); ?>
+<?php virtual ("/cgi-bin/vote/polls/napster_riaa.pl"); ?>
 
 </td>
 </tr>
@@ -145,11 +145,11 @@ For the latest music news and reviews join the MusicGoesOn.com Mailing List...<f
 <?php if(strstr($HTTP_USER_AGENT,"MSIE")) { ?>
 <font color="red" size="1" face="verdana">ADD US TO YOUR FAVOURITES</font><br>
 <font color="black" size="1" face="verdana">
-<a href="javascript:window.external.AddFavorite('http://<? if ($mymgo=="true") { print "my"; } else { print "www"; } ?>.musicgoeson.com/','<? if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?>');">Click here</a> to add <? if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?> to your favourites
+<a href="javascript:window.external.AddFavorite('http://<?php if ($mymgo=="true") { print "my"; } else { print "www"; } ?>.musicgoeson.com/','<?php if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?>');">Click here</a> to add <?php if ($mymgo=="true") { print "myMusicGoesOn"; } else { print "MusicGoesOn.com"; } ?> to your favourites
 </font>
 <hr>
-<? } else { ?>
-<? } ?> 
+<?php } else { ?>
+<?php } ?> 
 <CENTER>
 <a href="http://www.blackstar.co.uk/scp/id/mgo/" target="_blank"><img src="/ads/blackstar/150x37.gif" border="0" alt="BlackStar.co.uk"></a>
 </CENTER>

@@ -1,5 +1,5 @@
-<? include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
-<?
+<?php include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
+<?php
 
 if ($r=="") { $r = $HTTP_REFERER; }
 

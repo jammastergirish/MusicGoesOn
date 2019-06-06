@@ -1,4 +1,4 @@
-<?
+<?php
 include("/home/mgo/musicgoeson-www/inc/php_header.php");
 include("/home/mgo/musicgoeson-www/admin/check.php");
 $title = 'Admin - Shop - Add to Catalogue';
@@ -9,13 +9,13 @@ $php_header = 'false';
 include("/home/mgo/musicgoeson-www/inc/header.php");
 ?>
 
-<?
+<?php
 $title = 'Admin - Shop - Add to Catalogue';
 $subtitle = $aSID;
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
 
-<?
+<?php
 
 if(empty($id))
 {
@@ -45,8 +45,8 @@ echo "<b>ID: </b><a href=\"addcat.php?id=$id_[0]&title_=$title_&artist=$artist&l
 
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

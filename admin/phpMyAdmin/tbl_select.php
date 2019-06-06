@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 /* $Id: tbl_select.php,v 1.17 2001/08/29 12:00:07 loic1 Exp $ */
 
 
@@ -28,16 +28,16 @@ if (!isset($param) || $param[0] == '') {
         }
         ?>
 <form method="post" action="tbl_select.php">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="server" value="<?phpphp echo $server; ?>" />
+    <input type="hidden" name="lang" value="<?phpphp echo $lang; ?>" />
+    <input type="hidden" name="db" value="<?phpphp echo $db; ?>" />
+    <input type="hidden" name="table" value="<?phpphp echo $table; ?>" />
+    <input type="hidden" name="goto" value="<?phpphp echo $goto; ?>" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php echo $strSelectFields; ?>&nbsp;:<br />
+    <?phpphp echo $strSelectFields; ?>&nbsp;:<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <select name="param[]" size="10" multiple="multiple">
-        <?php
+        <?phpphp
         echo "\n";
         // Displays the list of the fields
         for ($i = 0 ; $i < $fields_count; $i++) {
@@ -48,50 +48,50 @@ if (!isset($param) || $param[0] == '') {
     <ul>
         <li>
             <div style="margin-bottom: 10px">
-            <?php echo $strDisplay; ?>&nbsp;
-            <input type="text" size="4" name="sessionMaxRows" value="<?php echo $cfgMaxRows; ?>" />
-            <?php echo $strLimitNumRows . "\n"; ?>
+            <?phpphp echo $strDisplay; ?>&nbsp;
+            <input type="text" size="4" name="sessionMaxRows" value="<?phpphp echo $cfgMaxRows; ?>" />
+            <?phpphp echo $strLimitNumRows . "\n"; ?>
             </div>
         </li>
         <li>
-            <?php echo $strAddSearchConditions; ?><br />
+            <?phpphp echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" />&nbsp;
-            <?php print show_docu("manual_Reference.html#Functions") . "\n"; ?>
+            <?phpphp print show_docu("manual_Reference.html#Functions") . "\n"; ?>
             <br /><br />
-            <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
-            <table border="<?php echo $cfgBorder; ?>">
+            <?phpphp echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
+            <table border="<?phpphp echo $cfgBorder; ?>">
             <tr>
-                <th><?php echo $strField; ?></th>
-                <th><?php echo $strType; ?></th>
-                <th><?php echo $strValue; ?></th>
+                <th><?phpphp echo $strField; ?></th>
+                <th><?phpphp echo $strType; ?></th>
+                <th><?phpphp echo $strValue; ?></th>
             </tr>
-        <?php
+        <?phpphp
         for ($i = 0; $i < $fields_count; $i++) {
             echo "\n";
             $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
             $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
             $maxlength = (($fields_len[$i] < 8)  ? 8  : $fields_len[$i]);
             ?>
-            <tr bgcolor="<?php echo $bgcolor; ?>">
-                <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
-                <td><?php echo $fields_type[$i]; ?></td>
+            <tr bgcolor="<?phpphp echo $bgcolor; ?>">
+                <td><?phpphp echo htmlspecialchars($fields_list[$i]); ?></td>
+                <td><?phpphp echo $fields_type[$i]; ?></td>
                 <td>
-                    <input type="text" name="fields[]" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
-                    <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
-                    <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
+                    <input type="text" name="fields[]" size="<?phpphp echo $fieldsize; ?>" maxlength="<?phpphp echo $maxlength; ?>" />
+                    <input type="hidden" name="names[]" value="<?phpphp echo urlencode($fields_list[$i]); ?>" />
+                    <input type="hidden" name="types[]" value="<?phpphp echo $fields_type[$i]; ?>" />
                 </td>
             </tr>
-            <?php
+            <?phpphp
         } // end for
         echo "\n";
         ?>
             </table><br />
         </li>
         <li>
-            <?php echo $strDisplayOrder; ?><br />
+            <?phpphp echo $strDisplayOrder; ?><br />
             <select name="orderField" style="vertical-align: middle">
                 <option value="--nil--"></option>
-        <?php
+        <?phpphp
         echo "\n";
         for ($i = 0; $i < mysql_num_fields($result); $i++) {
             $field = mysql_field_name($result, $i);
@@ -101,16 +101,16 @@ if (!isset($param) || $param[0] == '') {
         ?>
             </select>
             <input type="radio" name="order" value="ASC" checked="checked" />
-            <?php echo $strAscending; ?>&nbsp;
+            <?phpphp echo $strAscending; ?>&nbsp;
             <input type="radio" name="order" value="DESC" />
-            <?php echo $strDescending; ?><br /><br />
+            <?phpphp echo $strDescending; ?><br /><br />
         </li>
     </ul>
 
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+    <input type="submit" name="submit" value="<?phpphp echo $strGo; ?>" />
 </form>
-        <?php
+        <?phpphp
     } // end if
     echo "\n";
     include('./footer.inc.php');

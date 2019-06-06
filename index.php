@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Latest music news, reviews, interviews, audio, video...';
 $description = 'Visit Music Goes On for the latest music news and reviews; including interviews, features, competitions, audio, video and loads more...';
 $keywords = 'music, uk, entertainment, pop, indie, rock, dance, garage, news, reviews, features, promos, live, gig, concert, artists';
@@ -6,7 +6,7 @@ $menu = 'home';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 
 echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\" align=\"center\" valign=\"top\">\n\n";
 $section = "News";
@@ -169,6 +169,6 @@ while ($data = mysql_fetch_array($result))
 
 ?>
 
-<? include("inc/footer.inc"); ?>
+<?php include("inc/footer.inc"); ?>
 
 <CENTER><a href="/site.php"><img src="/images/pixel.gif" width="2" height="2" border="0" alt="Site Index"></a></CENTER>

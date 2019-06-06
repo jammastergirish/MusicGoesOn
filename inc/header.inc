@@ -1,15 +1,15 @@
-<? include_once("inc/php_header.inc");  ?>
+<?php include_once("inc/php_header.inc");  ?>
 
-<?
+<?php
 //error_reporting(E_ALL);
 ?>
 <!-- START: /inc/header.inc -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>Music Goes On - <? echo $title; ?></title>
+<title>Music Goes On - <?php echo $title; ?></title>
 <META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://musicgoeson.com/" r (cz 1 lc 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://musicgoeson.com/" r (n 0 s 0 v 0 l 1))'>
-<?
+<?php
 
 if (empty($description))
 {
@@ -110,7 +110,7 @@ function OpenWindow(url, width, height)
 </head>
 
 <body leftmargin="0" topmargin="0" bgcolor="#FFFFFF">
-<? /*
+<?php /*
 <table width="100%" border="0" cellpadding="3" cellspacing="0" style="table-layout:fixed">
 <tr>
 <td bgcolor="#006699" width="100%">
@@ -135,7 +135,7 @@ function OpenWindow(url, width, height)
 </td>
 <td bgcolor="#FFFFFF" width="100%" align="right">
 <img src="/images/pixel.gif" width="1" height="10"><br>
-<?
+<?php
 /*
 srand((double)microtime()*1000000); 
 if (rand(0,2)==0)
@@ -162,7 +162,7 @@ else
 <tr>
 <td bgcolor="#006699" width="100" valign="top" align="right">
 <img src="/images/pixel.gif" width="100" height="2"><br>
-<?
+<?php
 
 echo "<font face=\"verdana\" size=\"1\">";
 

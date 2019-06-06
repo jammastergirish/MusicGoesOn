@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (file_exists("/home/mgo/musicgoeson-www/images/library/".$artist[id]."/icon.jpg"))
 {

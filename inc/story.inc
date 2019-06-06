@@ -1,5 +1,5 @@
 <!-- START: /inc/story.inc -->
-<?
+<?php
 
 echo "<table width=\"100%\" border=\"0\"><tr><td><font face=\"verdana\" size=\"1\" color=\"#000000\">";
 

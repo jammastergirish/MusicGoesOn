@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Reviews - Singles';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'reviews';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Reviews - Albums';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $showicon = 'true';
 
@@ -33,7 +33,7 @@ while ($data_reviews = mysql_fetch_array($result_reviews))
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

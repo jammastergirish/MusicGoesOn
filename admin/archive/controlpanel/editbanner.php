@@ -1,6 +1,6 @@
-<? include("/home/mgo/musicgoeson-www/advertising/controlpanel/header.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/advertising/controlpanel/header.php"); ?>
 
-<?
+<?php
 
 mysql_connect ("localhost", "mgo", "h47fh20e");
 mysql_select_db (musicgoeson_com);

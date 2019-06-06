@@ -1,4 +1,4 @@
-<?
+<?php
 
 $email = "girish@musicgoeson.com";
 

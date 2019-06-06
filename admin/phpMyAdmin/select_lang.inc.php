@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 /* $Id: select_lang.inc.php,v 1.12 2001/08/28 10:08:20 loic1 Exp $ */
 
 

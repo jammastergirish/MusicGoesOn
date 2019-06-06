@@ -1,4 +1,4 @@
-<?
+<?php
 include("/home/mgo/musicgoeson-www/inc/php_header.php");
 
 if (empty($name))
@@ -54,12 +54,12 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Edit Details';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 mysql_query("UPDATE mail SET name = '$name', email = '$email', h_t = '$h_t' WHERE SID = '$SID'");
 
@@ -67,7 +67,7 @@ mysql_query("UPDATE mail SET name = '$name', email = '$email', h_t = '$h_t' WHER
 
 Your details have been changed.
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

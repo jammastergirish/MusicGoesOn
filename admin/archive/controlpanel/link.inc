@@ -1,1 +1,1 @@
-<? print "?userID=$userID&SID=$SID"; ?>
+<?php print "?userID=$userID&SID=$SID"; ?>

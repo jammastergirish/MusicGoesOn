@@ -1,16 +1,16 @@
-<?
+<?php
 $title = 'Contact Us';
 $description = 'Contact Music Goes On';
 $keywords = '';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Contact Us';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"100%\" style=\"table-layout:fixed\">\n\n";
  echo "    <tr>\n";
@@ -33,7 +33,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

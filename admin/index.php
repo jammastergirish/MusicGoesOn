@@ -1,20 +1,20 @@
-<?
+<?php
 $title = 'Admin - Login';
 $description = '';
 $keywords = '';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Admin - Login';
 include("inc/top.inc");
 ?>
 
-<? if ($login=="failed") { ?>
+<?php if ($login=="failed") { ?>
 <font color="red">Your ID/password has not been recognised, please try again:</font><br>
-<? } else { ?><? } ?>
+<?php } else { ?><?php } ?>
 
-<?
+<?php
 
 echo "<form action=\"/admin/dologin.php\" method=\"post\">\n\n";
 
@@ -37,7 +37,7 @@ echo "</form>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

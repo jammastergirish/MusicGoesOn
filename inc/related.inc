@@ -1,5 +1,5 @@
 <!-- START: /inc/related.inc -->
-<?
+<?php
 
 $uri = explode("?", $REQUEST_URI);
 $uri = $uri[0];

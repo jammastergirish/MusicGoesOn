@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/php_header.inc");
 
 $result = mysql_query("SELECT * FROM users WHERE aSID = '$aSID'");

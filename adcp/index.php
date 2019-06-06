@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Ad Control Panel - Login';
 $description = '';
 $keywords = '';
@@ -6,16 +6,16 @@ $menu = 'adcp';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Ad Control Panel - Login';
 include("inc/top.inc");
 ?>
 
-<? if ($login=="failed") { ?>
+<?php if ($login=="failed") { ?>
 <font color="red">Your username/password has not been recognised, please try again.</font><br><br>
-<? } else { ?><? } ?>
+<?php } else { ?><?php } ?>
 
-<?
+<?php
 
 echo "<form action=\"/adcp/dologin.php\" method=\"post\">\n";
 
@@ -38,7 +38,7 @@ echo "</form>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

@@ -1,4 +1,4 @@
-<?
+<?php
 
 mysql_connect("localhost", "mgo", "h47fh20e");
 mysql_select_db(musicgoeson_com);
@@ -80,7 +80,7 @@ echo "</table>\n\n";
 
 <br>
 
-<?
+<?php
 
 echo "<b>Top Five Articles</b><br>";
 
@@ -107,7 +107,7 @@ echo "</table>\n\n";
 
 <br>
 
-<?
+<?php
 
 echo "<b>Top Five Artists</b><br>";
 

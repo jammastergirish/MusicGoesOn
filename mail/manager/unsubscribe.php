@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Manager - Unsubscribe';
 $description = '';
 $keywords = '';
@@ -7,7 +7,7 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Unsubscribe';
 include("inc/top.inc");
 ?>
@@ -16,7 +16,7 @@ Are you sure you want to unsubscribe from ALL of <i>Music Goes On</i>'s mailing 
 <br><br>
 <a href="unsubscribe2.php?u=yes">YES</a> | <a href="lists.php">NO</a>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

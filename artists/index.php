@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Artists';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'artists';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Artists';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $query = mysql_query("SELECT * FROM artists ORDER BY uniques DESC LIMIT 0,10");
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"30%\" style=\"table-layout:fixed\" align=\"right\">\n\n";
@@ -28,7 +28,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 //$query = mysql_query("SELECT * FROM artists WHERE artistweek LIMIT 0,10");
 echo "<table border=\"1\" cellpadding=\"5\" cellspacing=\"0\" width=\"65%\" style=\"table-layout:fixed\" align=\"left\">\n\n";
@@ -42,7 +42,7 @@ echo "</table>\n\n";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

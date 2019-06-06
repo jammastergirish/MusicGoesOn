@@ -1,1 +1,1 @@
-<? include("http://www.musicgoeson.com/")?>
+<?php include("http://www.musicgoeson.com/")?>

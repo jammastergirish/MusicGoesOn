@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Audio/Video';
 $description = '';
 $keywords = '';
@@ -6,12 +6,12 @@ $menu = 'au_vi';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Audio/Video';
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 $showicon = 'true';
 
@@ -33,7 +33,7 @@ while ($data_auvi = mysql_fetch_array($result_auvi))
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

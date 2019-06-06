@@ -1,4 +1,4 @@
-<?
+<?php
 include("inc/php_header.inc");
 
 if (empty($goto))

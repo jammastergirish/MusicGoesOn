@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (empty($dir))
 {
@@ -21,13 +21,13 @@ $php_header = 'false';
 include("inc/header.inc");
 ?>
 
-<?
+<?php
 $title = 'Admin - File Manager - '.$dir;
 $subtitle = $aSID;
 include("inc/top.inc");
 ?>
 
-<?
+<?php
 
 if (empty($dir))
 {
@@ -128,7 +128,7 @@ echo "</table>";
 
 ?>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

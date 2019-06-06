@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Manager - Change Password';
 $description = '';
 $keywords = '';
@@ -7,7 +7,7 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Change Password';
 $subtitle = $row[name]." [".$row[email]."]";
 include("inc/top.inc");
@@ -15,7 +15,7 @@ include("inc/top.inc");
 
 <form action="/mail/manager/pass2.php" method="post">
 
-<?
+<?php
 
 if ($error=="pas")
 {
@@ -31,7 +31,7 @@ if ($error=="pas")
 
 </form>
 
-<?
+<?php
 
 include("inc/middle.inc");
 include("inc/bottom.inc");

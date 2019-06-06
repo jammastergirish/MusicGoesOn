@@ -1,5 +1,5 @@
-<? include("inc/header.inc"); ?>
-<? include("inc/menu.inc"); ?>
+<?php include("inc/header.inc"); ?>
+<?php include("inc/menu.inc"); ?>
 
 <table border="0" cellspacing="0" cellpadding="0"
 <tr bgcolor="#aaaaaa">
@@ -28,4 +28,4 @@ Body:
 </form>
 </td></tr></table>
 
-<? include("inc/footer.inc"); ?>
+<?php include("inc/footer.inc"); ?>

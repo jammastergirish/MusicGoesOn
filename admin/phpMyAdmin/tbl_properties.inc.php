@@ -1,39 +1,39 @@
-<?php
+<?phpphp
 /* $Id: tbl_properties.inc.php,v 1.15 2001/08/29 20:49:00 loic1 Exp $ */
 
 
 ?>
-<form method="post" action="<?php echo $action; ?>">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
-<?php
+<form method="post" action="<?phpphp echo $action; ?>">
+    <input type="hidden" name="server" value="<?phpphp echo $server; ?>" />
+    <input type="hidden" name="lang" value="<?phpphp echo $lang; ?>" />
+    <input type="hidden" name="db" value="<?phpphp echo $db; ?>" />
+    <input type="hidden" name="table" value="<?phpphp echo $table; ?>" />
+<?phpphp
 if ($action == 'tbl_create.php') {
     ?>
     <input type="hidden" name="reload" value="true" />
-    <?php
+    <?phpphp
 }
 else if ($action == 'tbl_addfield.php') {
     echo "\n";
     ?>
-    <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
-    <?php
+    <input type="hidden" name="after_field" value="<?phpphp echo $after_field; ?>" />
+    <?phpphp
 }
 echo "\n";
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 ?>
 
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?phpphp echo $cfgBorder; ?>">
     <tr>
-        <th><?php echo $strField; ?></th>
-        <th><?php echo $strType; ?></th>
-        <th><?php echo $strLengthSet; ?></th>
-        <th><?php echo $strAttr; ?></th>
-        <th><?php echo $strNull; ?></th>
-        <th><?php echo $strDefault; ?></th>
-        <th><?php echo $strExtra; ?></th>
-<?php
+        <th><?phpphp echo $strField; ?></th>
+        <th><?phpphp echo $strType; ?></th>
+        <th><?phpphp echo $strLengthSet; ?></th>
+        <th><?phpphp echo $strAttr; ?></th>
+        <th><?phpphp echo $strNull; ?></th>
+        <th><?phpphp echo $strDefault; ?></th>
+        <th><?phpphp echo $strExtra; ?></th>
+<?phpphp
 if (!$is_backup) {
     if (empty($num_indexes)) {
         echo "        <th>$strPrimary</th>\n";
@@ -49,29 +49,29 @@ if (!$is_backup) {
 ?>
     </tr>
 
-<?php
+<?phpphp
 for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($result)) {
         $row = mysql_fetch_array($result);
     }
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     ?>
-    <tr bgcolor="<?php echo $bgcolor;?>">
+    <tr bgcolor="<?phpphp echo $bgcolor;?>">
         <td>
-    <?php
+    <?phpphp
     if ($is_backup) {
         echo "\n";
         ?>
-            <input type="hidden" name="field_orig[]" value="<?php if (isset($row) && isset($row['Field'])) echo urlencode($row['Field']); ?>" />
-        <?php
+            <input type="hidden" name="field_orig[]" value="<?phpphp if (isset($row) && isset($row['Field'])) echo urlencode($row['Field']); ?>" />
+        <?phpphp
     }
     echo "\n";
     ?>
-            <input type="text" name="field_name[]" size="10" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
+            <input type="text" name="field_name[]" size="10" value="<?phpphp if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
         </td>
         <td>
             <select name="field_type[]">
-    <?php
+    <?phpphp
     echo "\n";
     if (empty($row['Type'])) {
         $row['Type'] = '';
@@ -108,20 +108,20 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
         <td>
-    <?php
+    <?phpphp
     if ($is_backup) {
         echo "\n";
         ?>
-            <input type="hidden" name="field_length_orig[]" value="<?php echo urlencode($length); ?>" />
-        <?php
+            <input type="hidden" name="field_length_orig[]" value="<?phpphp echo urlencode($length); ?>" />
+        <?phpphp
     }
     echo "\n";
     ?>
-            <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" />
+            <input type="text" name="field_length[]" size="8" value="<?phpphp echo str_replace('"', '&quot;', $length); ?>" />
         </td>
         <td>
             <select name="field_attribute[]">
-    <?php
+    <?phpphp
     echo "\n";
     $binary           = eregi('BINARY', $row['Type'], $test_attribute1);
     $unsigned         = eregi('UNSIGNED', $row['Type'], $test_attribute2);
@@ -148,25 +148,25 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         </td>
         <td>
             <select name="field_null[]">
-    <?php
+    <?phpphp
     if (!isset($row) || empty($row['Null'])) {
         echo "\n";
         ?>
                 <option value="NOT NULL">not null</option>
                 <option value="">null</option>
-        <?php
+        <?phpphp
     } else {
         echo "\n";
         ?>
                 <option value="">null</option>
                 <option value="NOT NULL">not null</option>
-        <?php
+        <?phpphp
     }
     echo "\n";
     ?>
             </select>
         </td>
-    <?php
+    <?phpphp
     if (isset($row)
         && !isset($row['Default']) && !empty($row['Null'])) {
         $row['Default'] = 'NULL';
@@ -174,38 +174,38 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     echo "\n";
     ?>
         <td>
-    <?php
+    <?phpphp
     if ($is_backup) {
         echo "\n";
         ?>
-            <input type="hidden" name="field_default_orig[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo urlencode($row['Default']); ?>" />
-        <?php
+            <input type="hidden" name="field_default_orig[]" size="8" value="<?phpphp if(isset($row) && isset($row['Default'])) echo urlencode($row['Default']); ?>" />
+        <?phpphp
     }
     echo "\n";
     ?>
-            <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />
+            <input type="text" name="field_default[]" size="8" value="<?phpphp if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />
         </td>
         <td>
             <select name="field_extra[]">
-    <?php
+    <?phpphp
     if(!isset($row) || empty($row['Extra'])) {
         echo "\n";
         ?>
                 <option value=""></option>
                 <option value="AUTO_INCREMENT">auto_increment</option>
-        <?php
+        <?phpphp
     } else {
         echo "\n";
         ?>
                 <option value="AUTO_INCREMENT">auto_increment</option>
                 <option value=""></option>
-        <?php
+        <?phpphp
     }
     echo "\n";
     ?>
             </select>
         </td>
-    <?php
+    <?phpphp
     if (!$is_backup) {
         if (empty($num_indexes)) {
             if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
@@ -226,41 +226,41 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             echo "\n";
             ?>
         <td align="center">
-            <input type="checkbox" name="field_primary[]" value="<?php echo $i; ?>"<?php echo $checked_primary; ?> />
+            <input type="checkbox" name="field_primary[]" value="<?phpphp echo $i; ?>"<?phpphp echo $checked_primary; ?> />
         </td>
         <td align="center">
-            <input type="checkbox" name="field_index[]" value="<?php echo $i; ?>"<?php echo $checked_index; ?> />
+            <input type="checkbox" name="field_index[]" value="<?phpphp echo $i; ?>"<?phpphp echo $checked_index; ?> />
         </td>
         <td align="center">
-            <input type="checkbox" name="field_unique[]" value="<?php echo $i; ?>"<?php echo $checked_unique; ?> />
+            <input type="checkbox" name="field_unique[]" value="<?phpphp echo $i; ?>"<?phpphp echo $checked_unique; ?> />
         </td>
-            <?php
+            <?phpphp
         } // end if (empty($num_indexes))
     } // end if ($action ==...)
     echo "\n";
     ?>
     </tr>
-    <?php
+    <?phpphp
     echo "\n";
 } // end for
 ?>
     </table>
     <br />
 
-<?php
+<?phpphp
 if ($action == 'tbl_create.php' && MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
     <table>
     <tr valign="top">
-        <td><?php echo $strTableComments; ?>&nbsp;:</td>
-    <?php
+        <td><?phpphp echo $strTableComments; ?>&nbsp;:</td>
+    <?phpphp
     if ($action == 'tbl_create.php') {
         echo "\n";
         ?>
         <td width="25">&nbsp;</td>
-        <td><?php echo $strTableType; ?>&nbsp;:</td>
-        <?php
+        <td><?phpphp echo $strTableType; ?>&nbsp;:</td>
+        <?phpphp
     }
     echo "\n";
     ?>
@@ -269,7 +269,7 @@ if ($action == 'tbl_create.php' && MYSQL_INT_VERSION >= 32300) {
         <td>
             <input type="text" name="comment" size="40" maxlength="80" />
         </td>
-    <?php
+    <?phpphp
     // BEGIN - Table Type - 2 May 2001 - Robbat2
     // change by staybyte - 11 June 2001
     if ($action == 'tbl_create.php') {
@@ -309,40 +309,40 @@ if ($action == 'tbl_create.php' && MYSQL_INT_VERSION >= 32300) {
         <td width="25">&nbsp;</td>
         <td>
             <select name="tbl_type">
-                <option value="Default"><?php echo $strDefault; ?></option>
+                <option value="Default"><?phpphp echo $strDefault; ?></option>
                 <option value="MYISAM">MyISAM</option>
                 <option value="HEAP">Heap</option>
                 <option value="MERGE">Merge</option>
-                <?php if (isset($tbl_bdb)) { ?><option value="BDB">Berkeley DB</option><?php }?> 
-                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI">Gemini</option><?php }?> 
-                <?php if (isset($tbl_innodb)) { ?><option value="InnoDB">INNO DB</option><?php }?> 
-                <?php if (isset($tbl_isam)) { ?><option value="ISAM">ISAM</option><?php }?> 
+                <?phpphp if (isset($tbl_bdb)) { ?><option value="BDB">Berkeley DB</option><?phpphp }?> 
+                <?phpphp if (isset($tbl_gemini)) { ?><option value="GEMINI">Gemini</option><?phpphp }?> 
+                <?phpphp if (isset($tbl_innodb)) { ?><option value="InnoDB">INNO DB</option><?phpphp }?> 
+                <?phpphp if (isset($tbl_isam)) { ?><option value="ISAM">ISAM</option><?phpphp }?> 
             </select>
         </td>
-        <?php
+        <?phpphp
     }
     echo "\n";
     ?>
         </tr>
     </table>
     <br />
-    <?php
+    <?phpphp
 }
 echo "\n";
 // END - Table Type - 2 May 2001 - Robbat2
 ?>
 
-<input type="submit" name="submit" value="<?php echo $strSave; ?>" />
+<input type="submit" name="submit" value="<?phpphp echo $strSave; ?>" />
 </form>
 
 <table>
 <tr>
     <td valign="top">*&nbsp;</td>
     <td>
-        <?php echo $strSetEnumVal . "\n"; ?>
+        <?phpphp echo $strSetEnumVal . "\n"; ?>
     </td>
 </tr>
 </table>
 <br />
 
-<center><?php echo show_docu('manual_Reference.html#CREATE_TABLE'); ?></center>
+<center><?phpphp echo show_docu('manual_Reference.html#CREATE_TABLE'); ?></center>

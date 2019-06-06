@@ -1,6 +1,6 @@
-<? include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
-<? include("inc/class.POP3.php"); ?>
-<?
+<?php include("/home/mgo/musicgoeson-www/inc/php_header.php"); ?>
+<?php include("inc/class.POP3.php"); ?>
+<?php
 $title = 'WebMail';
 $description = '';
 $keywords = '';
@@ -19,7 +19,7 @@ function DoDel(params)
 //-->
 </script>
 
-<?
+<?php
 if ($subject=="")
 {
  $title = 'WebMail';
@@ -33,7 +33,7 @@ else
 }
 ?>
 
-<?
+<?php
 
   $accnt = new POP3($host, 60);
   
@@ -148,8 +148,8 @@ else
 
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>

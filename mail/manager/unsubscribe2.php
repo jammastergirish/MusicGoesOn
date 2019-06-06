@@ -1,4 +1,4 @@
-<?
+<?php
 $title = 'Mailing Lists - Manager - Unsubscribe';
 $description = '';
 $keywords = '';
@@ -7,12 +7,12 @@ include("inc/header.inc");
 include("mail/manager/include.inc");
 ?>
 
-<?
+<?php
 $title = 'Mailing Lists - Manager - Unsubscribe';
 include("/home/mgo/musicgoeson-www/inc/top.php");
 ?>
 
-<?
+<?php
 
 if ($u=="yes")
 {
@@ -22,8 +22,8 @@ if ($u=="yes")
 
 ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/middle.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/bottom.php"); ?>
 
-<? include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
+<?php include("/home/mgo/musicgoeson-www/inc/footer.php"); ?>
