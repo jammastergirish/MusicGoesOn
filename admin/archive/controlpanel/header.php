@@ -10,7 +10,7 @@ if ($row_login = mysql_fetch_array($result_login))
 }
 else
 {
-    header("Location: http://www.musicgoeson.com/advertising/controlpanel/login.php?login=failed");
+    header("Location: https://mgo.girish-gupta.com/advertising/controlpanel/login.php?login=failed");
 }
 
 ?>

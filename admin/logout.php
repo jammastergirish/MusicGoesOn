@@ -13,11 +13,11 @@ if ($row = mysql_fetch_array($result))
  {
   mysql_query("DELETE FROM visits WHERE CookieID = '$CookieID'");
  }
- header("Location: http://www.musicgoeson.com/admin/loggedout.php?CookieID=$CookieID");
+ header("Location: https://mgo.girish-gupta.com/admin/loggedout.php?CookieID=$CookieID");
 }
 else
 {
- header("Location: http://www.musicgoeson.com/");
+ header("Location: https://mgo.girish-gupta.com/");
 }
 
 ?>

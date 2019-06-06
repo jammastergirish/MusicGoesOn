@@ -18,11 +18,11 @@ if ($row = mysql_fetch_array(mysql_query("SELECT * FROM forum_users WHERE userna
   }
  }
  mysql_query("DELETE FROM forum_users WHERE username = 'Guest$CookieID'");
- header("Location: http://www.musicgoeson.com/forums/".$goto);
+ header("Location: https://mgo.girish-gupta.com/forums/".$goto);
 }
 else
 {
- header("Location: http://www.musicgoeson.com/forums/login.php?login=failed&goto=".$goto);
+ header("Location: https://mgo.girish-gupta.com/forums/login.php?login=failed&goto=".$goto);
 }
 
 ?>

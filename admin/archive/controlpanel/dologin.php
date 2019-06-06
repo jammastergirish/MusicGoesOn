@@ -13,11 +13,11 @@ $result = mysql_query ("SELECT * FROM advertising WHERE id = '$userID' AND passw
 if ($row = mysql_fetch_array($result))
 {
     mysql_query ("UPDATE advertising set sid = '$sid' WHERE id = '$userID'");
-    header("Location: http://www.musicgoeson.com/advertising/controlpanel/controlpanel.php?userID=$userID&SID=$sid");
+    header("Location: https://mgo.girish-gupta.com/advertising/controlpanel/controlpanel.php?userID=$userID&SID=$sid");
 }
 else
 {
-    header("Location: http://www.musicgoeson.com/advertising/controlpanel/index.php?login=failed");
+    header("Location: https://mgo.girish-gupta.com/advertising/controlpanel/index.php?login=failed");
 }
 
 ?>

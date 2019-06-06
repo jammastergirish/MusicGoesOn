@@ -5,7 +5,7 @@ mysql_select_db(musicgoeson_com);
 
 /*****/
 
-include_once($HTTP_SERVER_VARS[DOCUMENT_ROOT]."/inc/functions.inc");
+include_once("inc/functions.inc");
 
 /*****/
 

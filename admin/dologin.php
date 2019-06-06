@@ -14,11 +14,11 @@ if ($row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE user = '$use
  mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
  session_register("aSID");
  mysql_query("UPDATE users SET aSID = '$aSID' WHERE user = '$user'");
- header("Location: http://www.musicgoeson.com/admin/admin.php");
+ header("Location: https://mgo.girish-gupta.com/admin/admin.php");
 }
 else
 {
- header("Location: http://www.musicgoeson.com/admin/index.php?login=failed");
+ header("Location: https://mgo.girish-gupta.com/admin/index.php?login=failed");
 }
 
 ?>

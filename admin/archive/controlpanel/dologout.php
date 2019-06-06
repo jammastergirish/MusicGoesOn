@@ -10,11 +10,11 @@ $result = mysql_query ("SELECT * FROM advertising WHERE id = '$userID' AND sid =
 if ($row = mysql_fetch_array($result))
 {
     mysql_query ("UPDATE advertising set sid = '$sid' WHERE id = '$userID'");
-    header("Location: http://www.musicgoeson.com/");
+    header("Location: https://mgo.girish-gupta.com/");
 }
 else
 {
-    header("Location: http://www.musicgoeson.com/?user=girish");
+    header("Location: https://mgo.girish-gupta.com/?user=girish");
 }
 
 ?>

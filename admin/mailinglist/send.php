@@ -72,7 +72,7 @@ while ($row_ = mysql_fetch_array($result))
 
 }
 
-header("Location: http://www.musicgoeson.com/admin/admin.php?n=".$number."&d=".mysql_num_rows($result));
+header("Location: https://mgo.girish-gupta.com/admin/admin.php?n=".$number."&d=".mysql_num_rows($result));
 
 exit;
 

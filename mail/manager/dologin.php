@@ -7,11 +7,11 @@ $pass = strtolower($pass);
 if ($row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE email = '$email' AND pass = password('$pass')")))
 {
  mysql_query ("UPDATE mail SET SID = '$SID', CookieID = '$CookieID' WHERE email = '$email'");
- header("Location: http://www.musicgoeson.com/mail/manager/lists.php");
+ header("Location: https://mgo.girish-gupta.com/mail/manager/lists.php");
 }
 else
 {
- header("Location: http://www.musicgoeson.com/mail/manager/index.php?login=failed");
+ header("Location: https://mgo.girish-gupta.com/mail/manager/index.php?login=failed");
 }
 
 ?>

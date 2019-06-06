@@ -6,6 +6,6 @@ $row = mysql_fetch_array(mysql_query("SELECT * FROM mail WHERE SID = '$SID'"));
 $SID_ = $SID;
 
 mysql_query ("UPDATE users SET SID = '' WHERE SID = '$SID_'");
-header("Location: http://www.musicgoeson.com/");
+header("Location: https://mgo.girish-gupta.com/");
 
 ?>

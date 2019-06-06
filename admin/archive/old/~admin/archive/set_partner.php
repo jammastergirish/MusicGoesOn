@@ -14,14 +14,14 @@ if ($row_session = mysql_fetch_array($result_session))
  session_register("PID");
  mysql_query ("UPDATE sessions set ref = '$PID' WHERE id = '$session_id'");
  mysql_query ("UPDATE affiliates set clicks = clicks +1 WHERE id = '$PID'");
- header("Location: http://www.musicgoeson.com$target");
+ header("Location: https://mgo.girish-gupta.com$target");
 }
 else
 {
  session_register("PID");
  mysql_query ("INSERT INTO sessions (id, ref) VALUES ('$session_id', '$PID')");
  mysql_query ("UPDATE affiliates set clicks = clicks +1 WHERE id = '$PID'");
- header("Location: http://www.musicgoeson.com$target");
+ header("Location: https://mgo.girish-gupta.com$target");
 }
 
 ?>

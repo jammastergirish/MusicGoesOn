@@ -52,7 +52,7 @@ if ($action=="reply")
   }
  }
 
- header("Location: http://www.musicgoeson.com/forums/topic.php/".$replyto."/");
+ header("Location: https://mgo.girish-gupta.com/forums/topic.php/".$replyto."/");
 }
 
 if ($action=="add")
@@ -75,7 +75,7 @@ if ($action=="add")
  //}
  //else
  //{
-  header("Location: http://www.musicgoeson.com/forums/topic.php/".$num."/");
+  header("Location: https://mgo.girish-gupta.com/forums/topic.php/".$num."/");
  //}
 }
 
@@ -88,7 +88,7 @@ if ($action=="edit")
    if ($delete==1)
    {
     mysql_query("UPDATE forum_posts SET deleted = '1' WHERE id = '$edit' OR replyto = '$edit'");
-    header("Location: http://www.musicgoeson.com/forums/forum.php/".$forum."/");
+    header("Location: https://mgo.girish-gupta.com/forums/forum.php/".$forum."/");
    }
    else
    {
@@ -107,7 +107,7 @@ if ($action=="edit")
      $email = ereg_replace("\|".$CurrentForumsUser[username], "", $RowUserIsEditing[email]);
      mysql_query("UPDATE forum_posts SET email = '$email' WHERE id = '$edit'");
     }
-    header("Location: http://www.musicgoeson.com/forums/topic.php/".$edit."/");
+    header("Location: https://mgo.girish-gupta.com/forums/topic.php/".$edit."/");
    }
   }
   else
@@ -115,7 +115,7 @@ if ($action=="edit")
    if ($delete==1)
    {
     mysql_query("UPDATE forum_posts SET deleted = '1' WHERE id = '$edit'");
-    header("Location: http://www.musicgoeson.com/forums/topic.php/".$replyto."/");
+    header("Location: https://mgo.girish-gupta.com/forums/topic.php/".$replyto."/");
    }
    else
    {
@@ -134,13 +134,13 @@ if ($action=="edit")
      $email = ereg_replace("\|".$CurrentForumsUser[username], "", $RowUserIsReplyingTo[email]);
      mysql_query("UPDATE forum_posts SET email = '$email' WHERE id = '$replyto'");
     }
-    header("Location: http://www.musicgoeson.com/forums/topic.php/".$replyto."/");
+    header("Location: https://mgo.girish-gupta.com/forums/topic.php/".$replyto."/");
    }
   }
  }
  else
  {
-  header("Location: http://www.musicgoeson.com/forums/add_edit.php?error=edit_permission");
+  header("Location: https://mgo.girish-gupta.com/forums/add_edit.php?error=edit_permission");
  }
 }
 

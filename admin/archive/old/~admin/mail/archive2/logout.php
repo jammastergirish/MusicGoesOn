@@ -4,6 +4,6 @@
   setcookie("phpmailapp[un]", "", time()+1800, "/PHPMailApp/", "overdoseinc.sourceforge.net",0);
   setcookie("phpmailapp[port]", "", time()+1800, "/PHPMailApp/", "overdoseinc.sourceforge.net",0);
 
-  header("Location: http://www.musicgoeson.com/mail/");
+  header("Location: https://mgo.girish-gupta.com/mail/");
 ?>
 

@@ -323,28 +323,28 @@ function admin($aSID, $SID)
  {
    session_unregister("aSID");
    mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
-   header("Location: http://www.musicgoeson.com/admin/index.php?error=1");
+   header("Location: https://mgo.girish-gupta.com/admin/index.php?error=1");
  }
 
  if ($aSID_split[0]!=$date)
  {
   session_unregister("aSID");
   mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
-  header("Location: http://www.musicgoeson.com/admin/index.php?error=2");
+  header("Location: https://mgo.girish-gupta.com/admin/index.php?error=2");
  } 
 
  if ($aSID_split[1]!=$hour)
  {
   session_unregister("aSID");
   mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
-  header("Location: http://www.musicgoeson.com/admin/index.php?error=3");
+  header("Location: https://mgo.girish-gupta.com/admin/index.php?error=3");
  }   
 
  if ($aSID_split[2]!=$SID)
  {
   session_unregister("aSID");
   mysql_query("UPDATE users SET aSID = '' WHERE user = '$user'");
-  header("Location: http://www.musicgoeson.com/admin/index.php?error=4&asid=$aSID_split[2]&sid=$SID");
+  header("Location: https://mgo.girish-gupta.com/admin/index.php?error=4&asid=$aSID_split[2]&sid=$SID");
  }  
 
 
@@ -361,7 +361,7 @@ function admin($aSID, $SID)
    }
    else
    {
-    header("Location: http://www.musicgoeson.com/admin/deny.php?from=$section");
+    header("Location: https://mgo.girish-gupta.com/admin/deny.php?from=$section");
    }
   }
  }

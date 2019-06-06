@@ -5,7 +5,7 @@ if ($pass==$pass2)
 }
 else
 {
- header("Location: http://www.musicgoeson.com/mail/manager/pass.php?error=pass");
+ header("Location: https://mgo.girish-gupta.com/mail/manager/pass.php?error=pass");
 }
 
 $title = 'Mailing Lists - Manager - Change Password';
