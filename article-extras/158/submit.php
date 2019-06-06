@@ -4,12 +4,12 @@ $description = '';
 $keywords = '';
 $date_ = '';
 $menu = 'Competitions';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Win Limp Bizkit VIP Passes';
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 
@@ -27,8 +27,8 @@ you will be notified by 16 June 2001.
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -1,6 +1,6 @@
 <?
 
-include_once("/home/girishgu/public_html/mgo/inc/php_header.inc");
+include_once("inc/php_header.inc");
 
 //$id = str_replace("/", "", $PATH_INFO);
 
@@ -36,7 +36,7 @@ if (strtolower($main_section)=="artists")
  $artist[id] = $data[artists_id];
  $s_menu = 'artist';
 }
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
@@ -62,7 +62,7 @@ if ($data[review_label]!="")
 $headline = $data[headline];
 $subtitle = $subtitle;
 $columns = 2;
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 
  if (!empty($data[image]))
  {
@@ -85,7 +85,7 @@ include("/home/girishgu/public_html/mgo/inc/top.inc");
   echo "<CENTER><br><img src=\"/images/reviews/$data[review_mark].gif\" width=\"200\" height=\"34\" alt=\"$data[review_mark]/10\" border=\"0\"></CENTER>\n";
  }
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
+include("inc/middle.inc");
 
 if (!empty($data[review_amazonasin]))
 {
@@ -102,7 +102,7 @@ if (!empty($data[related]))
  foreach($related AS $relatedto)
  {
   echo "<table width=\"100%\"><tr><td bgcolor=\"#006699\" align=\"center\"><font face=\"verdana\" size=\"1\" color=\"#FFFFFF\"><b>RELATED: $relatedto</b></font></td></tr><tr><td bgcolor=\"#f7f7f7\"><font face=\"verdana\" size=\"1\" color=\"#000000\">";
-  include("/home/girishgu/public_html/mgo/inc/related.inc");
+  include("inc/related.inc");
   echo "</font></td></tr></table>";
 
   echo "<br>";
@@ -113,7 +113,7 @@ if (!empty($data[related]))
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

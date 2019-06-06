@@ -3,13 +3,13 @@ $title = 'Mailing Lists - Manager - Subscribe/Unsubscribe';
 $description = '';
 $keywords = '';
 $menu = 'mail_manager';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
-include("/home/girishgu/public_html/mgo/mail/manager/include.inc");
+include("inc/header.inc");
+include("mail/manager/include.inc");
 ?>
 
 <?
 $title = 'Mailing Lists - Manager - Subscribe/Unsubscribe';
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 You are now subscribed to the following lists:
@@ -47,8 +47,8 @@ else
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

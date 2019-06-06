@@ -3,14 +3,14 @@ $title = 'Mailing Lists - Manager - Edit Details';
 $description = '';
 $keywords = '';
 $menu = 'mail_manager';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
-include("/home/girishgu/public_html/mgo/mail/manager/include.inc");
+include("inc/header.inc");
+include("mail/manager/include.inc");
 ?>
 
 <?
 $title = 'Mailing Lists - Manager - Edit Details';
 $subtitle = $row[name]." [".$row[email]."]";
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <form action="/mail/manager/edit2.php" method="post">
@@ -49,8 +49,8 @@ if ($error=="email_exists")
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

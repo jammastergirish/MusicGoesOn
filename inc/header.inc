@@ -1,4 +1,4 @@
-<? include_once("/home/girishgu/public_html/mgo/inc/php_header.inc");  ?>
+<? include_once("inc/php_header.inc");  ?>
 
 <?
 //error_reporting(E_ALL);

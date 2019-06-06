@@ -6,21 +6,21 @@ $description = '';
 $keywords = '';
 $menu = 'admin';
 $php_header = 'false';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Admin';
 $subtitle = $HTTP_SESSION_VARS["aSID"];
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 Welcome to the 'Admin' section of <i>Music Goes On</i>...
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

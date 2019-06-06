@@ -3,13 +3,13 @@ $title = 'Forums - Edit Profile';
 $description = '';
 $keywords = '';
 $menu = 'forums';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Forums - Edit Profile';
-include("/home/girishgu/public_html/mgo/forums/subtitle.inc");
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("forums/subtitle.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -100,8 +100,8 @@ echo "</form>";
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -50,12 +50,12 @@ $description = '';
 $keywords = '';
 $menu = 'forums';
 $php_header = 'false';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = $title;
-include("/home/girishgu/public_html/mgo/forums/subtitle.inc");
+include("forums/subtitle.inc");
 ?>
 
 <?
@@ -204,8 +204,8 @@ else /* if error is empty, ie, no error... */
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -3,14 +3,14 @@ $title = 'Mailing Lists - Manager';
 $description = '';
 $keywords = '';
 $menu = 'mail_manager';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
-include("/home/girishgu/public_html/mgo/mail/manager/include.inc");
+include("inc/header.inc");
+include("mail/manager/include.inc");
 ?>
 
 <?
 $title = 'Mailing Lists - Manager';
 $subtitle = $row[name]." [".$row[email]."]";
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -88,8 +88,8 @@ while ($data = mysql_fetch_array($result))
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

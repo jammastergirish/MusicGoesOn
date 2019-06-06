@@ -3,13 +3,13 @@ $title = 'Ad Control Panel - Your Banners';
 $description = '';
 $keywords = '';
 $menu = 'adcp';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Ad Control Panel - Your Banners';
-include("/home/girishgu/public_html/mgo/adcp/subtitle.inc");
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("adcp/subtitle.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -70,8 +70,8 @@ echo "</table>\n\n";
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

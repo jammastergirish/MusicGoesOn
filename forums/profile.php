@@ -1,5 +1,5 @@
 <?
-include("/home/girishgu/public_html/mgo/inc/php_header.inc");
+include("inc/php_header.inc");
 
 //$username = ereg_replace("/", "", $PATH_INFO);
 $username = $_GET['id'];
@@ -10,12 +10,12 @@ $description = '';
 $keywords = '';
 $menu = 'forums';
 $php_header = 'false';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Profiles - '.$user_data[username];
-include("/home/girishgu/public_html/mgo/forums/subtitle.inc");
+include("forums/subtitle.inc");
 ?>
 
 <?
@@ -83,8 +83,8 @@ echo "</table>\n\n";
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

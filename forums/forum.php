@@ -1,5 +1,5 @@
 <?
- include("/home/girishgu/public_html/mgo/inc/header.inc");
+ include("inc/header.inc");
 
 //$forum = str_replace("/", "", $PATH_INFO);
 
@@ -21,7 +21,7 @@ $keywords = '';
 $menu = 'forums';
 $s_menu = 'forum';
 $php_header = 'false';
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 ?>
 
 <?
@@ -30,7 +30,7 @@ if (file_exists("/home/mgo/musicgoeson-www/images/library/".$forum_data[id]."/ic
  $image = "<img src=\"/images/library/".$forum_data[id]."/icon.jpg\" width=\"60\" height=\"60\" alt=\"".$forum_data[artist]."\" align=\"left\" border=\"1\">";
 }
 $title = $image.$forum_data[artist].' Forum';
- include("/home/girishgu/public_html/mgo/forums/subtitle.inc");
+ include("forums/subtitle.inc");
 ?>
 
 <?
@@ -99,8 +99,8 @@ echo "</table>\n\n";
 
 <?
 
- include("/home/girishgu/public_html/mgo/inc/middle.inc");
- include("/home/girishgu/public_html/mgo/inc/bottom.inc");
- include("/home/girishgu/public_html/mgo/inc/footer.inc");
+ include("inc/middle.inc");
+ include("inc/bottom.inc");
+ include("inc/footer.inc");
 
 ?>

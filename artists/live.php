@@ -13,11 +13,11 @@ $keywords = '';
 $menu = 'artists';
 $s_menu = 'artist';
 $php_header = 'false';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
-include("/home/girishgu/public_html/mgo/artists/subtitle.inc");
+include("artists/subtitle.inc");
 ?>
 
 <?
@@ -54,8 +54,8 @@ else
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -9,7 +9,7 @@ mysql_select_db("girishgu_mgo");
 
 /*****/
 
-include_once("/home/girishgu/public_html/mgo/inc/functions.inc");
+include_once("inc/functions.inc");
 
 /*****/
 

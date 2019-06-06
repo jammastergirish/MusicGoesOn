@@ -19,7 +19,7 @@ else if ($showicon==1)
  {
   if (strpos("jpg", $article['icon'])!=false)
   {
-   if (file_exists("/home/girishgu/public_html/mgo/images/library/".$article[icon]))
+   if (file_exists("images/library/".$article[icon]))
    {  
     echo "<a href=\"/article.php?id=$article[id]\"><img class=\"linked_img\" src=\"/images/library/$article[icon]\" alt=\"$article[headline]\" width=\"60\" height=\"60\" align=\"left\" border=\"1\"></a>";
     $icon = 1;
@@ -31,7 +31,7 @@ else if ($showicon==1)
   }
   else
   {
-   if (file_exists("/home/girishgu/public_html/mgo/images/library/".$article['icon']."/icon.jpg"))
+   if (file_exists("images/library/".$article['icon']."/icon.jpg"))
    {  
     echo "<a href=\"/article.php?id=$article[id]\"><img class=\"linked_img\" src=\"/images/library/$article[icon]/icon.jpg\" alt=\"$article[headline]\" width=\"60\" height=\"60\" align=\"left\" border=\"1\"></a>";
     $icon = 1;

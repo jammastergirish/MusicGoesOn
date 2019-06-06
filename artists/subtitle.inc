@@ -32,6 +32,6 @@ if ($artist[a]=="p")
  $subtitle .= 'Group(s): <b>'.format($artist[groups]).'</b>';
 }
 
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 
 ?>

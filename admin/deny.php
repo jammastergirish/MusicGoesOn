@@ -6,13 +6,13 @@ $description = '';
 $keywords = '';
 $menu = 'admin';
 $php_header = 'false';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Admin';
 $subtitle = $aSID;
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <CENTER>
@@ -21,8 +21,8 @@ include("/home/girishgu/public_html/mgo/inc/top.inc");
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

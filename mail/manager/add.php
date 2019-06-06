@@ -6,8 +6,8 @@ $title = 'Mailing Lists - Manager';
 $description = '';
 $keywords = '';
 $menu = 'mail_manager';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
-include("/home/girishgu/public_html/mgo/mail/manager/include.inc");
+include("inc/header.inc");
+include("mail/manager/include.inc");
 ?>
 
 <?
@@ -15,7 +15,7 @@ $data = mysql_fetch_array(mysql_query("SELECT * FROM artists WHERE id = '$artist
 
 $title = 'Mailing Lists - Manager - Add '.$data[artist].' To Your Mailing List';
 $subtitle = $row[name]." [".$row[email]."]";
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -30,8 +30,8 @@ mysql_query("UPDATE mail SET lists = '$row[lists]|$data[id]' WHERE SID = '$SID'"
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

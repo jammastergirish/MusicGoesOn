@@ -3,8 +3,8 @@ $title = 'Mailing Lists - Manager - Unsubscribe';
 $description = '';
 $keywords = '';
 $menu = 'mail_manager';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
-include("/home/girishgu/public_html/mgo/mail/manager/include.inc");
+include("inc/header.inc");
+include("mail/manager/include.inc");
 ?>
 
 <?

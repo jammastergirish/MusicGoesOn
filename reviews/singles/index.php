@@ -3,12 +3,12 @@ $title = 'Reviews - Singles';
 $description = '';
 $keywords = '';
 $menu = 'reviews';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Reviews - Albums';
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -19,7 +19,7 @@ $result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Sin
 while ($data_reviews = mysql_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 'false';
@@ -28,15 +28,15 @@ $result_reviews = mysql_query("SELECT * FROM mgo WHERE section LIKE 'Reviews/Sin
 while ($data_reviews = mysql_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
 
 ?>
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -1,5 +1,5 @@
 <?
-include("/home/girishgu/public_html/mgo/inc/php_header.inc");
+include("inc/php_header.inc");
 
 if (empty($goto))
 {

@@ -3,7 +3,7 @@ $title = 'Latest music news, reviews, interviews, audio, video...';
 $description = 'Visit Music Goes On for the latest music news and reviews; including interviews, features, competitions, audio, video and loads more...';
 $keywords = 'music, uk, entertainment, pop, indie, rock, dance, garage, news, reviews, features, promos, live, gig, concert, artists';
 $menu = 'home';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
@@ -138,7 +138,7 @@ $result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%$section%' AND dat
 while ($data = mysql_fetch_array($result))
 {
  $id = $data[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 0;
@@ -147,7 +147,7 @@ $result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%$section%' AND dat
 while ($data = mysql_fetch_array($result))
 {
  $id = $data[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
  echo "</p>";
  echo "<a class=\"link_onf7f7f7\" href=\"/".strtolower($section)."/\"><font face=\"verdana\" size=\"1\">More $section...</font></a>";
@@ -169,6 +169,6 @@ while ($data = mysql_fetch_array($result))
 
 ?>
 
-<? include("/home/girishgu/public_html/mgo/inc/footer.inc"); ?>
+<? include("inc/footer.inc"); ?>
 
 <CENTER><a href="/site.php"><img src="/images/pixel.gif" width="2" height="2" border="0" alt="Site Index"></a></CENTER>

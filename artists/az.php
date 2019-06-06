@@ -3,13 +3,13 @@ $title = 'Artists - A-Z';
 $description = '';
 $keywords = '';
 $menu = 'artists';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'Artists - A-Z';
 $columns = 2;
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <hr width="30%" align="left">
@@ -392,11 +392,11 @@ while ($data = mysql_fetch_array($result))
 
 <?
 
-include("/home/girishgu/public_html/mgo/inc/middle.inc");
+include("inc/middle.inc");
 
 echo TopXArtists(50);
 
-include("/home/girishgu/public_html/mgo/inc/bottom.inc");
-include("/home/girishgu/public_html/mgo/inc/footer.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

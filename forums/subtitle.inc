@@ -23,6 +23,6 @@ else
 
 $subtitle = format($subtitle, "006699");
 
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 
 ?>

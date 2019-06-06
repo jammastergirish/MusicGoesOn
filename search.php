@@ -3,12 +3,12 @@ $title = 'News Archive';
 $description = '';
 $keywords = '';
 $menu = 'news';
-include("/home/girishgu/public_html/mgo/inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?
 $title = 'News Archive';
-include("/home/girishgu/public_html/mgo/inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?
@@ -21,7 +21,7 @@ $result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%$section%' AND dat
 while ($data = mysql_fetch_array($result))
 {
  $id = $data[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 0;
@@ -30,14 +30,14 @@ $result = mysql_query("SELECT * FROM mgo WHERE section LIKE '%$section%' AND dat
 while ($data = mysql_fetch_array($result))
 {
  $id = $data[id];
- include("/home/girishgu/public_html/mgo/inc/story.inc");
+ include("inc/story.inc");
 }
  echo "</p>";
 
 ?>
 
-<? include("/home/girishgu/public_html/mgo/inc/middle.inc"); ?>
+<? include("inc/middle.inc"); ?>
 
-<? include("/home/girishgu/public_html/mgo/inc/bottom.inc"); ?>
+<? include("inc/bottom.inc"); ?>
 
-<? include("/home/girishgu/public_html/mgo/inc/footer.inc"); ?>
+<? include("inc/footer.inc"); ?>
