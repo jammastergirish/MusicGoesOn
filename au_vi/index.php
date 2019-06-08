@@ -3,7 +3,7 @@ $title = 'Audio/Video';
 $description = '';
 $keywords = '';
 $menu = 'au_vi';
-include("../nc/header.inc");
+include("../inc/header.inc");
 ?>
 
 <?php
