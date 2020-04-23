@@ -4,9 +4,12 @@ ob_start( 'ob_gzhandler' );
 
 error_reporting(E_ALL);
 
-include($_SERVER["DOCUMENT_ROOT"]."/inc/password.inc"); // Contains $password = "xxx"
+$DB_host = "35.241.172.52";
+$DB_username = "read_only";
+require_once("password.inc"); // contains nothing but $DB_password = "XXX";
+$DB_name = "mgo";
 
-$link = mysqli_connect("localhost", "root", $password, "mgo");
+$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name);
 
 /*****/
 
