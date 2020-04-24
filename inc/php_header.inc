@@ -4,12 +4,20 @@ ob_start( 'ob_gzhandler' );
 
 error_reporting(E_ALL);
 
-$DB_host = "35.241.172.52";
-$DB_username = "read_only";
+$DB_host = null;
+$DB_username = "readonly";
 require_once("password.inc"); // contains nothing but $DB_password = "XXX";
 $DB_name = "mgo";
+$DB_instance_name = "girishgupta:europe-west1:music-goes-on";
 
-$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name);
+$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name, 0, "/cloudsql/".$DB_instance_name);
+
+if (!$link)
+{
+ echo "Unable to connect to database." . PHP_EOL;
+ echo "<br>Debugging error: " . mysqli_connect_errno()." ".mysqli_connect_error() . PHP_EOL;
+ exit;
+}
 
 /*****/
 
