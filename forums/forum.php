@@ -88,7 +88,7 @@ while ($data = mysqli_fetch_array($result))
  {
   echo "        <td width=\"100\" valign=\"center\" align=\"center\" bgcolor=\"#$color\"><font face=\"verdana\" size=\"1\" color=\"#000000\">$data[poster]</font></td>\n";
  }
- echo "        <td width=\"65\" valign=\"center\" align=\"center\" bgcolor=\"#$color\"><font face=\"verdana\" size=\"1\" color=\"#000000\">".number_format(mysql_num_rows(mysqli_query($link, "SELECT * FROM forum_posts WHERE replyto = '$data[id]' AND deleted = '0'")))."</font></td>\n";
+ echo "        <td width=\"65\" valign=\"center\" align=\"center\" bgcolor=\"#$color\"><font face=\"verdana\" size=\"1\" color=\"#000000\">".number_format(mysqli_num_rows(mysqli_query($link, "SELECT * FROM forum_posts WHERE replyto = '$data[id]' AND deleted = '0'")))."</font></td>\n";
  echo "        <td width=\"100%\" valign=\"center\" align=\"center\" bgcolor=\"#$color\"><font face=\"verdana\" size=\"1\" color=\"#000000\">".str_replace(" \| ", "<br>", datetime_to_text($data[datetime]))."</font></td>\n";
  echo "    </tr>\n";
 }
