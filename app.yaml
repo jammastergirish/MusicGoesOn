@@ -1,0 +1,7 @@
+service: mgo
+runtime: php73
+
+handlers:
+  - url: .*
+    script: auto
+    secure: always
