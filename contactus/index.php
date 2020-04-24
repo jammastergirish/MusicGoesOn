@@ -2,12 +2,12 @@
 $title = 'Contact Us';
 $description = 'Contact Music Goes On';
 $keywords = '';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Contact Us';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -35,8 +35,8 @@ echo "</table>\n\n";
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

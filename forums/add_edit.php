@@ -1,5 +1,5 @@
 <?php
-include_once("../inc/php_header.inc");
+include_once("inc/php_header.inc");
 
 if ($action=="reply") /* if user is replying to a post... */
 {
@@ -204,8 +204,8 @@ else /* if error is empty, ie, no error... */
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

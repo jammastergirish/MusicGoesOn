@@ -1,5 +1,5 @@
 <?php
-include_once("../inc/php_header.inc");
+include_once("inc/php_header.inc");
 
 //$topic = str_replace("/", "", $PATH_INFO);
 $topic = $_GET['id'];
@@ -23,7 +23,7 @@ $keywords = '';
 $menu = 'forums';
 $s_menu = 'topic';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
@@ -108,8 +108,8 @@ echo "</table>\n\n";
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

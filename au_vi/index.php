@@ -3,12 +3,12 @@ $title = 'Audio/Video';
 $description = '';
 $keywords = '';
 $menu = 'au_vi';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Audio/Video';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -19,7 +19,7 @@ $result_auvi = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Au_Vi' AN
 while ($data_auvi = mysqli_fetch_array($result_auvi))
 {
  $id = $data_auvi[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 'false';
@@ -28,15 +28,15 @@ $result_auvi = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'Au_Vi' AN
 while ($data_auvi = mysqli_fetch_array($result_auvi))
 {
  $id = $data_auvi[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 ?>
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

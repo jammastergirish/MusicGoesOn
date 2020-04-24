@@ -3,12 +3,12 @@ $title = 'Reviews';
 $description = '';
 $keywords = '';
 $menu = 'reviews';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Reviews';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <hr width="20%" align="left">
@@ -22,7 +22,7 @@ $result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Rev
 while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 0;
@@ -31,7 +31,7 @@ $result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Rev
 while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 ?>
@@ -52,7 +52,7 @@ $result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Rev
 while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 $showicon = 0;
@@ -61,7 +61,7 @@ $result_reviews = mysqli_query($link, "SELECT * FROM mgo WHERE section LIKE 'Rev
 while ($data_reviews = mysqli_fetch_array($result_reviews))
 {
  $id = $data_reviews[id];
- include("../inc/story.inc");
+ include("inc/story.inc");
 }
 
 ?>
@@ -71,8 +71,8 @@ while ($data_reviews = mysqli_fetch_array($result_reviews))
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

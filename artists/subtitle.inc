@@ -32,6 +32,6 @@ if ($artist[a]=="p")
  $subtitle .= 'Group(s): <b>'.format($artist[groups]).'</b>';
 }
 
-include("../inc/top.inc");
+include("inc/top.inc");
 
 ?>

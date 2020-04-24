@@ -1,5 +1,5 @@
 <?php
- include("../inc/header.inc");
+ include("inc/header.inc");
 
 //$forum = str_replace("/", "", $PATH_INFO);
 
@@ -21,7 +21,7 @@ $keywords = '';
 $menu = 'forums';
 $s_menu = 'forum';
 $php_header = 'false';
- include("../inc/story.inc");
+ include("inc/story.inc");
 ?>
 
 <?php
@@ -99,8 +99,8 @@ echo "</table>\n\n";
 
 <?php
 
- include("../inc/middle.inc");
- include("../inc/bottom.inc");
- include("../inc/footer.inc");
+ include("inc/middle.inc");
+ include("inc/bottom.inc");
+ include("inc/footer.inc");
 
 ?>

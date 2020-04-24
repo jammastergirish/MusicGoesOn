@@ -3,7 +3,7 @@ $title = 'Forums';
 $description = '';
 $keywords = '';
 $menu = 'forums';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
@@ -82,8 +82,8 @@ echo "</table>\n\n";
 
 <?php
 
-//include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+//include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

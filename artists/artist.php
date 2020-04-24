@@ -1,5 +1,5 @@
 <?php
-include("../inc/php_header.inc");
+include("inc/php_header.inc");
 
 //$id = ereg_replace("/", "", $PATH_INFO);
 
@@ -15,7 +15,7 @@ $keywords = '';
 $menu = 'artists';
 $s_menu = 'artist';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
@@ -48,7 +48,7 @@ if (mysql_num_rows($query)!="0")
  while ($data = mysqli_fetch_array($query))
  {
   $id = $data['id'];
-  include("../inc/story.inc");
+  include("inc/story.inc");
  }
 
  if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
@@ -75,7 +75,7 @@ if (mysql_num_rows($query)!="0")
  while ($data = mysqli_fetch_array($query))
  {
   $id = $data['id'];
-  include("../inc/story.inc");
+  include("inc/story.inc");
  }
 
  if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
@@ -132,7 +132,7 @@ if (mysql_num_rows($query)!="0")
  while ($data = mysqli_fetch_array($query))
  {
   $id = $data['id'];
-  include("../inc/story.inc");
+  include("inc/story.inc");
  }
 
  if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
@@ -159,7 +159,7 @@ if (mysql_num_rows($query)!="0")
  while ($data = mysqli_fetch_array($query))
  {
   $id = $data['id'];
-  include("../inc/story.inc");
+  include("inc/story.inc");
  }
 
  if (mysql_num_rows(mysqli_query($link, "SELECT * FROM mgo WHERE keywords LIKE '%$artist[artist]%' AND section LIKE '%$section%' AND datetime < '".datetime()."' ORDER BY datetime DESC"))>=4)
@@ -196,8 +196,8 @@ if (!empty($artist[links]))
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

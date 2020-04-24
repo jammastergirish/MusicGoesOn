@@ -7,13 +7,13 @@ $description = '';
 $keywords = '';
 $menu = 'admin';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Admin - Moreover - "Music Goes On"';
 $subtitle = $aSID;
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <!-- Start Of Moreover.com News Javascript Code -->
@@ -208,8 +208,8 @@ include("../inc/top.inc");
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

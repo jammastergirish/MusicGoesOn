@@ -3,12 +3,12 @@ $title = 'News Archive';
 $description = '';
 $keywords = '';
 $menu = 'news';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'News Archive';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -38,8 +38,8 @@ while ($data = mysqli_fetch_array($result))
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

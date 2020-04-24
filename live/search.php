@@ -3,12 +3,12 @@ $title = 'Live Search';
 $description = '';
 $keywords = '';
 $menu = 'live';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Live Search';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -53,8 +53,8 @@ while ($data = mysqli_fetch_array($result))
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

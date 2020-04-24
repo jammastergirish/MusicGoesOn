@@ -13,7 +13,7 @@ $keywords = '';
 $menu = 'artists';
 $s_menu = 'artist';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
@@ -34,7 +34,7 @@ if (mysql_num_rows($query)!="0")
  while ($data = mysqli_fetch_array($query))
  {
   $id = $data['id'];
-  include("../inc/story.inc");
+  include("inc/story.inc");
  }
 }
 else
@@ -46,8 +46,8 @@ else
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

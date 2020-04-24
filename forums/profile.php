@@ -1,5 +1,5 @@
 <?php
-include("../inc/php_header.inc");
+include("inc/php_header.inc");
 
 //$username = ereg_replace("/", "", $PATH_INFO);
 $username = $_GET['id'];
@@ -10,7 +10,7 @@ $description = '';
 $keywords = '';
 $menu = 'forums';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
@@ -83,8 +83,8 @@ echo "</table>\n\n";
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

@@ -50,12 +50,12 @@ $description = '';
 $keywords = '';
 $menu = 'mail';
 $php_header = 'false';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Mailing Lists - Subscribe';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -108,8 +108,8 @@ while ($data = mysqli_fetch_array($result))
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

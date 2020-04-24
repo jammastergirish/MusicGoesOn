@@ -3,12 +3,12 @@ $title = 'Competitions';
 $description = '';
 $keywords = '';
 $menu = 'competitions';
-include("../inc/header.inc");
+include("inc/header.inc");
 ?>
 
 <?php
 $title = 'Competitions';
-include("../inc/top.inc");
+include("inc/top.inc");
 ?>
 
 <?php
@@ -19,7 +19,7 @@ $result_competitions = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'C
 while ($data_competitions = mysqli_fetch_array($result_competitions))
 {
  $id = $data_competitions[id];
-include("../inc/story.inc");
+include("inc/story.inc");
 }
 
 $showicon = 'false';
@@ -28,15 +28,15 @@ $result_competitions = mysqli_query($link, "SELECT * FROM mgo WHERE section = 'C
 while ($data_competitions = mysqli_fetch_array($result_competitions))
 {
  $id = $data_competitions[id];
-include("../inc/story.inc");
+include("inc/story.inc");
 }
 
 ?>
 
 <?php
 
-include("../inc/middle.inc");
-include("../inc/bottom.inc");
-include("../inc/footer.inc");
+include("inc/middle.inc");
+include("inc/bottom.inc");
+include("inc/footer.inc");
 
 ?>

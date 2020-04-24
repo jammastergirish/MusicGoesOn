@@ -23,6 +23,6 @@ else
 
 $subtitle = format($subtitle, "006699");
 
-include("../inc/top.inc");
+include("inc/top.inc");
 
 ?>
