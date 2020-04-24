@@ -2,6 +2,10 @@ service: mgo
 runtime: php73
 
 handlers:
+  - url: /(.+\.(gif|png|jpg|jpeg|pdf|asc))$
+    static_files: \1
+    upload: .+\.(gif|png|jpg|jpeg|pdf|asc)$
+    secure: always
   - url: .*
     script: auto
     secure: always
