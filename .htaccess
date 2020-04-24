@@ -5,10 +5,10 @@ ErrorDocument 403 /error403.php 	# Forbidden		 #
 ErrorDocument 404 /error404.php 	# File Not Found	 #
 ErrorDocument 500 /error500.php 	# Internal Server Error	 #
 
-Redirect /cgi-bin https://mgo.girish-gupta.com
-Redirect /inc https://mgo.girish-gupta.com
-Redirect /session_data https://mgo.girish-gupta.com
-Redirect /adcp https://mgo.girish-gupta.com
+Redirect /cgi-bin https://www.musicgoeson.com/
+Redirect /inc https://www.musicgoeson.com/
+Redirect /session_data https://www.musicgoeson.com/
+Redirect /adcp https://www.musicgoeson.com/
 
 AddType application/x-httpd-php .mgo
 AddType application/x-httpd-php .php
