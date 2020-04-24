@@ -43,6 +43,12 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path'])
     case '/news/archive.php':
         require 'news/archive.php';
         break;
+    case '/reviews':
+        require 'reviews/index.php';
+        break;
+    case '/reviews/':
+        require 'reviews/index.php';
+        break;
     case '/reviews/albums':
         require 'reviews/albums/index.php';
         break;
@@ -122,10 +128,10 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path'])
         require 'forums/topic.php';
         break;
     case '/interviews':
-        require 'interview/index.php';
+        require 'interviews/index.php';
         break;
     case '/interviews/':
-        require 'interview/index.php';
+        require 'interviews/index.php';
         break;    
     case '/live':
         require 'live/index.php';

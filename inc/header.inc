@@ -174,7 +174,7 @@ if ($menu=="home")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/\" onMouseOver=\"Home.src='images/menu/home_.gif';\" onMouseOut=\"Home.src='images/menu/home.gif';\"><img src=\"/images/menu/home.gif\" width=\"100\" height=\"20\" alt=\"Home\" border=\"0\" name=\"Home\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/\" onMouseOver=\"Home.src='/images/menu/home_.gif';\" onMouseOut=\"Home.src='/images/menu/home.gif';\"><img src=\"/images/menu/home.gif\" width=\"100\" height=\"20\" alt=\"Home\" border=\"0\" name=\"Home\"></a><br>\n";
 }
 
 if ($menu=="news")
@@ -185,7 +185,7 @@ if ($menu=="news")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/news/\" onMouseOver=\"News.src='images/menu/news_.gif';\" onMouseOut=\"News.src='images/menu/news.gif';\"><img src=\"/images/menu/news.gif\" width=\"100\" height=\"20\" alt=\"News\" border=\"0\" name=\"News\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/news/\" onMouseOver=\"News.src='/images/menu/news_.gif';\" onMouseOut=\"News.src='/images/menu/news.gif';\"><img src=\"/images/menu/news.gif\" width=\"100\" height=\"20\" alt=\"News\" border=\"0\" name=\"News\"></a><br>\n";
 }
 
 if ($menu=="reviews")
@@ -197,7 +197,7 @@ if ($menu=="reviews")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/reviews/\" onMouseOver=\"Reviews.src='images/menu/reviews_.gif';\" onMouseOut=\"Reviews.src='images/menu/reviews.gif';\"><img src=\"/images/menu/reviews.gif\" width=\"100\" height=\"20\" alt=\"Reviews\" border=\"0\" name=\"Reviews\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/reviews/\" onMouseOver=\"Reviews.src='/images/menu/reviews_.gif';\" onMouseOut=\"Reviews.src='/images/menu/reviews.gif';\"><img src=\"/images/menu/reviews.gif\" width=\"100\" height=\"20\" alt=\"Reviews\" border=\"0\" name=\"Reviews\"></a><br>\n";
 }
 
 if ($menu=="artists")
@@ -227,7 +227,7 @@ if ($menu=="artists")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/artists/az.php\" onMouseOver=\"Artists.src='images/menu/artists_.gif';\" onMouseOut=\"Artists.src='images/menu/artists.gif';\"><img src=\"/images/menu/artists.gif\" width=\"100\" height=\"20\" alt=\"Artists\" border=\"0\" name=\"Artists\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/artists/az.php\" onMouseOver=\"Artists.src='/images/menu/artists_.gif';\" onMouseOut=\"Artists.src='/images/menu/artists.gif';\"><img src=\"/images/menu/artists.gif\" width=\"100\" height=\"20\" alt=\"Artists\" border=\"0\" name=\"Artists\"></a><br>\n";
 }
 
 if ($menu=="forums")
@@ -258,7 +258,7 @@ if ($menu=="forums")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/forums/forum.php?id=general\" onMouseOver=\"Forums.src='images/menu/forums_.gif';\" onMouseOut=\"Forums.src='images/menu/forums.gif';\"><img src=\"/images/menu/forums.gif\" width=\"100\" height=\"20\" alt=\"Forums\" border=\"0\" name=\"Forums\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/forums/forum.php?id=general\" onMouseOver=\"Forums.src='/images/menu/forums_.gif';\" onMouseOut=\"Forums.src='/images/menu/forums.gif';\"><img src=\"/images/menu/forums.gif\" width=\"100\" height=\"20\" alt=\"Forums\" border=\"0\" name=\"Forums\"></a><br>\n";
 }
 
 if ($menu=="live")
@@ -267,7 +267,7 @@ if ($menu=="live")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/live/\" onMouseOver=\"Live.src='images/menu/live_.gif';\" onMouseOut=\"Live.src='images/menu/live.gif';\"><img src=\"/images/menu/live.gif\" width=\"100\" height=\"20\" alt=\"Live\" border=\"0\" name=\"Live\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/live/\" onMouseOver=\"Live.src='/images/menu/live_.gif';\" onMouseOut=\"Live.src='/images/menu/live.gif';\"><img src=\"/images/menu/live.gif\" width=\"100\" height=\"20\" alt=\"Live\" border=\"0\" name=\"Live\"></a><br>\n";
 }
 
 if ($menu=="au_vi")
@@ -276,7 +276,7 @@ if ($menu=="au_vi")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/au_vi/\" onMouseOver=\"AudioVideo.src='images/menu/au_vi_.gif';\" onMouseOut=\"AudioVideo.src='images/menu/au_vi.gif';\"><img src=\"/images/menu/au_vi.gif\" width=\"100\" height=\"20\" alt=\"AudioVideo\" border=\"0\" name=\"AudioVideo\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/au_vi/\" onMouseOver=\"AudioVideo.src='/images/menu/au_vi_.gif';\" onMouseOut=\"AudioVideo.src='/images/menu/au_vi.gif';\"><img src=\"/images/menu/au_vi.gif\" width=\"100\" height=\"20\" alt=\"AudioVideo\" border=\"0\" name=\"AudioVideo\"></a><br>\n";
 }
 
 if ($menu=="interviews")
@@ -285,7 +285,7 @@ if ($menu=="interviews")
 }
 else
 {
- echo "<a class=\"link_on006699\" href=\"/interviews/\" onMouseOver=\"Interviews.src='images/menu/interviews_.gif';\" onMouseOut=\"Interviews.src='images/menu/interviews.gif';\"><img src=\"/images/menu/interviews.gif\" width=\"100\" height=\"20\" alt=\"Interviews\" border=\"0\" name=\"Interviews\"></a><br>\n";
+ echo "<a class=\"link_on006699\" href=\"/interviews/\" onMouseOver=\"Interviews.src='/images/menu/interviews_.gif';\" onMouseOut=\"Interviews.src='/images/menu/interviews.gif';\"><img src=\"/images/menu/interviews.gif\" width=\"100\" height=\"20\" alt=\"Interviews\" border=\"0\" name=\"Interviews\"></a><br>\n";
 }
 
 if ($menu=="admin")
