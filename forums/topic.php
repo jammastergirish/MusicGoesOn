@@ -65,13 +65,13 @@ while ($posts_data = mysqli_fetch_array($posts))
   echo "        <td width=\"120\" valign=\"top\" align=\"left\" bgcolor=\"#dedfdf\"><font face=\"verdana\" size=\"1\" color=\"#000000\">Posted by:<br><font size=\"1\"><b>$posts_data[poster]</b></font><br><br>".str_replace(" \| ", " <br> ", datetime_to_text($posts_data[datetime]))." GMT".$edit."</font></td>\n";
  }
  $posts_data[post] = strip_tags($posts_data[post],"<b>,<i>,<u>,<font>,<center>,<a>");
- $posts_data[post] = preg_replace("/(?<!\S)((https?|ftp):\/\/\S+)/e", "''.MakeLinks('\\1').''", $posts_data[post]);
- $posts_data[post] = MakeLink($posts_data[post], "email");
+//  $posts_data[post] = preg_replace("/(?<!\S)((https?|ftp):\/\/\S+)/e", "''.MakeLinks('\\1').''", $posts_data[post]);
+//  $posts_data[post] = MakeLink($posts_data[post], "email");
  $posts_data[post] = str_replace(10, "<br>", $posts_data[post]);
  $poster_data[signature] = strip_tags($poster_data[signature],"<b>,<i>,<u>,<font>,<center>,<a>");
- $poster_data[signature] = str_replace(10, "<br>", $poster_data[signature]);
- $poster_data[signature] = preg_replace("/(?<!\S)((https?|ftp):\/\/\S+)/e", "''.MakeLinks('\\1').''", $poster_data[signature]);
- $poster_data[signature] = MakeLink($poster_data[signature], "email");
+//  $poster_data[signature] = str_replace(10, "<br>", $poster_data[signature]);
+//  $poster_data[signature] = preg_replace("/(?<!\S)((https?|ftp):\/\/\S+)/e", "''.MakeLinks('\\1').''", $poster_data[signature]);
+//  $poster_data[signature] = MakeLink($poster_data[signature], "email");
  if (preg_match("\[SIGNATURE\]", $posts_data[post]))
  {
   $posts_data[post] = str_replace("\[SIGNATURE\]", "", $posts_data[post]);
