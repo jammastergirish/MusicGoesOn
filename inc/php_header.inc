@@ -8,7 +8,7 @@ $DB_host = null;
 $DB_username = "readonly";
 require_once("password.inc"); // contains nothing but $DB_password = "XXX";
 $DB_name = "mgo";
-$DB_instance_name = "girishgupta:europe-west1:music-goes-on";
+$DB_instance_name = "girishgupta:europe-west1:girishgupta";
 
 $link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name, 0, "/cloudsql/".$DB_instance_name);
 
