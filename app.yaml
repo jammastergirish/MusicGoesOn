@@ -1,4 +1,3 @@
-service: mgo
 runtime: php73
 
 handlers:
