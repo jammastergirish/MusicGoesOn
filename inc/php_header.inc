@@ -4,13 +4,14 @@ ob_start( 'ob_gzhandler' );
 
 error_reporting(E_ALL);
 
-$DB_host = null;
+$DB_host = "35.187.175.33";
 $DB_username = "readonly";
 require_once("password.inc"); // contains nothing but $DB_password = "XXX";
 $DB_name = "mgo";
-$DB_instance_name = "girishgupta:europe-west1:girishgupta";
+//$DB_instance_name = "girishgupta:europe-west1:girishgupta";
 
-$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name, 0, "/cloudsql/".$DB_instance_name);
+//$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name, 0, "/cloudsql/".$DB_instance_name);
+$link = mysqli_connect($DB_host, $DB_username, $DB_password, $DB_name);
 
 if (!$link)
 {
