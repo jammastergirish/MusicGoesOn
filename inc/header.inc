@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Music Goes On - <?php echo $title; ?></title>
+<script defer data-domain="musicgoeson.com" src="https://plausible.io/js/plausible.js"></script>
 <META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://musicgoeson.com/" r (cz 1 lc 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://musicgoeson.com/" r (n 0 s 0 v 0 l 1))'>
 <?php
 
